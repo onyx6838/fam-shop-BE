@@ -2,6 +2,7 @@ package com.fam.controller;
 
 import com.fam.service.IDacTrungSanPhamService;
 import com.fam.service.ISanPhamService;
+import com.fam.specification.SanPhamFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
@@ -40,8 +41,8 @@ public class SanPhamController {
 //        return new ResponseEntity<>(dacTrungSanPhamService.findByDacTrungs(dacTrungs, pageable), HttpStatus.OK);
 //    }
 
-    @PostMapping(value = "/filter/{category}")
-    public ResponseEntity<?> getSanPhamByDacTrung(@RequestBody List<Integer> dacTrungs, @PathVariable(value = "category") Integer loaiSP, Pageable pageable) {
-        return new ResponseEntity<>(sanPhamService.getByDacTrungsAndLoaiSP(dacTrungs, loaiSP, pageable), HttpStatus.OK);
+    @PostMapping(value = "/filter")
+    public ResponseEntity<?> getSanPhamByDacTrung(@RequestBody SanPhamFilter sanPhamFilter, Pageable pageable) {
+        return new ResponseEntity<>(sanPhamService.getByDacTrungsAndLoaiSP(sanPhamFilter, pageable), HttpStatus.OK);
     }
 }

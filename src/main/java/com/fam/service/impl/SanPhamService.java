@@ -24,13 +24,22 @@ public class SanPhamService implements ISanPhamService {
     }
 
     @Override
-    public Page<SanPham> getByDacTrungsAndLoaiSP(List<Integer> dacTrungs, Integer loaiSP, Pageable pageable) {
-        SanPhamFilter sanPhamFilter = SanPhamFilter.builder().dacTrungs(dacTrungs).loaiSP(loaiSP).build();
+    public Page<SanPham> getByDacTrungsAndLoaiSP(SanPhamFilter sanPhamFilter, Pageable pageable) {
+        Specification<SanPham> where = null;
+        if (sanPhamFilter != null && !sanPhamFilter.getDacTrungs().isEmpty()) {
+            Specification<SanPham> inDacTrungs = new SanPhamSpecification("IN", "MaDacTrung.LEFT", sanPhamFilter);
+            // chua co search chi? filter
+            where = Specification.where(inDacTrungs);
+        }
 
-        Specification<SanPham> inDacTrungs = new SanPhamSpecification("IN", "MaDacTrung.LEFT", sanPhamFilter);
-        Specification<SanPham> equalsLoaiSP = new SanPhamSpecification("EQUALS", "loaiSanPham", sanPhamFilter);
-
-        Specification<SanPham> where = Specification.where(inDacTrungs).and(equalsLoaiSP);
+        if (sanPhamFilter != null && sanPhamFilter.getLoaiSP() != 0) {
+            Specification<SanPham> equalsLoaiSP = new SanPhamSpecification("EQUALS", "loaiSanPham", sanPhamFilter);
+            if (where == null) {
+                where = Specification.where(equalsLoaiSP);
+            } else {
+                where = where.and(equalsLoaiSP);
+            }
+        }
         return sanPhamRepository.findAll(where, pageable);
     }
 
