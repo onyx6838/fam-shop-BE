@@ -16,14 +16,11 @@ public class SanPhamSpecification implements Specification<SanPham> {
     public Predicate toPredicate(Root<SanPham> root, CriteriaQuery<?> query, CriteriaBuilder builder) {
         if (operator.equalsIgnoreCase("IN")) {
             if (field.equalsIgnoreCase("MaDacTrung.LEFT")) {
-//                if (!sanPhamFilter.getDacTrungs().isEmpty()) {
-//                    query.distinct(true);
-//                    return root.join("listSPDacTrung", JoinType.LEFT)
-//                            .get("dacTrung").in(sanPhamFilter.getDacTrungs());
-//                }
                 query.distinct(true);
                 return root.join("listSPDacTrung", JoinType.LEFT)
                         .get("dacTrung").in(sanPhamFilter.getDacTrungs());
+            } else if (field.equalsIgnoreCase("loaiSanPham")) {
+                return root.get(field).in(sanPhamFilter.getLoaiSPList());
             } else {
                 return builder.and();
             }

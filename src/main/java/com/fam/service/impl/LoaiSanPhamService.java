@@ -17,4 +17,9 @@ public class LoaiSanPhamService implements ILoaiSanPhamService {
     public List<LoaiSanPham> getAllLoaiSanPhams() {
         return loaiSanPhamRepository.findAll();
     }
+
+    @Override
+    public List<LoaiSanPham> getParentLoaiSP() {
+        return loaiSanPhamRepository.getParentLoaiSP();
+    }
 }

@@ -20,4 +20,11 @@ public class LoaiSanPhamController {
     public ResponseEntity<?> getAllLoaiSanPhams() {
         return new ResponseEntity<>(loaiSanPhamService.getAllLoaiSanPhams(), HttpStatus.OK);
     }
+
+    @GetMapping(value = "/parent")
+    public ResponseEntity<?> getParentLoaiSanPhams() {
+        return new ResponseEntity<>(loaiSanPhamService.getParentLoaiSP(), HttpStatus.OK);
+    }
+
+
 }

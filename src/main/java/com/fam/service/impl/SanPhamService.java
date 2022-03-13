@@ -1,21 +1,29 @@
 package com.fam.service.impl;
 
+import com.fam.dto.product.CategoryDto;
+import com.fam.dto.product.ProductWithCategoryDto;
 import com.fam.entity.SanPham;
 import com.fam.repository.ISanPhamRepository;
 import com.fam.service.ISanPhamService;
 import com.fam.specification.SanPhamFilter;
 import com.fam.specification.SanPhamSpecification;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class SanPhamService implements ISanPhamService {
     @Autowired
     private ISanPhamRepository sanPhamRepository;
+
+    @Autowired
+    private ModelMapper modelMapper;
 
     @Override
     public Page<SanPham> getAllSanPhams(Pageable pageable) {
@@ -40,6 +48,20 @@ public class SanPhamService implements ISanPhamService {
             }
         }
         return sanPhamRepository.findAll(where, pageable);
+    }
+
+    @Override
+    public Page<ProductWithCategoryDto> getByParentLoaiSP(List<CategoryDto> categories, Pageable pageable) {
+        List<Integer> loaiSPList = categories.stream().map(CategoryDto::getMaLoai).collect(Collectors.toList());
+        SanPhamFilter filter = new SanPhamFilter();
+        filter.setLoaiSPList(loaiSPList);
+        Specification<SanPham> where = null;
+        if (!filter.getLoaiSPList().isEmpty()) {
+            Specification<SanPham> inLoaiSPs = new SanPhamSpecification("IN", "loaiSanPham", filter);
+            where = Specification.where(inLoaiSPs);
+        }
+        Page<SanPham> spEntity = sanPhamRepository.findAll(where, pageable);
+        return spEntity.map(x -> modelMapper.map(x, ProductWithCategoryDto.class));
     }
 
     @Override
