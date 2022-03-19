@@ -1,5 +1,6 @@
 package com.fam.entity;
 
+import com.fam.entity.enumerate.TrangThaiTK;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -12,7 +13,7 @@ public class TaiKhoan implements Serializable {
     @Column(name = "MaTK")
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int maDonDat;
+    private int maTK;
 
     @Column(name = "MatKhau", length = 50)
     private String matKhau;
@@ -31,5 +32,9 @@ public class TaiKhoan implements Serializable {
 
     @Column(name = "LoaiTK",length = 50)
     private String loaiTK;
+
+    @Enumerated(EnumType.ORDINAL)
+    @Column(name = "TrangThai", nullable = false)
+    private TrangThaiTK trangThai = TrangThaiTK.NOT_ACTIVE;
 
 }

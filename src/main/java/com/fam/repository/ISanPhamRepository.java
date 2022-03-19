@@ -9,7 +9,8 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface ISanPhamRepository extends JpaRepository<SanPham, Integer>, JpaSpecificationExecutor<SanPham> {
+public interface ISanPhamRepository
+        extends JpaRepository<SanPham, Integer>, JpaSpecificationExecutor<SanPham> {
     @Query("SELECT DISTINCT(sp) FROM SanPham sp " +
             "JOIN ChiTietPNK ctpnk ON sp.maSP = ctpnk.sanPham.maSP " +
             "JOIN PhieuNhapKho pnk ON ctpnk.phieuNhapKho.maPNK = pnk.maPNK " +

@@ -13,6 +13,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
+import org.springframework.util.ObjectUtils;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -30,21 +31,36 @@ public class SanPhamService implements ISanPhamService {
         return sanPhamRepository.findAll(pageable);
     }
 
+    // filter function
     @Override
     public Page<SanPham> getByDacTrungsAndLoaiSP(SanPhamFilter sanPhamFilter, Pageable pageable) {
         Specification<SanPham> where = null;
-        if (sanPhamFilter != null && !sanPhamFilter.getDacTrungs().isEmpty()) {
+        if (!ObjectUtils.isEmpty(sanPhamFilter.getTenSP())) {
+            Specification<SanPham> name = new SanPhamSpecification("LIKE", "ten", sanPhamFilter);
+            where = Specification.where(name);
+        }
+
+        if (!sanPhamFilter.getDacTrungs().isEmpty()) {
             Specification<SanPham> inDacTrungs = new SanPhamSpecification("IN", "MaDacTrung.LEFT", sanPhamFilter);
             // chua co search chi? filter
             where = Specification.where(inDacTrungs);
         }
 
-        if (sanPhamFilter != null && sanPhamFilter.getLoaiSP() != 0) {
+        if (sanPhamFilter.getLoaiSP() != 0) {
             Specification<SanPham> equalsLoaiSP = new SanPhamSpecification("EQUALS", "loaiSanPham", sanPhamFilter);
             if (where == null) {
                 where = Specification.where(equalsLoaiSP);
             } else {
                 where = where.and(equalsLoaiSP);
+            }
+        }
+
+        if (!sanPhamFilter.getLoaiSPList().isEmpty()) {
+            Specification<SanPham> inLoaiSPs = new SanPhamSpecification("IN", "loaiSanPham", sanPhamFilter);
+            if (where == null) {
+                where = Specification.where(inLoaiSPs);
+            } else {
+                where = where.and(inLoaiSPs);
             }
         }
         return sanPhamRepository.findAll(where, pageable);

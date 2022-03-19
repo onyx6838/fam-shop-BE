@@ -17,8 +17,7 @@ public class SanPhamSpecification implements Specification<SanPham> {
         if (operator.equalsIgnoreCase("IN")) {
             if (field.equalsIgnoreCase("MaDacTrung.LEFT")) {
                 query.distinct(true);
-                return root.join("listSPDacTrung", JoinType.LEFT)
-                        .get("dacTrung").in(sanPhamFilter.getDacTrungs());
+                return root.join("listSPDacTrung", JoinType.LEFT).get("dacTrung").in(sanPhamFilter.getDacTrungs());
             } else if (field.equalsIgnoreCase("loaiSanPham")) {
                 return root.get(field).in(sanPhamFilter.getLoaiSPList());
             } else {
@@ -28,6 +27,13 @@ public class SanPhamSpecification implements Specification<SanPham> {
         if (operator.equalsIgnoreCase("EQUALS")) {
             if (field.equalsIgnoreCase("loaiSanPham")) {
                 return builder.equal(root.get(field), sanPhamFilter.getLoaiSP());
+            } else {
+                return builder.and();
+            }
+        }
+        if (operator.equalsIgnoreCase("LIKE")) {
+            if (field.equalsIgnoreCase("ten")) {
+                return builder.like(root.get(field), "%" + sanPhamFilter.getTenSP() + "%");
             } else {
                 return builder.and();
             }

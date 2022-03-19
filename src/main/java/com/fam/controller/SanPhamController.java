@@ -42,11 +42,10 @@ public class SanPhamController {
     @ApiOperation(value = "4, Lọc sản phẩm theo đặc trưng", notes = "Url: /api/v1/sanphams/filter")
     @PostMapping(value = "/filter")
     public ResponseEntity<?> getSanPhamByDacTrung(@RequestBody SanPhamFilter sanPhamFilter, Pageable pageable) {
-        String t = "";
         return new ResponseEntity<>(sanPhamService.getByDacTrungsAndLoaiSP(sanPhamFilter, pageable), HttpStatus.OK);
     }
 
-    @ApiOperation(value = "5, Lọc sản phẩm theo loại sản phẩm", notes = "Url: /api/v1/sanphams/category")
+    @ApiOperation(value = "5, Lọc sản phẩm theo loại sản phẩm cha", notes = "Url: /api/v1/sanphams/category")
     @PostMapping(value = "/category")
     public ResponseEntity<?> getProductWithParentLoaiSanPhams(@RequestBody List<CategoryDto> categories, Pageable pageable) {
         return new ResponseEntity<>(sanPhamService.getByParentLoaiSP(categories, pageable), HttpStatus.OK);

@@ -17,4 +17,7 @@ public class SanPhamFilter {
 
     @JsonProperty("loai-sp")
     private Integer loaiSP;
+
+    @JsonProperty("ten-sp")
+    private String tenSP;
 }

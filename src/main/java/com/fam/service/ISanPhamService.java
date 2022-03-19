@@ -19,4 +19,5 @@ public interface ISanPhamService {
     SanPham getById(int id);
 
     Page<ProductWithCategoryDto> getByParentLoaiSP(List<CategoryDto> categories, Pageable pageable);
+
 }
