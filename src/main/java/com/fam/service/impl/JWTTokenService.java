@@ -58,6 +58,7 @@ public class JWTTokenService implements IJWTTokenService {
     @Autowired
     private IResetPasswordTokenRepository resetPasswordTokenRepository;
 
+    // fix change to add to body get more data
     @Override
     public void addJWTTokenToHeader(HttpServletResponse response, String username) throws IOException {
         // get user info

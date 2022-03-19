@@ -15,7 +15,7 @@ public class TaiKhoan implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int maTK;
 
-    @Column(name = "MatKhau", length = 50)
+    @Column(name = "MatKhau")
     private String matKhau;
 
     @Column(name = "TenTK", unique = true, length = 50)

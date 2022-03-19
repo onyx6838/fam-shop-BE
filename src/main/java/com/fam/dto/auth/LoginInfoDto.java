@@ -9,7 +9,7 @@ public class LoginInfoDto {
     private String loaiTK;
     private String token;
     private String refreshToken;
-    private TrangThaiTK status;
+    private TrangThaiTK trangThai;
     private String tenTK;
     private String email;
 }
