@@ -18,6 +18,9 @@ public class ThuongHieu {
     @Column(name = "TenThuongHieu")
     private String tenThuongHieu;
 
+    @Column(name = "HinhAnh", length = 800)
+    private String hinhAnh;
+
     @JsonBackReference
     @OneToMany(mappedBy = "thuongHieu")
     private List<SanPham> sanPhamList;

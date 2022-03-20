@@ -28,10 +28,4 @@ public class DacTrungController {
     public ResponseEntity<?> getAllDacTrungsGroupByLoai(@RequestBody SanPhamFilter sanPhamFilter) {
         return new ResponseEntity<>(dacTrungService.getFeatureByLoaiSP(sanPhamFilter), HttpStatus.OK);
     }
-
-    @PostMapping(value = "/test")
-    public ResponseEntity<?> test(@RequestBody SanPhamFilter sanPhamFilter) {
-
-        return new ResponseEntity<>(dacTrungService.getFeatureByLoaiSP(sanPhamFilter), HttpStatus.OK);
-    }
 }

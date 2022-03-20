@@ -8,4 +8,5 @@ public interface ILoaiSanPhamService {
     List<LoaiSanPham> getAllLoaiSanPhams();
 
     List<LoaiSanPham> getParentLoaiSP();
+
 }

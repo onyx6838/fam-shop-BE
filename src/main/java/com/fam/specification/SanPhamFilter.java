@@ -20,4 +20,7 @@ public class SanPhamFilter {
 
     @JsonProperty("ten-sp")
     private String tenSP;
+
+    @JsonProperty("thuong-hieu")
+    private Integer thuongHieu;
 }

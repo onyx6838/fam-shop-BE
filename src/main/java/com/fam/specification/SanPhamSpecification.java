@@ -27,7 +27,11 @@ public class SanPhamSpecification implements Specification<SanPham> {
         if (operator.equalsIgnoreCase("EQUALS")) {
             if (field.equalsIgnoreCase("loaiSanPham")) {
                 return builder.equal(root.get(field), sanPhamFilter.getLoaiSP());
-            } else {
+            }
+            else if(field.equalsIgnoreCase("thuongHieu")){
+                return builder.equal(root.get(field), sanPhamFilter.getThuongHieu());
+            }
+            else {
                 return builder.and();
             }
         }

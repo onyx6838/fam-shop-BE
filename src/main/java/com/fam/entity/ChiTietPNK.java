@@ -45,4 +45,8 @@ public class ChiTietPNK {
     @ManyToOne
     @JoinColumn(name = "MaSP")
     private SanPham sanPham;
+
+    @ManyToOne
+    @JoinColumn(name = "CTDD")
+    private CTDD ctdd;
 }

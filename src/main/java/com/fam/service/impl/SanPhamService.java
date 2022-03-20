@@ -55,6 +55,15 @@ public class SanPhamService implements ISanPhamService {
             }
         }
 
+        if (sanPhamFilter.getThuongHieu() != 0) {
+            Specification<SanPham> equalsThuongHieu = new SanPhamSpecification("EQUALS", "thuongHieu", sanPhamFilter);
+            if (where == null) {
+                where = Specification.where(equalsThuongHieu);
+            } else {
+                where = where.and(equalsThuongHieu);
+            }
+        }
+
         if (!sanPhamFilter.getLoaiSPList().isEmpty()) {
             Specification<SanPham> inLoaiSPs = new SanPhamSpecification("IN", "loaiSanPham", sanPhamFilter);
             if (where == null) {

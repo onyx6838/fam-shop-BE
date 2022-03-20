@@ -10,14 +10,13 @@ import com.fam.service.IJWTTokenService;
 import com.fam.service.ITaiKhoanService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
-import org.modelmapper.ModelMapper;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
-
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.security.core.Authentication;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -148,8 +147,8 @@ public class JWTTokenService implements IJWTTokenService {
         refreshTokenRepository.deleteByToken(refreshToken);
 
         return
-                TokenRefreshResponse.builder().token(newToken).refreshToken(newRefreshToken).id(taiKhoan.getMaTK())
-                .fullName(taiKhoan.getHoTen()).role(taiKhoan.getLoaiTK()).build();
+                TokenRefreshResponse.builder().token(newToken).refreshToken(newRefreshToken).maTK(taiKhoan.getMaTK())
+                .hoTen(taiKhoan.getHoTen()).loaiTK(taiKhoan.getLoaiTK()).build();
     }
 
     private String generateJWTFromUsername(String username) {
