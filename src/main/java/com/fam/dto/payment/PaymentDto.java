@@ -19,6 +19,8 @@ public class PaymentDto {
     public static class CartItemDto {
         private Integer maSP;
 
+        private Integer donGiaBan;
+
         private Integer qty;
     }
 

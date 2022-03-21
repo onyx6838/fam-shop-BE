@@ -1,5 +1,6 @@
 package com.fam.entity;
 
+import lombok.Builder;
 import lombok.Data;
 import org.hibernate.annotations.CreationTimestamp;
 
@@ -37,6 +38,9 @@ public class DonDatHang implements Serializable {
 
     @Column(name = "DiaChi", length = 50)
     private String diaChi;
+
+    @Column(name = "SDTNhanHang", length = 50)
+    private String sdtNhanHang;
 
     @ManyToOne
     @JoinColumn(name = "MaTK")
