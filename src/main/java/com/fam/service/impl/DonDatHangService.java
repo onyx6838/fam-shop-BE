@@ -5,6 +5,9 @@ import com.fam.entity.CTDD;
 import com.fam.entity.DonDatHang;
 import com.fam.entity.SanPham;
 import com.fam.entity.TaiKhoan;
+import com.fam.entity.enumerate.HinhThucTToan;
+import com.fam.entity.enumerate.TrangThaiDonDat;
+import com.fam.entity.enumerate.TrangThaiTToan;
 import com.fam.repository.ICTDDRepository;
 import com.fam.repository.IDonDatHangRepository;
 import com.fam.service.IDonDatHangService;
@@ -39,8 +42,9 @@ public class DonDatHangService implements IDonDatHangService {
         donDatHang.setThoiGianNhanHang(dto.getOrder().getDateDelivery());
         donDatHang.setDiaChi(dto.getOrder().getShipAddress());
         donDatHang.setSdtNhanHang(dto.getOrder().getPhone());
-        donDatHang.setTrangThai("CHUA_THANH_TOAN");
-        donDatHang.setTrangThaiTToan(dto.getOrder().getPaymentType());
+        donDatHang.setTrangThai(TrangThaiDonDat.DON_DAT);
+        donDatHang.setTrangThaiTToan(TrangThaiTToan.CHUA_TT);
+        donDatHang.setHinhThucTToan(HinhThucTToan.values()[Integer.parseInt(dto.getOrder().getPaymentType())]);
         donDatHang.setTongTien(dto.getOrder().getTotalPrice());
 
         donDatHangRepository.save(donDatHang);

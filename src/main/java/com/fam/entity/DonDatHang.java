@@ -1,5 +1,8 @@
 package com.fam.entity;
 
+import com.fam.entity.enumerate.HinhThucTToan;
+import com.fam.entity.enumerate.TrangThaiDonDat;
+import com.fam.entity.enumerate.TrangThaiTToan;
 import lombok.Builder;
 import lombok.Data;
 import org.hibernate.annotations.CreationTimestamp;
@@ -17,11 +20,17 @@ public class DonDatHang implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int maDonDat;
 
-    @Column(name = "TrangThai", length = 50)
-    private String trangThai;
+    @Enumerated(EnumType.STRING)
+    @Column(name = "TrangThai")
+    private TrangThaiDonDat trangThai;
 
-    @Column(name = "TrangThaiTToan", length = 50)
-    private String trangThaiTToan;
+    @Enumerated(EnumType.STRING)
+    @Column(name = "HinhThucTToan")
+    private HinhThucTToan hinhThucTToan;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "TrangThaiTToan")
+    private TrangThaiTToan trangThaiTToan;
 
     @Column(name = "TongTien")
     private int tongTien;
@@ -33,7 +42,6 @@ public class DonDatHang implements Serializable {
 
     @Column(name = "ThoiGianNhanHang")
     @Temporal(TemporalType.TIMESTAMP)
-    @CreationTimestamp
     private Date thoiGianNhanHang;
 
     @Column(name = "DiaChi", length = 50)
