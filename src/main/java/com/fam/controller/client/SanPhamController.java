@@ -1,4 +1,4 @@
-package com.fam.controller;
+package com.fam.controller.client;
 
 import com.fam.dto.product.CategoryDto;
 import com.fam.service.ISanPhamService;

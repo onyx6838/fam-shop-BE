@@ -1,4 +1,4 @@
-package com.fam.controller;
+package com.fam.controller.client;
 
 import com.fam.service.IThuongHieuService;
 import com.fam.specification.SanPhamFilter;

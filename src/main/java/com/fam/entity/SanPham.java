@@ -53,6 +53,10 @@ public class SanPham implements Serializable {
     @OneToMany(mappedBy = "sanPham")
     private List<DacTrungSanPham> listSPDacTrung;
 
+    @JsonManagedReference
+    @OneToMany(mappedBy = "sanPham")
+    private List<SanPhamFile> sanPhamFiles;
+
 //    @ManyToOne(cascade = {CascadeType.ALL})
 //    @JoinColumn(name = "SPCha")
 //    @JsonManagedReference

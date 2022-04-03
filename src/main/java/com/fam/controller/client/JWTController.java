@@ -1,4 +1,4 @@
-package com.fam.controller;
+package com.fam.controller.client;
 
 import com.fam.dto.auth.TokenRefreshRequest;
 import com.fam.dto.auth.TokenRefreshResponse;

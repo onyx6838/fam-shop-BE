@@ -1,4 +1,4 @@
-package com.fam.controller;
+package com.fam.controller.client;
 
 import com.fam.dto.auth.UserInfoRequest;
 import com.fam.entity.TaiKhoan;

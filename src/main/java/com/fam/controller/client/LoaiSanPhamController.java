@@ -1,4 +1,4 @@
-package com.fam.controller;
+package com.fam.controller.client;
 
 import com.fam.service.ILoaiSanPhamService;
 import io.swagger.annotations.Api;
