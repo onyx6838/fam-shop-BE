@@ -2,8 +2,10 @@ package com.fam.entity;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.Data;
+import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Data
 @Entity
@@ -28,4 +30,12 @@ public class SanPhamFile {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "MaSP")
     private SanPham sanPham;
+
+    @Column(name = "CreateDate")
+    @Temporal(TemporalType.TIMESTAMP)
+    @CreationTimestamp
+    private Date createDate;
+
+    @Column(name = "token")
+    private String token;
 }

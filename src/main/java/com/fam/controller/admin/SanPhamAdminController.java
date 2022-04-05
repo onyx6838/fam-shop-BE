@@ -1,5 +1,6 @@
 package com.fam.controller.admin;
 
+import com.fam.dto.form.SanPhamFileUploadDto;
 import com.fam.service.ISanPhamFileService;
 import com.fam.service.ISanPhamService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,6 +29,13 @@ public class SanPhamAdminController {
     public ResponseEntity<?> uploadFileToSanPham(@RequestParam("files") MultipartFile[] files,
                                                  @RequestParam("id") int id) {
         sanPhamFileService.uploadFileToSanPham(files, id);
+        return new ResponseEntity<>("Upload thanh cong roi nhe !!", HttpStatus.OK);
+    }
+
+    @PostMapping(value = "/file/upload/v2")
+    public ResponseEntity<?> uploadFileToSanPhamV2(@RequestParam("files-form") SanPhamFileUploadDto dto,
+                                                   @RequestParam("id") int id) {
+        sanPhamFileService.uploadFileToSanPhamV2(dto, id);
         return new ResponseEntity<>("Upload thanh cong roi nhe !!", HttpStatus.OK);
     }
 
