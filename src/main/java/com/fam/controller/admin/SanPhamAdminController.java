@@ -1,6 +1,6 @@
 package com.fam.controller.admin;
 
-import com.fam.dto.form.SanPhamFileUploadDto;
+import com.fam.dto.form.SanPhamFileDeleteDto;
 import com.fam.service.ISanPhamFileService;
 import com.fam.service.ISanPhamService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,15 +32,19 @@ public class SanPhamAdminController {
         return new ResponseEntity<>("Upload thanh cong roi nhe !!", HttpStatus.OK);
     }
 
-    @PostMapping(value = "/file/upload/v2")
-    public ResponseEntity<?> uploadFileToSanPhamV2(@RequestParam("files-form") SanPhamFileUploadDto dto,
-                                                   @RequestParam("id") int id) {
-        sanPhamFileService.uploadFileToSanPhamV2(dto, id);
-        return new ResponseEntity<>("Upload thanh cong roi nhe !!", HttpStatus.OK);
-    }
-
     @GetMapping(value = "/{id}")
     public ResponseEntity<?> getSPById(@PathVariable(name = "id") int id) {
         return new ResponseEntity<>(sanPhamService.getById(id), HttpStatus.OK);
+    }
+
+    @PostMapping(value = "/file/db/delete")
+    public ResponseEntity<?> deleteFileInDatabase(@RequestBody SanPhamFileDeleteDto dto) {
+        sanPhamFileService.deleteFileByTokenAndNameToFireBase(dto);
+        return new ResponseEntity<>("Xoa Thanh Cong", HttpStatus.OK);
+    }
+
+    @GetMapping(value = "/parents")
+    public ResponseEntity<?> getAllParentSanPhams() {
+        return new ResponseEntity<>(sanPhamService.getAllParentSanPham(), HttpStatus.OK);
     }
 }

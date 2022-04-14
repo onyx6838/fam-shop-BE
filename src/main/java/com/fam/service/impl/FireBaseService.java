@@ -6,6 +6,7 @@ import com.google.auth.Credentials;
 import com.google.auth.oauth2.GoogleCredentials;
 import com.google.cloud.storage.*;
 import com.google.firebase.cloud.StorageClient;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -27,6 +28,14 @@ public class FireBaseService implements IFireBaseService {
     private static final String DOWNLOAD_URL = "https://firebasestorage.googleapis.com/v0/b/fam-shop-4fd26.appspot.com/o/%s?alt=media";
     private static final String BUCKET_NAME = "fam-shop-4fd26.appspot.com";
     private static final String PRIVATE_KEY_JSON_PATH = "src/main/resources/serviceAccountKey.json";
+
+    @Value("${firebase.bucket_name}")
+    private String bucketName;
+
+    @Value("${firebase.private_key_json_path}")
+    private String privateKeyJsonPath;
+
+    //@PostConstruct
 
     @Override
     public String uploadFile(File file, String fileName, String mimeType, String accessToken) throws IOException {
@@ -72,7 +81,7 @@ public class FireBaseService implements IFireBaseService {
             fileUploadDto.setToken(accessToken);
             fileUploadDto.setCreateDate(new Date());
             fileUploadDto.setTempUrl(TEMP_URL);
-            return fileUploadDto;            // Your customized response
+            return fileUploadDto;            // customized response
         } catch (Exception e) {
             e.printStackTrace();
             return "500" + e + "Unsuccessfully Uploaded!";
@@ -82,7 +91,7 @@ public class FireBaseService implements IFireBaseService {
     @Override
     public Object download(String fileName) throws IOException {
         String destFileName = UUID.randomUUID().toString().concat(this.getExtension(fileName));     // to set random string for destination file name
-        String destFilePath = "D:\\Self\\" + destFileName;                                    // to set destination file path
+        String destFilePath = "D:\\" + destFileName;                                    // to set destination file path
         Credentials credentials = GoogleCredentials.fromStream(new FileInputStream(PRIVATE_KEY_JSON_PATH));
         Storage storage = StorageOptions.newBuilder().setCredentials(credentials).build().getService();
         Blob blob = storage.get(BlobId.of(BUCKET_NAME, fileName));

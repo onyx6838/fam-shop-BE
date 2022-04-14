@@ -1,6 +1,7 @@
 package com.fam.service;
 
 import com.fam.dto.product.CategoryDto;
+import com.fam.dto.product.ParentProduct;
 import com.fam.dto.product.ProductWithCategoryDto;
 import com.fam.entity.SanPham;
 import com.fam.specification.SanPhamFilter;
@@ -19,5 +20,7 @@ public interface ISanPhamService {
     SanPham getById(int id);
 
     Page<ProductWithCategoryDto> getByParentLoaiSP(List<CategoryDto> categories, Pageable pageable);
+
+    Page<ParentProduct> getAllParentSanPham();
 
 }

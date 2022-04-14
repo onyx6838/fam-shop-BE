@@ -1,9 +1,6 @@
 package com.fam.controller.admin;
 
-import com.fam.dto.form.SanPhamFileDeleteDto;
 import com.fam.service.IFireBaseService;
-import com.google.cloud.storage.Bucket;
-import com.google.firebase.cloud.StorageClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -11,7 +8,6 @@ import org.springframework.web.multipart.MultipartFile;
 import java.io.IOException;
 
 /**
- *
  * @author giangdm
  */
 @RestController
@@ -30,13 +26,5 @@ public class FireBaseController {
     @PostMapping("/file/download/{fileName}")
     public Object download(@PathVariable String fileName) throws IOException {
         return fireBaseService.download(fileName);
-    }
-
-    @PostMapping("/delete")
-    public String deleteFileInFB(@RequestBody SanPhamFileDeleteDto dto){
-//        Bucket bucket = StorageClient.getInstance().bucket("fam-shop-4fd26.appspot.com");
-//        bucket.get(file).delete();
-
-        return "OK";
     }
 }

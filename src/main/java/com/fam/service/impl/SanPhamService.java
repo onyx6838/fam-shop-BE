@@ -1,6 +1,7 @@
 package com.fam.service.impl;
 
 import com.fam.dto.product.CategoryDto;
+import com.fam.dto.product.ParentProduct;
 import com.fam.dto.product.ProductWithCategoryDto;
 import com.fam.entity.SanPham;
 import com.fam.repository.ISanPhamRepository;
@@ -8,8 +9,10 @@ import com.fam.service.ISanPhamService;
 import com.fam.specification.SanPhamFilter;
 import com.fam.specification.SanPhamSpecification;
 import org.modelmapper.ModelMapper;
+import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
@@ -87,6 +90,12 @@ public class SanPhamService implements ISanPhamService {
         }
         Page<SanPham> spEntity = sanPhamRepository.findAll(where, pageable);
         return spEntity.map(x -> modelMapper.map(x, ProductWithCategoryDto.class));
+    }
+
+    @Override
+    public Page<ParentProduct> getAllParentSanPham() {
+        Page<SanPham> entities = sanPhamRepository.findAll(PageRequest.of(0, Integer.MAX_VALUE));
+        return modelMapper.map(entities, new TypeToken<Page<ParentProduct>>(){}.getType());
     }
 
     @Override

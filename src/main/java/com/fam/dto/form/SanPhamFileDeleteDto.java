@@ -9,5 +9,5 @@ import lombok.Data;
 public class SanPhamFileDeleteDto {
     private String fileName;
 
-    private int selectedId;
+    private String token;
 }
