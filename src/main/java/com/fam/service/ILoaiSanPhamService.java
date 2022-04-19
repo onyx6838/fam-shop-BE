@@ -9,4 +9,5 @@ public interface ILoaiSanPhamService {
 
     List<LoaiSanPham> getParentLoaiSP();
 
+    List<LoaiSanPham> getChildLoaiSP();
 }

@@ -14,6 +14,8 @@ import com.fam.service.IDonDatHangService;
 import com.fam.service.ISanPhamService;
 import com.fam.service.ITaiKhoanService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
@@ -59,5 +61,10 @@ public class DonDatHangService implements IDonDatHangService {
             ctddRepository.save(ctdd);
         });
 
+    }
+
+    @Override
+    public Page<DonDatHang> getAllDonDats(Pageable pageable) {
+        return donDatHangRepository.findAll(pageable);
     }
 }

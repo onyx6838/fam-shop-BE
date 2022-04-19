@@ -11,4 +11,7 @@ import java.util.List;
 public interface ILoaiSanPhamRepository extends JpaRepository<LoaiSanPham, Integer> {
     @Query(value = "SELECT l from LoaiSanPham l WHERE l.loaiSPConList IS NOT EMPTY")
     List<LoaiSanPham> getParentLoaiSP();
+
+    @Query(value = "SELECT l from LoaiSanPham l WHERE l.loaiSPConList IS EMPTY")
+    List<LoaiSanPham> getChildLoaiSP();
 }

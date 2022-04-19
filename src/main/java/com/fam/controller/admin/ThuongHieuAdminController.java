@@ -19,4 +19,9 @@ public class ThuongHieuAdminController {
     public ResponseEntity<?> getAllThuongHieus(Pageable pageable) {
         return new ResponseEntity<>(thuongHieuService.getAllThuongHieus(pageable), HttpStatus.OK);
     }
+
+    @GetMapping("/all")
+    public ResponseEntity<?> getAllThuongHieusWithoutPaging() {
+        return new ResponseEntity<>(thuongHieuService.getAllThuongHieus(), HttpStatus.OK);
+    }
 }

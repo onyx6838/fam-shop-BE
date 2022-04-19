@@ -3,13 +3,15 @@ package com.fam.entity;
 import com.fam.entity.enumerate.HinhThucTToan;
 import com.fam.entity.enumerate.TrangThaiDonDat;
 import com.fam.entity.enumerate.TrangThaiTToan;
-import lombok.Builder;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Data;
 import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 @Data
 @Entity
@@ -33,13 +35,15 @@ public class DonDatHang implements Serializable {
     private TrangThaiTToan trangThaiTToan;
 
     @Column(name = "TongTien")
-    private int tongTien;
+    private Integer tongTien;
 
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     @Column(name = "ThoiGianDat")
     @Temporal(TemporalType.TIMESTAMP)
     @CreationTimestamp
     private Date thoiGianDat;
 
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     @Column(name = "ThoiGianNhanHang")
     @Temporal(TemporalType.TIMESTAMP)
     private Date thoiGianNhanHang;
@@ -57,4 +61,8 @@ public class DonDatHang implements Serializable {
     @ManyToOne
     @JoinColumn(name = "MaNhanVien")
     private TaiKhoan nhanVien;
+
+    @JsonManagedReference
+    @OneToMany(mappedBy = "donDatHang")
+    private List<CTDD> listCTDD;
 }

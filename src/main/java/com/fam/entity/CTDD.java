@@ -1,5 +1,6 @@
 package com.fam.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -22,6 +23,7 @@ public class CTDD {
     @Column(name = "GhiChu")
     private String ghiChu;
 
+    @JsonBackReference
     @ManyToOne
     @JoinColumn(name = "MaDonDat")
     private DonDatHang donDatHang;

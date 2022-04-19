@@ -1,11 +1,13 @@
 package com.fam.entity;
 
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
 import java.io.Serializable;
 
-@Data
+@Getter
+@Setter
 @Entity
 @Table(name = "DacTrungSanPham")
 public class DacTrungSanPham implements Serializable {
@@ -14,11 +16,11 @@ public class DacTrungSanPham implements Serializable {
     @Column(name = "MaDacTrungSP")
     private int MaDacTrungSP;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @ManyToOne
     @JoinColumn(name = "MaSP")
     private SanPham sanPham;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @ManyToOne
     @JoinColumn(name = "MaDacTrung")
     private DacTrung dacTrung;
 }

@@ -22,4 +22,9 @@ public class LoaiSanPhamService implements ILoaiSanPhamService {
     public List<LoaiSanPham> getParentLoaiSP() {
         return loaiSanPhamRepository.getParentLoaiSP();
     }
+
+    @Override
+    public List<LoaiSanPham> getChildLoaiSP() {
+        return loaiSanPhamRepository.getChildLoaiSP();
+    }
 }

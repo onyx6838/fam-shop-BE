@@ -1,6 +1,8 @@
 package com.fam.controller.admin;
 
+import com.fam.dto.form.SanPhamCreateDto;
 import com.fam.dto.form.SanPhamFileDeleteDto;
+import com.fam.dto.form.SanPhamUpdateDto;
 import com.fam.service.ISanPhamFileService;
 import com.fam.service.ISanPhamService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +11,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
+
+import java.util.List;
 
 @RestController
 @RequestMapping(value = "api/v1/admin/sanphams")
@@ -46,5 +50,29 @@ public class SanPhamAdminController {
     @GetMapping(value = "/parents")
     public ResponseEntity<?> getAllParentSanPhams() {
         return new ResponseEntity<>(sanPhamService.getAllParentSanPham(), HttpStatus.OK);
+    }
+
+    @PostMapping(value = "/create")
+    public ResponseEntity<?> createSanPham(@RequestBody SanPhamCreateDto form) {
+        return new ResponseEntity<>(sanPhamService.createSanPham(form), HttpStatus.OK);
+    }
+
+    @PutMapping(value = "/{maSP}")
+    public ResponseEntity<?> updateGroup(@PathVariable(name = "maSP") int maSP,
+                                              @RequestBody SanPhamUpdateDto form) {
+        sanPhamService.updateSanPham(maSP, form);
+        return new ResponseEntity<>("Sua thanh cong", HttpStatus.OK);
+    }
+
+    @DeleteMapping(value = "/{maSP}")
+    public ResponseEntity<?> deleteProduct(@PathVariable(name = "maSP") int maSP) {
+        sanPhamService.deleteSanPham(maSP);
+        return new ResponseEntity<>("Xoa Thanh Cong", HttpStatus.OK);
+    }
+
+    @DeleteMapping
+    public ResponseEntity<String> deleteProducts(@RequestParam(name = "maSPs") List<Integer> maSPs) {
+        sanPhamService.deleteSanPhams(maSPs);
+        return new ResponseEntity<>("Xoa Thanh Cong", HttpStatus.OK);
     }
 }

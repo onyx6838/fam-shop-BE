@@ -1,10 +1,16 @@
 package com.fam.service.impl;
 
+import com.fam.dto.form.SanPhamCreateDto;
+import com.fam.dto.form.SanPhamUpdateDto;
 import com.fam.dto.product.CategoryDto;
 import com.fam.dto.product.ParentProduct;
 import com.fam.dto.product.ProductWithCategoryDto;
+import com.fam.entity.LoaiSanPham;
 import com.fam.entity.SanPham;
+import com.fam.entity.ThuongHieu;
+import com.fam.repository.ILoaiSanPhamRepository;
 import com.fam.repository.ISanPhamRepository;
+import com.fam.repository.IThuongHieuRepository;
 import com.fam.service.ISanPhamService;
 import com.fam.specification.SanPhamFilter;
 import com.fam.specification.SanPhamSpecification;
@@ -27,6 +33,12 @@ public class SanPhamService implements ISanPhamService {
     private ISanPhamRepository sanPhamRepository;
 
     @Autowired
+    private IThuongHieuRepository thuongHieuRepository;
+
+    @Autowired
+    private ILoaiSanPhamRepository loaiSanPhamRepository;
+
+    @Autowired
     private ModelMapper modelMapper;
 
     @Override
@@ -45,8 +57,11 @@ public class SanPhamService implements ISanPhamService {
 
         if (!sanPhamFilter.getDacTrungs().isEmpty()) {
             Specification<SanPham> inDacTrungs = new SanPhamSpecification("IN", "MaDacTrung.LEFT", sanPhamFilter);
-            // chua co search chi? filter
-            where = Specification.where(inDacTrungs);
+            if (where == null) {
+                where = Specification.where(inDacTrungs);
+            } else {
+                where = where.and(inDacTrungs);
+            }
         }
 
         if (sanPhamFilter.getLoaiSP() != 0) {
@@ -95,7 +110,64 @@ public class SanPhamService implements ISanPhamService {
     @Override
     public Page<ParentProduct> getAllParentSanPham() {
         Page<SanPham> entities = sanPhamRepository.findAll(PageRequest.of(0, Integer.MAX_VALUE));
-        return modelMapper.map(entities, new TypeToken<Page<ParentProduct>>(){}.getType());
+        return modelMapper.map(entities, new TypeToken<Page<ParentProduct>>() {
+        }.getType());
+    }
+
+    @Override
+    public boolean createSanPham(SanPhamCreateDto form) {
+        try {
+            SanPham sp = new SanPham();
+            sp.setTen(form.getTen());
+            sp.setMoTa(form.getMoTa());
+            sp.setDonGiaBan(form.getDonGiaBan());
+            sp.setDonGiaNhap(form.getDonGiaNhap());
+            if (form.getParentSP() != 0) {
+                SanPham spCha = getById(form.getParentSP());
+                sp.setSpCha(spCha);
+            }
+            if (form.getBrand() != 0) {
+                ThuongHieu thuongHieu = thuongHieuRepository.findById(form.getBrand()).get();
+                sp.setThuongHieu(thuongHieu);
+            }
+            if (form.getChildCategory() != 0) {
+                LoaiSanPham lsp = loaiSanPhamRepository.findById(form.getChildCategory()).get();
+                sp.setLoaiSanPham(lsp);
+            }
+            sanPhamRepository.save(sp);
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    @Override
+    public boolean updateSanPham(int maSP, SanPhamUpdateDto form) {
+        try {
+            SanPham sp = sanPhamRepository.findById(maSP).get();
+            sp.setTen(form.getTen());
+            sp.setMoTa(form.getMoTa());
+            sp.setDonGiaBan(form.getDonGiaBan());
+            sp.setDonGiaNhap(form.getDonGiaNhap());
+            if (form.getParentSP() != 0) {
+                SanPham spCha = getById(form.getParentSP());
+                sp.setSpCha(spCha);
+            }
+            if (form.getBrand() != 0) {
+                ThuongHieu thuongHieu = thuongHieuRepository.findById(form.getBrand()).get();
+                sp.setThuongHieu(thuongHieu);
+            }
+            if (form.getChildCategory() != 0) {
+                LoaiSanPham lsp = loaiSanPhamRepository.findById(form.getChildCategory()).get();
+                sp.setLoaiSanPham(lsp);
+            }
+            sanPhamRepository.save(sp);
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
     }
 
     @Override
@@ -106,5 +178,17 @@ public class SanPhamService implements ISanPhamService {
     @Override
     public SanPham getById(int id) {
         return sanPhamRepository.findById(id).get();
+    }
+
+    @Override
+    public void deleteSanPham(int maSP) {
+        // logic sẽ thay đổi sang chuyển trangThai = 0 (inactive) để tránh bị reference cascade
+        sanPhamRepository.deleteByMaSP(maSP);   // k sdung hàm của jpa
+    }
+
+    @Override
+    public void deleteSanPhams(List<Integer> maSPs) {
+        // logic sẽ thay đổi sang chuyển trangThai = 0 (inactive) để tránh bị reference cascade
+        sanPhamRepository.deleteByMaSPs(maSPs);
     }
 }

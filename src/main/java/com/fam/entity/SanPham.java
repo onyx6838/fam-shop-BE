@@ -3,16 +3,15 @@ package com.fam.entity;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 @Getter
 @Setter
-@NoArgsConstructor
 @Entity
 @Table(name = "SanPham")
 public class SanPham implements Serializable {
@@ -34,10 +33,13 @@ public class SanPham implements Serializable {
     private int soLuong;
 
     @Column(name = "DonGiaNhap")
-    private int donGiaNhap;
+    private double donGiaNhap;
 
     @Column(name = "DonGiaBan")
-    private int donGiaBan;
+    private double donGiaBan;
+
+    @Column(name = "TrangThai")
+    private short trangThai;
 
     @JsonManagedReference
     @ManyToOne
@@ -57,12 +59,12 @@ public class SanPham implements Serializable {
     @OneToMany(mappedBy = "sanPham")
     private List<SanPhamFile> sanPhamFiles;
 
-//    @ManyToOne(cascade = {CascadeType.ALL})
-//    @JoinColumn(name = "SPCha")
-//    @JsonManagedReference
-//    private SanPham spCha;
-//
-//    @OneToMany(mappedBy = "spCha")
-//    @JsonBackReference
-//    private Set<SanPham> SPConList = new HashSet<>();
+    @ManyToOne
+    @JoinColumn(name = "SPCha")
+    @JsonManagedReference
+    private SanPham spCha;
+
+    @JsonBackReference
+    @OneToMany(mappedBy = "spCha")
+    private List<SanPham> spConList = new ArrayList<>();
 }

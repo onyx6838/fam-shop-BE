@@ -20,6 +20,6 @@ public class ThuongHieuController {
     @ApiOperation(value = "1, Lấy các thương hiệu theo filter data", notes = "Url: /api/v1/thuonghieu")
     @PostMapping(value = "/brand")
     public ResponseEntity<?> getAllDacTrungsGroupByLoai(@RequestBody SanPhamFilter sanPhamFilter) {
-        return new ResponseEntity<>(thuongHieuService.getBrandWithFilterData(sanPhamFilter), HttpStatus.OK);
+        return new ResponseEntity<>(thuongHieuService.getBrandWithFilter(sanPhamFilter), HttpStatus.OK);
     }
 }

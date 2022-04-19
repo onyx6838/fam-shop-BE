@@ -12,9 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.ObjectUtils;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
@@ -36,16 +34,15 @@ public class DacTrungService implements IDacTrungService {
     }
 
     @Override
-    public List<DacTrung> getDacTrungInLoaiSP(List<Integer> loaiSPs, String tenSP) {
-        return dacTrungRepository.getDacTrungInLoaiSP(loaiSPs, tenSP);
-    }
-
-    @Override
     public Map<String, List<FeatureDto>> getFeatureByLoaiSP(SanPhamFilter sanPhamFilter) {
         if (sanPhamFilter.getLoaiSPList().isEmpty()) {
-            List<Integer> loaiSPs = new ArrayList<>();
-            loaiSPs.add(sanPhamFilter.getLoaiSP());
-            return getFeatureWithFilterData(loaiSPs, sanPhamFilter.getTenSP());
+            if (sanPhamFilter.getLoaiSP() == 0) {
+                return getFeatureWithFilterData(Collections.emptyList(), sanPhamFilter.getTenSP());
+            } else {
+                List<Integer> loaiSPs = new ArrayList<>();
+                loaiSPs.add(sanPhamFilter.getLoaiSP());
+                return getFeatureWithFilterData(loaiSPs, sanPhamFilter.getTenSP());
+            }
         } else {
             return getFeatureWithFilterData(sanPhamFilter.getLoaiSPList(), sanPhamFilter.getTenSP());
         }
@@ -56,7 +53,7 @@ public class DacTrungService implements IDacTrungService {
         List<DacTrungSanPham> dtsp = dacTrungSanPhamRepository.findAll();
 
         Predicate<DacTrungSanPham> inLoaiSP = lsp -> loaiSPs.contains(lsp.getSanPham().getLoaiSanPham().getMaLoai());
-        Predicate<DacTrungSanPham> containTenSP = str -> str.getSanPham().getTen().contains(tenSP);
+        Predicate<DacTrungSanPham> containTenSP = str -> str.getSanPham().getTen().toLowerCase().contains(tenSP);
 
         List<DacTrungSanPham> dacTrungFilter;
 
@@ -72,5 +69,4 @@ public class DacTrungService implements IDacTrungService {
         List<FeatureDto> dtos = ents.stream().map(x -> modelMapper.map(x, FeatureDto.class)).distinct().collect(Collectors.toList());
         return dtos.stream().collect(Collectors.groupingBy(FeatureDto::getLoaiDacTrung));
     }
-
 }

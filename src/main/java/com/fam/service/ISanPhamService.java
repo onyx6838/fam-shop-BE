@@ -1,5 +1,7 @@
 package com.fam.service;
 
+import com.fam.dto.form.SanPhamCreateDto;
+import com.fam.dto.form.SanPhamUpdateDto;
 import com.fam.dto.product.CategoryDto;
 import com.fam.dto.product.ParentProduct;
 import com.fam.dto.product.ProductWithCategoryDto;
@@ -22,5 +24,13 @@ public interface ISanPhamService {
     Page<ProductWithCategoryDto> getByParentLoaiSP(List<CategoryDto> categories, Pageable pageable);
 
     Page<ParentProduct> getAllParentSanPham();
+
+    boolean createSanPham(SanPhamCreateDto form);
+
+    boolean updateSanPham(int maSP, SanPhamUpdateDto form);
+
+    void deleteSanPham(int maSP);
+
+    void deleteSanPhams(List<Integer> maSPs);
 
 }
