@@ -5,9 +5,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 @RestController
 @RequestMapping(value = "api/v1/admin/thuonghieu")
@@ -23,5 +22,13 @@ public class ThuongHieuAdminController {
     @GetMapping("/all")
     public ResponseEntity<?> getAllThuongHieusWithoutPaging() {
         return new ResponseEntity<>(thuongHieuService.getAllThuongHieus(), HttpStatus.OK);
+    }
+
+    // tạm thời làm việc 1 ảnh
+    @PostMapping(value = "/create")
+    public ResponseEntity<?> uploadFileToSanPham(@RequestParam("tenThuongHieu") String tenThuongHieu,
+                                                 @RequestParam("file") MultipartFile file) {
+        thuongHieuService.createThuongHieu(tenThuongHieu, file);
+        return new ResponseEntity<>("Upload thanh cong roi nhe !!", HttpStatus.OK);
     }
 }

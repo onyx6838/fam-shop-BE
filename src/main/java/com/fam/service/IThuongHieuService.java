@@ -4,6 +4,7 @@ import com.fam.entity.ThuongHieu;
 import com.fam.specification.SanPhamFilter;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
@@ -15,4 +16,6 @@ public interface IThuongHieuService {
     Page<ThuongHieu> getAllThuongHieus(Pageable pageable);
 
     Page<ThuongHieu> getAllThuongHieus();
+
+    boolean createThuongHieu(String tenThuongHieu, MultipartFile file);
 }

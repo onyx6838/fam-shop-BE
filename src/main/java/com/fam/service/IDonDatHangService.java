@@ -1,5 +1,6 @@
 package com.fam.service;
 
+import com.fam.dto.order.OrderStatusChangeDto;
 import com.fam.dto.payment.PaymentDto;
 import com.fam.entity.DonDatHang;
 import org.springframework.data.domain.Page;
@@ -9,4 +10,8 @@ public interface IDonDatHangService {
     void payment(PaymentDto dto);
 
     Page<DonDatHang> getAllDonDats(Pageable pageable);
+
+    boolean changeStatusOrder(OrderStatusChangeDto form);
+
+    boolean changePaymentTypeOrder(DonDatHang orderNeedToChangePaymentType, int paymentType);
 }

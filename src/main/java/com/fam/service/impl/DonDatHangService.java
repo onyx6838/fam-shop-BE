@@ -1,5 +1,6 @@
 package com.fam.service.impl;
 
+import com.fam.dto.order.OrderStatusChangeDto;
 import com.fam.dto.payment.PaymentDto;
 import com.fam.entity.CTDD;
 import com.fam.entity.DonDatHang;
@@ -66,5 +67,22 @@ public class DonDatHangService implements IDonDatHangService {
     @Override
     public Page<DonDatHang> getAllDonDats(Pageable pageable) {
         return donDatHangRepository.findAll(pageable);
+    }
+
+    @Override
+    public boolean changeStatusOrder(OrderStatusChangeDto form) {
+        DonDatHang donNeedToChange = donDatHangRepository.findById(form.getId()).get();
+        donNeedToChange.setTrangThai(TrangThaiDonDat.values()[form.getOrderStatus()]);
+        if (form.getPaymentType() != -1) {
+            changePaymentTypeOrder(donNeedToChange, form.getPaymentType());
+        }
+        donDatHangRepository.save(donNeedToChange);
+        return true;
+    }
+
+    @Override
+    public boolean changePaymentTypeOrder(DonDatHang orderNeedToChangePaymentType, int paymentType) {
+        orderNeedToChangePaymentType.setTrangThaiTToan(TrangThaiTToan.values()[paymentType]);
+        return true;
     }
 }

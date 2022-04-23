@@ -2,6 +2,7 @@ package com.fam.controller.admin;
 
 import com.fam.service.ILoaiSanPhamService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -23,4 +24,10 @@ public class LoaiSanPhamAdminController {
     public ResponseEntity<?> getChildLoaiSanPhams() {
         return new ResponseEntity<>(loaiSanPhamService.getChildLoaiSP(), HttpStatus.OK);
     }
+
+    @GetMapping
+    public ResponseEntity<?> getAllLoaiSP(Pageable pageable) {
+        return new ResponseEntity<>(loaiSanPhamService.getAllLoaiSanPhams(pageable), HttpStatus.OK);
+    }
+
 }

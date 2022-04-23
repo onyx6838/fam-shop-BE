@@ -1,10 +1,11 @@
 package com.fam.service.impl;
 
-import com.fam.entity.DacTrungSanPham;
+import com.fam.dto.file.FileUploadDto;
 import com.fam.entity.SanPham;
 import com.fam.entity.ThuongHieu;
 import com.fam.repository.ISanPhamRepository;
 import com.fam.repository.IThuongHieuRepository;
+import com.fam.service.IFireBaseService;
 import com.fam.service.IThuongHieuService;
 import com.fam.specification.SanPhamFilter;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +14,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.util.ObjectUtils;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -27,6 +29,11 @@ public class ThuongHieuService implements IThuongHieuService {
 
     @Autowired
     private IThuongHieuRepository thuongHieuRepository;
+
+    @Autowired
+    private IFireBaseService fireBaseService;
+
+    private static final String FIREBASE_URL = "https://firebasestorage.googleapis.com/v0/b/fam-shop-4fd26.appspot.com/o/%s?alt=media&token=%s";
 
     @Override
     public List<ThuongHieu> getBrandWithFilter(SanPhamFilter sanPhamFilter) {
@@ -72,5 +79,20 @@ public class ThuongHieuService implements IThuongHieuService {
     public Page<ThuongHieu> getAllThuongHieus() {
         Page<ThuongHieu> entities = thuongHieuRepository.findAll(PageRequest.of(0, Integer.MAX_VALUE));
         return entities;
+    }
+
+    @Override
+    public boolean createThuongHieu(String tenThuongHieu, MultipartFile file) {
+        try {
+            ThuongHieu thuongHieu = new ThuongHieu();
+            thuongHieu.setTenThuongHieu(tenThuongHieu);
+            FileUploadDto dto = (FileUploadDto) fireBaseService.upload(file);
+            thuongHieu.setHinhAnh(String.format(FIREBASE_URL, dto.getName(), dto.getToken()));
+            thuongHieuRepository.save(thuongHieu);
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
     }
 }

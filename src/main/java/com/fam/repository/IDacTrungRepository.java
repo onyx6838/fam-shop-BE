@@ -1,6 +1,8 @@
 package com.fam.repository;
 
 import com.fam.entity.DacTrung;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -14,4 +16,13 @@ public interface IDacTrungRepository extends JpaRepository<DacTrung, Integer> {
             " WHERE sp.loaiSanPham.maLoai IN :SPs AND LOWER(sp.ten) LIKE" +
             " lower(concat('%',:tenSP,'%'))")
     List<DacTrung> getDacTrungInLoaiSP(@Param("SPs") List<Integer> loaiSPs, @Param("tenSP") String tenSP);
+
+    @Query("SELECT d from DacTrung d GROUP BY d.LoaiDacTrung")
+    Page<DacTrung> getAllGrByLoai(Pageable pageable);
+
+    @Query("SELECT d from DacTrung d WHERE d.LoaiDacTrung = :loaiDacTrung")
+    Page<DacTrung> getDacTrungByLoaiDacTrung(@Param("loaiDacTrung") String loaiDacTrung, Pageable pageable);
+
+    @Query("SELECT MAX(d.thuTu) from DacTrung d WHERE d.LoaiDacTrung = :loaiDacTrung")
+    int getFeatureOrderedNumber(@Param("loaiDacTrung") String loaiDacTrung);
 }
