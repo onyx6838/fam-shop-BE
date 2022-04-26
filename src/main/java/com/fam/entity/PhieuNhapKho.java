@@ -1,11 +1,14 @@
 package com.fam.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Data;
 import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 @Data
 @Entity
@@ -20,8 +23,9 @@ public class PhieuNhapKho implements Serializable {
     private String loaiPhieu;
 
     @Column(name = "TongTien")
-    private int tongTien;
+    private Integer tongTien;
 
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     @Column(name = "ThoiGian")
     @Temporal(TemporalType.TIMESTAMP)
     @CreationTimestamp
@@ -34,4 +38,8 @@ public class PhieuNhapKho implements Serializable {
     @ManyToOne
     @JoinColumn(name = "MaTK2")
     private TaiKhoan nhaCungCap;
+
+    @JsonManagedReference
+    @OneToMany(mappedBy = "phieuNhapKho")
+    private List<ChiTietPNK> listCTPNK;
 }

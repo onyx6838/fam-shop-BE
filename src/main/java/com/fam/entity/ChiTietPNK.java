@@ -1,5 +1,7 @@
 package com.fam.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 import org.hibernate.annotations.CreationTimestamp;
 
@@ -16,20 +18,21 @@ public class ChiTietPNK {
     private int maCTPNK;
 
     @Column(name = "MaLoHang")
-    private int maLoHang;
+    private Integer maLoHang;
 
     @Column(name = "DonVi")
     private String donVi;
 
     @Column(name = "SoLuong")
-    private int soLuong;
+    private Integer soLuong;
 
     @Column(name = "SoThung")
-    private int soThung;
+    private Integer soThung;
 
     @Column(name = "TongTienMuc")
-    private int tongTienMuc;
+    private Integer tongTienMuc;
 
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     @Column(name = "HanSuDung")
     @Temporal(TemporalType.TIMESTAMP)
     @CreationTimestamp
@@ -38,6 +41,7 @@ public class ChiTietPNK {
     @Column(name = "GhiChu")
     private String ghiChu;
 
+    @JsonBackReference
     @ManyToOne
     @JoinColumn(name = "MaPNK")
     private PhieuNhapKho phieuNhapKho;
