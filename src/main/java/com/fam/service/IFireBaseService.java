@@ -9,13 +9,13 @@ import java.io.IOException;
  * @author giangdm
  */
 public interface IFireBaseService {
-    String uploadFile(File file, String fileName, String mimeType, String accessToken) throws IOException; // used to upload a file
+    String uploadFile(File file, String fileName, String mimeType, String accessToken, String subDirectoryName) throws IOException; // used to upload a file
 
     File convertToFile(MultipartFile multipartFile, String fileName); // used to convert MultipartFile to File
 
     String getExtension(String fileName);  // used to get extension of a uploaded file
 
-    Object upload(MultipartFile multipartFile);
+    Object upload(MultipartFile multipartFile, String subDirectoryName);
 
     Object download(String fileName) throws IOException;
 

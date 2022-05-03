@@ -95,12 +95,17 @@ public class DacTrungService implements IDacTrungService {
     @Override
     public boolean createDacTrung(DacTrungCreateDto dto) {
         try {
-            int ordered = getFeatureOrderedNumber(dto.getLoaiDacTrung());
             DacTrung dacTrung = new DacTrung();
+            int ext = dacTrungRepository.checkExistLoaiDacTrung(dto.getLoaiDacTrung());
+            if (ext > 0) {
+                int ordered = getFeatureOrderedNumber(dto.getLoaiDacTrung());
+                dacTrung.setThuTu(ordered + 1);
+            } else {
+                dacTrung.setThuTu(1);
+            }
             BeanUtils.copyProperties(dto, dacTrung);
-            dacTrung.setThuTu(ordered + 1);
-            if (ObjectUtils.isEmpty(dacTrung.getGiaTri()))  dacTrung.setGiaTri(null);
-            if (ObjectUtils.isEmpty(dacTrung.getDonVi()))  dacTrung.setDonVi(null);
+            if (ObjectUtils.isEmpty(dacTrung.getGiaTri())) dacTrung.setGiaTri(null);
+            if (ObjectUtils.isEmpty(dacTrung.getDonVi())) dacTrung.setDonVi(null);
             dacTrungRepository.save(dacTrung);
             return true;
         } catch (Exception e) {

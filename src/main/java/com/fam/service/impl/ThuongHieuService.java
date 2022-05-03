@@ -86,7 +86,7 @@ public class ThuongHieuService implements IThuongHieuService {
         try {
             ThuongHieu thuongHieu = new ThuongHieu();
             thuongHieu.setTenThuongHieu(tenThuongHieu);
-            FileUploadDto dto = (FileUploadDto) fireBaseService.upload(file);
+            FileUploadDto dto = (FileUploadDto) fireBaseService.upload(file, "brand");
             thuongHieu.setHinhAnh(String.format(FIREBASE_URL, dto.getName(), dto.getToken()));
             thuongHieuRepository.save(thuongHieu);
             return true;

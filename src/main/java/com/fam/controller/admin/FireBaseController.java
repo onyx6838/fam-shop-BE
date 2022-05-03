@@ -20,7 +20,7 @@ public class FireBaseController {
 
     @PostMapping("/file/upload")
     public Object upload(@RequestParam("file") MultipartFile multipartFile) {
-        return fireBaseService.upload(multipartFile);
+        return fireBaseService.upload(multipartFile, "");
     }
 
     @PostMapping("/file/download/{fileName}")

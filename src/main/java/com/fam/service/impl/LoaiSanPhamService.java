@@ -1,5 +1,6 @@
 package com.fam.service.impl;
 
+import com.fam.dto.form.LoaiSanPhamCreateDto;
 import com.fam.entity.LoaiSanPham;
 import com.fam.repository.ILoaiSanPhamRepository;
 import com.fam.service.ILoaiSanPhamService;
@@ -33,5 +34,23 @@ public class LoaiSanPhamService implements ILoaiSanPhamService {
     @Override
     public List<LoaiSanPham> getChildLoaiSP() {
         return loaiSanPhamRepository.getChildLoaiSP();
+    }
+
+    @Override
+    public boolean createLoaiSanPham(LoaiSanPhamCreateDto form) {
+        try {
+            LoaiSanPham lsp = new LoaiSanPham();
+            if (form.getLoaiSPCha() != 0) {
+                LoaiSanPham lspCha = loaiSanPhamRepository.findById(form.getLoaiSPCha()).get();
+                lsp.setLoaiSPCha(lspCha);
+            }
+            lsp.setTen(form.getTen());
+            lsp.setMoTa(form.getMoTa());
+            loaiSanPhamRepository.save(lsp);
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
     }
 }

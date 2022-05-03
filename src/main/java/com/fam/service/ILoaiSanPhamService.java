@@ -1,5 +1,6 @@
 package com.fam.service;
 
+import com.fam.dto.form.LoaiSanPhamCreateDto;
 import com.fam.entity.LoaiSanPham;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -14,4 +15,6 @@ public interface ILoaiSanPhamService {
     List<LoaiSanPham> getParentLoaiSP();
 
     List<LoaiSanPham> getChildLoaiSP();
+
+    boolean createLoaiSanPham(LoaiSanPhamCreateDto form);
 }

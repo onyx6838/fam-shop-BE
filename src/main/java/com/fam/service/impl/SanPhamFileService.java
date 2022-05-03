@@ -36,7 +36,7 @@ public class SanPhamFileService implements ISanPhamFileService {
         SanPham sp = sanPhamRepository.getById(selectedId);
         Arrays.stream(files).forEach(x -> {
             SanPhamFile sanPhamFile = new SanPhamFile();
-            FileUploadDto dto = (FileUploadDto) fireBaseService.upload(x);
+            FileUploadDto dto = (FileUploadDto) fireBaseService.upload(x, "product");
             sanPhamFile.setName(dto.getName());
             sanPhamFile.setMimetype(dto.getMimeType());
             sanPhamFile.setToken(dto.getToken());

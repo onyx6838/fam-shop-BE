@@ -8,6 +8,7 @@ import com.google.cloud.storage.*;
 import com.google.firebase.cloud.StorageClient;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
+import org.springframework.util.ObjectUtils;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.*;
@@ -36,10 +37,13 @@ public class FireBaseService implements IFireBaseService {
     private String privateKeyJsonPath;
 
     //@PostConstruct
-
     @Override
-    public String uploadFile(File file, String fileName, String mimeType, String accessToken) throws IOException {
-        BlobId blobId = BlobId.of(BUCKET_NAME, fileName);
+    public String uploadFile(File file, String fileName, String mimeType, String accessToken, String subDirectoryName) throws IOException {
+        BlobId blobId;
+        // add sub folder when upload file
+        if (!ObjectUtils.isEmpty(subDirectoryName)) {
+            blobId = BlobId.of(BUCKET_NAME, subDirectoryName + "/" + fileName);
+        } else blobId = BlobId.of(BUCKET_NAME, fileName);
         Map<String, String> map = new HashMap<>();
         map.put("firebaseStorageDownloadTokens", accessToken);
         BlobInfo blobInfo = BlobInfo.newBuilder(blobId).setMetadata(map).setContentType(mimeType).build();
@@ -64,16 +68,15 @@ public class FireBaseService implements IFireBaseService {
     public String getExtension(String fileName) {
         return fileName.substring(fileName.lastIndexOf("."));
     }
-
     @Override
-    public Object upload(MultipartFile multipartFile) {
+    public Object upload(MultipartFile multipartFile, String subDirectoryName) {
         try {
             String fileName = multipartFile.getOriginalFilename();                        // to get original file name
             fileName = UUID.randomUUID().toString().concat(this.getExtension(fileName));  // to generated random string values for file name.
 
             File file = this.convertToFile(multipartFile, fileName);                      // to convert multipartFile to File
             String accessToken = UUID.randomUUID().toString();
-            String TEMP_URL = this.uploadFile(file, fileName, multipartFile.getContentType(), accessToken);    // to get uploaded file link
+            String TEMP_URL = this.uploadFile(file, fileName, multipartFile.getContentType(), accessToken, subDirectoryName);    // to get uploaded file link
             file.delete();                                                                // to delete the copy of uploaded file stored in the project folder
             FileUploadDto fileUploadDto = new FileUploadDto();
             fileUploadDto.setName(fileName);

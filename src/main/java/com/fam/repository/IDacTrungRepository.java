@@ -25,4 +25,7 @@ public interface IDacTrungRepository extends JpaRepository<DacTrung, Integer> {
 
     @Query("SELECT MAX(d.thuTu) from DacTrung d WHERE d.LoaiDacTrung = :loaiDacTrung")
     int getFeatureOrderedNumber(@Param("loaiDacTrung") String loaiDacTrung);
+
+    @Query("SELECT COUNT(d) from DacTrung d WHERE d.LoaiDacTrung = :loaiDacTrung")
+    int checkExistLoaiDacTrung(@Param("loaiDacTrung") String loaiDacTrung);
 }
