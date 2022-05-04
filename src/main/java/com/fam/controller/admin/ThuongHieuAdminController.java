@@ -27,7 +27,7 @@ public class ThuongHieuAdminController {
     // tạm thời làm việc 1 ảnh
     @PostMapping(value = "/create")
     public ResponseEntity<?> uploadFileToSanPham(@RequestParam("tenThuongHieu") String tenThuongHieu,
-                                                 @RequestParam("file") MultipartFile file) {
+                                                 @RequestParam(value = "file", required = false) MultipartFile file) {
         thuongHieuService.createThuongHieu(tenThuongHieu, file);
         return new ResponseEntity<>("Upload thanh cong roi nhe !!", HttpStatus.OK);
     }

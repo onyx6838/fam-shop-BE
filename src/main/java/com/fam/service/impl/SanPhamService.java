@@ -183,12 +183,17 @@ public class SanPhamService implements ISanPhamService {
     @Override
     public void deleteSanPham(int maSP) {
         // logic sẽ thay đổi sang chuyển trangThai = 0 (inactive) để tránh bị reference cascade
-        sanPhamRepository.deleteByMaSP(maSP);   // k sdung hàm của jpa
+        sanPhamRepository.deleteByMaSP(maSP, (short) 0);   // k sdung hàm của jpa
     }
 
     @Override
     public void deleteSanPhams(List<Integer> maSPs) {
         // logic sẽ thay đổi sang chuyển trangThai = 0 (inactive) để tránh bị reference cascade
         sanPhamRepository.deleteByMaSPs(maSPs);
+    }
+
+    @Override
+    public void reactiveSanPham(int maSP) {
+        sanPhamRepository.deleteByMaSP(maSP, (short) 1);
     }
 }

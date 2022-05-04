@@ -30,6 +30,6 @@ public interface ISanPhamRepository
 
     @Modifying
     @Transactional
-    @Query("UPDATE SanPham sp SET sp.trangThai = 0 WHERE sp.maSP = :maSP")
-    void deleteByMaSP(@Param("maSP") int maSP);
+    @Query("UPDATE SanPham sp SET sp.trangThai = :status WHERE sp.maSP = :maSP")
+    void deleteByMaSP(@Param("maSP") int maSP, @Param("status") short status);
 }

@@ -59,7 +59,7 @@ public class SanPhamAdminController {
 
     @PutMapping(value = "/{maSP}")
     public ResponseEntity<?> updateGroup(@PathVariable(name = "maSP") int maSP,
-                                              @RequestBody SanPhamUpdateDto form) {
+                                         @RequestBody SanPhamUpdateDto form) {
         sanPhamService.updateSanPham(maSP, form);
         return new ResponseEntity<>("Sua thanh cong", HttpStatus.OK);
     }
@@ -74,5 +74,11 @@ public class SanPhamAdminController {
     public ResponseEntity<String> deleteProducts(@RequestParam(name = "maSPs") List<Integer> maSPs) {
         sanPhamService.deleteSanPhams(maSPs);
         return new ResponseEntity<>("Xoa Thanh Cong", HttpStatus.OK);
+    }
+
+    @PutMapping(value = "/re-active/{maSP}")
+    public ResponseEntity<?> reactiveSanPham(@PathVariable(name = "maSP") int maSP) {
+        sanPhamService.reactiveSanPham(maSP);
+        return new ResponseEntity<>("Thay doi trang thai Thanh Cong", HttpStatus.OK);
     }
 }

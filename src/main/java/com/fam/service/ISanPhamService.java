@@ -33,4 +33,6 @@ public interface ISanPhamService {
 
     void deleteSanPhams(List<Integer> maSPs);
 
+    void reactiveSanPham(int maSP);
+
 }
