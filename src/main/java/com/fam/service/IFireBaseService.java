@@ -19,5 +19,5 @@ public interface IFireBaseService {
 
     Object download(String fileName) throws IOException;
 
-    void delete(String fileName);
+    void delete(String fileName, String subDirectoryName);
 }

@@ -11,7 +11,10 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.ObjectUtils;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.io.*;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
@@ -103,8 +106,8 @@ public class FireBaseService implements IFireBaseService {
     }
 
     @Override
-    public void delete(String fileName) {
+    public void delete(String fileName, String subDirectoryName) {
         Bucket bucket = StorageClient.getInstance().bucket(BUCKET_NAME);
-        bucket.get(fileName).delete();
+        bucket.get(subDirectoryName + "/" + fileName).delete();
     }
 }

@@ -95,4 +95,17 @@ public class ThuongHieuService implements IThuongHieuService {
             return false;
         }
     }
+
+    @Override
+    public void uploadFileToThuongHieu(MultipartFile file, int selectedId) {
+        ThuongHieu thuongHieu = thuongHieuRepository.findById(selectedId).get();
+        FileUploadDto dto = (FileUploadDto) fireBaseService.upload(file, "brand");
+        thuongHieu.setHinhAnh(String.format(FIREBASE_URL, "brand%2F" + dto.getName(), dto.getToken()));
+        thuongHieuRepository.save(thuongHieu);
+    }
+
+    @Override
+    public ThuongHieu getById(int id) {
+        return thuongHieuRepository.findById(id).get();
+    }
 }

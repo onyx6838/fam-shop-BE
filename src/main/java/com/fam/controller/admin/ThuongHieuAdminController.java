@@ -31,4 +31,16 @@ public class ThuongHieuAdminController {
         thuongHieuService.createThuongHieu(tenThuongHieu, file);
         return new ResponseEntity<>("Upload thanh cong roi nhe !!", HttpStatus.OK);
     }
+
+    @PostMapping(value = "/file/upload")
+    public ResponseEntity<?> uploadFileToThuongHieu(@RequestParam("file") MultipartFile file,
+                                                 @RequestParam("id") int id) {
+        thuongHieuService.uploadFileToThuongHieu(file, id);
+        return new ResponseEntity<>("Upload thanh cong roi nhe !!", HttpStatus.OK);
+    }
+
+    @GetMapping(value = "/{id}")
+    public ResponseEntity<?> getThuongHieuById(@PathVariable(name = "id") int id) {
+        return new ResponseEntity<>(thuongHieuService.getById(id), HttpStatus.OK);
+    }
 }

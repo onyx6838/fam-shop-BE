@@ -20,7 +20,7 @@ public class SanPham implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int maSP;
 
-    @Column(name = "Ten", length = 50)
+    @Column(name = "Ten")
     private String ten;
 
     @Column(name = "HinhAnh", length = 800)

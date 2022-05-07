@@ -48,7 +48,7 @@ public class SanPhamFileService implements ISanPhamFileService {
 
     @Override
     public void deleteFileByTokenAndNameToFireBase(SanPhamFileDeleteDto dto) {
-        fireBaseService.delete(dto.getFileName());
+        fireBaseService.delete(dto.getFileName(), "product");
         sanPhamFileRepository.deleteByToken(dto.getToken());
     }
 }

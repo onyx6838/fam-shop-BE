@@ -36,6 +36,13 @@ public class SanPhamAdminController {
         return new ResponseEntity<>("Upload thanh cong roi nhe !!", HttpStatus.OK);
     }
 
+    @PostMapping(value = "/file/upload/profile")
+    public ResponseEntity<?> uploadProfileToSanPham(@RequestParam("file") MultipartFile file,
+                                                    @RequestParam("id") int id) {
+        sanPhamService.uploadImageProfileToSanPham(file, id);
+        return new ResponseEntity<>("Upload thanh cong roi nhe !!", HttpStatus.OK);
+    }
+
     @GetMapping(value = "/{id}")
     public ResponseEntity<?> getSPById(@PathVariable(name = "id") int id) {
         return new ResponseEntity<>(sanPhamService.getById(id), HttpStatus.OK);
@@ -58,9 +65,16 @@ public class SanPhamAdminController {
     }
 
     @PutMapping(value = "/{maSP}")
-    public ResponseEntity<?> updateGroup(@PathVariable(name = "maSP") int maSP,
+    public ResponseEntity<?> updateSanPham(@PathVariable(name = "maSP") int maSP,
                                          @RequestBody SanPhamUpdateDto form) {
         sanPhamService.updateSanPham(maSP, form);
+        return new ResponseEntity<>("Sua thanh cong", HttpStatus.OK);
+    }
+
+    @PutMapping(value = "/desc/{maSP}")
+    public ResponseEntity<?> updateDescSanPham(@PathVariable(name = "maSP") int maSP,
+                                         @RequestBody SanPhamUpdateDto form) {
+        sanPhamService.updateMoTaSanPham(maSP, form);
         return new ResponseEntity<>("Sua thanh cong", HttpStatus.OK);
     }
 

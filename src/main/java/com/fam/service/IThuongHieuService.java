@@ -18,4 +18,8 @@ public interface IThuongHieuService {
     Page<ThuongHieu> getAllThuongHieus();
 
     boolean createThuongHieu(String tenThuongHieu, MultipartFile file);
+
+    void uploadFileToThuongHieu(MultipartFile file, int selectedId);
+
+    ThuongHieu getById(int id);
 }

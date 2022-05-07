@@ -9,6 +9,7 @@ import com.fam.entity.SanPham;
 import com.fam.specification.SanPhamFilter;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
@@ -29,10 +30,14 @@ public interface ISanPhamService {
 
     boolean updateSanPham(int maSP, SanPhamUpdateDto form);
 
+    boolean updateMoTaSanPham(int maSP, SanPhamUpdateDto form);
+
     void deleteSanPham(int maSP);
 
     void deleteSanPhams(List<Integer> maSPs);
 
     void reactiveSanPham(int maSP);
+
+    void uploadImageProfileToSanPham(MultipartFile file, int selectedId);
 
 }

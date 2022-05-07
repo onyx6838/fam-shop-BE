@@ -1,5 +1,6 @@
 package com.fam.service.impl;
 
+import com.fam.dto.file.FileUploadDto;
 import com.fam.dto.form.SanPhamCreateDto;
 import com.fam.dto.form.SanPhamUpdateDto;
 import com.fam.dto.product.CategoryDto;
@@ -11,6 +12,7 @@ import com.fam.entity.ThuongHieu;
 import com.fam.repository.ILoaiSanPhamRepository;
 import com.fam.repository.ISanPhamRepository;
 import com.fam.repository.IThuongHieuRepository;
+import com.fam.service.IFireBaseService;
 import com.fam.service.ISanPhamService;
 import com.fam.specification.SanPhamFilter;
 import com.fam.specification.SanPhamSpecification;
@@ -23,12 +25,16 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 import org.springframework.util.ObjectUtils;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
 public class SanPhamService implements ISanPhamService {
+    @Autowired
+    private IFireBaseService fireBaseService;
+
     @Autowired
     private ISanPhamRepository sanPhamRepository;
 
@@ -40,6 +46,8 @@ public class SanPhamService implements ISanPhamService {
 
     @Autowired
     private ModelMapper modelMapper;
+
+    private static final String FIREBASE_URL = "https://firebasestorage.googleapis.com/v0/b/fam-shop-4fd26.appspot.com/o/%s?alt=media&token=%s";
 
     @Override
     public Page<SanPham> getAllSanPhams(Pageable pageable) {
@@ -171,6 +179,19 @@ public class SanPhamService implements ISanPhamService {
     }
 
     @Override
+    public boolean updateMoTaSanPham(int maSP, SanPhamUpdateDto form) {
+        try {
+            SanPham sp = sanPhamRepository.findById(maSP).get();
+            sp.setMoTa(form.getMoTa());
+            sanPhamRepository.save(sp);
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    @Override
     public Page<SanPham> getNewSanPhamsOrderByThoiGian(Pageable pageable) {
         return sanPhamRepository.getNewSanPhamsOrderByThoiGianNhap(pageable);
     }
@@ -195,5 +216,13 @@ public class SanPhamService implements ISanPhamService {
     @Override
     public void reactiveSanPham(int maSP) {
         sanPhamRepository.deleteByMaSP(maSP, (short) 1);
+    }
+
+    @Override
+    public void uploadImageProfileToSanPham(MultipartFile file, int selectedId) {
+        SanPham sp = sanPhamRepository.findById(selectedId).get();
+        FileUploadDto dto = (FileUploadDto) fireBaseService.upload(file, "product");
+        sp.setHinhAnh(String.format(FIREBASE_URL, "product%2F" + dto.getName(), dto.getToken()));
+        sanPhamRepository.save(sp);
     }
 }

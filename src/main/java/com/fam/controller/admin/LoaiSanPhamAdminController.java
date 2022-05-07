@@ -1,7 +1,6 @@
 package com.fam.controller.admin;
 
 import com.fam.dto.form.LoaiSanPhamCreateDto;
-import com.fam.dto.form.SanPhamCreateDto;
 import com.fam.service.ILoaiSanPhamService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
