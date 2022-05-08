@@ -20,6 +20,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
+import java.util.List;
 
 @Service
 public class DonDatHangService implements IDonDatHangService {
@@ -84,5 +85,10 @@ public class DonDatHangService implements IDonDatHangService {
     public boolean changePaymentTypeOrder(DonDatHang orderNeedToChangePaymentType, int paymentType) {
         orderNeedToChangePaymentType.setTrangThaiTToan(TrangThaiTToan.values()[paymentType]);
         return true;
+    }
+
+    @Override
+    public List<Integer> distinctYearDatHang() {
+        return donDatHangRepository.getDistinctYear();
     }
 }

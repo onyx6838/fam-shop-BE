@@ -7,4 +7,6 @@ import java.util.List;
  */
 public interface DonDatHangRepositoryCustom {
     List<Object[]> statisticOrderByYear(int selectedYear, String trangThaiDonDat);
+
+    List<Integer> getDistinctYear();
 }

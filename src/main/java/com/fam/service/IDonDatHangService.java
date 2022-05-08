@@ -6,6 +6,8 @@ import com.fam.entity.DonDatHang;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
+import java.util.List;
+
 public interface IDonDatHangService {
     void payment(PaymentDto dto);
 
@@ -14,4 +16,6 @@ public interface IDonDatHangService {
     boolean changeStatusOrder(OrderStatusChangeDto form);
 
     boolean changePaymentTypeOrder(DonDatHang orderNeedToChangePaymentType, int paymentType);
+
+    List<Integer> distinctYearDatHang();
 }

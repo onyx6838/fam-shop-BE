@@ -23,6 +23,11 @@ public class DonDatHangAdminController {
         return new ResponseEntity<>(donDatHangService.getAllDonDats(pageable), HttpStatus.OK);
     }
 
+    @GetMapping(value = "/distinct-year-dat-hang")
+    public ResponseEntity<?> getDistinctYearDatHang() {
+        return new ResponseEntity<>(donDatHangService.distinctYearDatHang(), HttpStatus.OK);
+    }
+
     @PostMapping(value = "/change-status")
     public ResponseEntity<?> changeStatusDonDat(@RequestBody OrderStatusChangeDto form) {
         return new ResponseEntity<>(donDatHangService.changeStatusOrder(form), HttpStatus.OK);

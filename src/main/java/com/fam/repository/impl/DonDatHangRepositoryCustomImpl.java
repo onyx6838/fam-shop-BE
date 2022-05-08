@@ -7,6 +7,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.ParameterMode;
 import javax.persistence.PersistenceContext;
 import javax.persistence.StoredProcedureQuery;
+import javax.persistence.Query;
 import java.util.List;
 
 /**
@@ -26,5 +27,11 @@ public class DonDatHangRepositoryCustomImpl implements DonDatHangRepositoryCusto
                 .setParameter(2, trangThaiDonDat);
         query.execute();
         return (List<Object[]>) query.getResultList();
+    }
+
+    @Override
+    public List<Integer> getDistinctYear() {
+        Query query = em.createQuery("SELECT distinct YEAR(d.thoiGianDat) from DonDatHang d");
+        return (List<Integer>) query.getResultList();
     }
 }
