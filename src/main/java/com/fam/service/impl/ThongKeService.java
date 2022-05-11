@@ -40,6 +40,11 @@ public class ThongKeService implements IThongKeService {
     }
 
     @Override
+    public int countCustomerBuyOrderDone(int year) {
+        return donDatHangRepository.countCustomerBuyOrderDone(year);
+    }
+
+    @Override
     public List<OrderPerMonthByYear> statisticOrderByYear(int year, String trangThaiDonDat) {
         List<Object[]> sttData = donDatHangRepository.statisticOrderByYear(year, trangThaiDonDat);
         List<OrderPerMonthByYear> finalSttData = sttData.stream().map(x -> {

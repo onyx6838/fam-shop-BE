@@ -41,8 +41,9 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers("/api/v1/giohang").permitAll()
                 .antMatchers("/api/v1/thuonghieu").permitAll()
                 .antMatchers("/api/v1/jwt").permitAll()
-                .antMatchers("/api/v1/taikhoan").authenticated()
+                //.antMatchers("/api/v1/taikhoan").authenticated()
                 .antMatchers("/api/v1/login").anonymous()
+                .antMatchers("/api/v1/taikhoan/register").anonymous()
                 .and().httpBasic()
                 .and().csrf().disable()
                 .addFilterBefore(

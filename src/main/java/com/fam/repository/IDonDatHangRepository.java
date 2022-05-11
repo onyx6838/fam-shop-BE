@@ -16,4 +16,8 @@ public interface IDonDatHangRepository extends JpaRepository<DonDatHang, Integer
 
     @Query(value = "SELECT COUNT(d.maDonDat) from DonDatHang d WHERE d.trangThai = :trangThaiDonDat")
     int countOrderWithType(@Param("trangThaiDonDat") TrangThaiDonDat trangThaiDonDat);   // thong ke tung loai voi trang thai don (enum TrangThaiDonDat
+
+    // So luong khach hang dat don hang thanh cong (HOA_DON) trong nam xac dinh
+    @Query("select COUNT(DISTINCT d.khachHang) from DonDatHang d WHERE YEAR(d.thoiGianDat) = :year AND d.trangThai = 'HOA_DON'")
+    int countCustomerBuyOrderDone(@Param("year") int year);
 }

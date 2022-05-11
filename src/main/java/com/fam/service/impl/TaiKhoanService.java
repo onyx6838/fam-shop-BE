@@ -97,6 +97,7 @@ public class TaiKhoanService implements ITaiKhoanService {
     public void createTaiKhoan(TaiKhoan taiKhoan) {
         // create user
         taiKhoan.setMatKhau(passwordEncoder.encode(taiKhoan.getMatKhau()));
+        taiKhoan.setLoaiTK("NGUOI_DUNG");
         taiKhoanRepository.save(taiKhoan);
 
         // create new user registration token

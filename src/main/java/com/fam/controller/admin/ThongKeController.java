@@ -31,6 +31,11 @@ public class ThongKeController {
         return new ResponseEntity<>(thongKeService.countOrderWithType(trangThaiDonDat), HttpStatus.OK);
     }
 
+    @GetMapping(value = "/customer-order-success")
+    public ResponseEntity<?> countOrderWithType(@RequestParam("year") int year) {
+        return new ResponseEntity<>(thongKeService.countCustomerBuyOrderDone(year), HttpStatus.OK);
+    }
+
     @GetMapping(value = "/statistic-order-year")
     public ResponseEntity<?> statisticOrderByYear(@RequestParam("year") int year, @RequestParam("type") String trangThaiDonDat) {
         return new ResponseEntity<>(thongKeService.statisticOrderByYear(year, trangThaiDonDat), HttpStatus.OK);

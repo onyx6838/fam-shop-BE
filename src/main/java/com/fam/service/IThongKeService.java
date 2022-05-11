@@ -14,5 +14,7 @@ public interface IThongKeService {
 
     int totalProductSold();
 
+    int countCustomerBuyOrderDone(int year);
+
     List<OrderPerMonthByYear> statisticOrderByYear(int year, String trangThaiDonDat);
 }

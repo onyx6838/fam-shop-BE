@@ -31,7 +31,7 @@ public class EmailService implements IEmailService {
         TaiKhoan taiKhoan = taiKhoanService.findTaiKhoanByEmail(email);
         String token = registrationAccountTokenRepository.findByAccountId(taiKhoan.getMaTK());
 
-        String confirmationUrl = serverProperty.getUrl() +  "/api/v1/accounts/activeUser?token=" + token;
+        String confirmationUrl = serverProperty.getUrl() +  "/api/v1/taikhoan/activeUser?token=" + token;
 
         String subject = "Xác Nhận Đăng Ký Account";
         String content = "Bạn đã đăng ký thành công. Click vào link dưới đây để kích hoạt tài khoản \n"
