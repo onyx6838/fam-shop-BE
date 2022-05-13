@@ -1,5 +1,6 @@
 package com.fam.service.impl;
 
+import com.fam.dto.order.OrderShipperChangeDto;
 import com.fam.dto.order.OrderStatusChangeDto;
 import com.fam.dto.payment.PaymentDto;
 import com.fam.entity.CTDD;
@@ -90,5 +91,18 @@ public class DonDatHangService implements IDonDatHangService {
     @Override
     public List<Integer> distinctYearDatHang() {
         return donDatHangRepository.getDistinctYear();
+    }
+
+    @Override
+    public boolean changeShipperDonDat(OrderShipperChangeDto dto) {
+        try {
+            DonDatHang needToChange = donDatHangRepository.findById(dto.getMaDonDat()).get();
+            TaiKhoan tk = taiKhoanService.findById(dto.getMaTK());
+            needToChange.setNhanVien(tk);
+            donDatHangRepository.save(needToChange);
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
     }
 }

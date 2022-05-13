@@ -2,9 +2,13 @@ package com.fam.service;
 
 import com.fam.entity.TaiKhoan;
 import com.fam.entity.authentication.ResetPasswordToken;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.security.core.userdetails.UserDetailsService;
 
 public interface ITaiKhoanService extends UserDetailsService {
+    Page<TaiKhoan> getAllTaiKhoans(Pageable pageable);
+
     TaiKhoan getTaiKhoanByTenTK(String tenTK);
 
     TaiKhoan findById(int maTK);
@@ -30,4 +34,6 @@ public interface ITaiKhoanService extends UserDetailsService {
     boolean existsByTenTK(String tenTK);
 
     void resetPasswordViaEmail(String email);
+
+    Page<TaiKhoan> getAccountsByLoaiTK(String loaiTK, Pageable pageable);
 }

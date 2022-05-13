@@ -1,6 +1,7 @@
 package com.fam.entity;
 
 import com.fam.entity.enumerate.TrangThaiTK;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -15,6 +16,7 @@ public class TaiKhoan implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int maTK;
 
+    @JsonIgnore
     @Column(name = "MatKhau")
     private String matKhau;
 

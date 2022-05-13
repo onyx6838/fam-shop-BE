@@ -13,6 +13,8 @@ import com.fam.service.ITaiKhoanService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.ApplicationEventPublisher;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -59,6 +61,11 @@ public class TaiKhoanService implements ITaiKhoanService {
         }
         return new User(taiKhoan.getTenTK(), taiKhoan.getMatKhau(),
                 AuthorityUtils.createAuthorityList(taiKhoan.getLoaiTK()));
+    }
+
+    @Override
+    public Page<TaiKhoan> getAllTaiKhoans(Pageable pageable) {
+        return taiKhoanRepository.findAll(pageable);
     }
 
     /**
@@ -161,6 +168,11 @@ public class TaiKhoanService implements ITaiKhoanService {
 
         // send email
         emailService.sendResetPassword(account, newToken);
+    }
+
+    @Override
+    public Page<TaiKhoan> getAccountsByLoaiTK(String loaiTK, Pageable pageable) {
+        return taiKhoanRepository.getTaiKhoansByLoaiTKContainsIgnoreCase(loaiTK, pageable);
     }
 
     private void createNewRegistrationUserToken(TaiKhoan account) {

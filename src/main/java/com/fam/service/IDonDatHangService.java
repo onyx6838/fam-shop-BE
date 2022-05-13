@@ -1,5 +1,6 @@
 package com.fam.service;
 
+import com.fam.dto.order.OrderShipperChangeDto;
 import com.fam.dto.order.OrderStatusChangeDto;
 import com.fam.dto.payment.PaymentDto;
 import com.fam.entity.DonDatHang;
@@ -18,4 +19,6 @@ public interface IDonDatHangService {
     boolean changePaymentTypeOrder(DonDatHang orderNeedToChangePaymentType, int paymentType);
 
     List<Integer> distinctYearDatHang();
+
+    boolean changeShipperDonDat(OrderShipperChangeDto dto);
 }

@@ -1,5 +1,6 @@
 package com.fam.controller.admin;
 
+import com.fam.dto.order.OrderShipperChangeDto;
 import com.fam.dto.order.OrderStatusChangeDto;
 import com.fam.service.IDonDatHangService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,5 +32,10 @@ public class DonDatHangAdminController {
     @PostMapping(value = "/change-status")
     public ResponseEntity<?> changeStatusDonDat(@RequestBody OrderStatusChangeDto form) {
         return new ResponseEntity<>(donDatHangService.changeStatusOrder(form), HttpStatus.OK);
+    }
+
+    @PostMapping(value = "/change-shipper-order")
+    public ResponseEntity<?> changeShipperDonDat(@RequestBody OrderShipperChangeDto form) {
+        return new ResponseEntity<>(donDatHangService.changeShipperDonDat(form), HttpStatus.OK);
     }
 }

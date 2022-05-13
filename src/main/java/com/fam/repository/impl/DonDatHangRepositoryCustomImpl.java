@@ -3,11 +3,7 @@ package com.fam.repository.impl;
 import com.fam.repository.DonDatHangRepositoryCustom;
 import org.springframework.stereotype.Component;
 
-import javax.persistence.EntityManager;
-import javax.persistence.ParameterMode;
-import javax.persistence.PersistenceContext;
-import javax.persistence.StoredProcedureQuery;
-import javax.persistence.Query;
+import javax.persistence.*;
 import java.util.List;
 
 /**
