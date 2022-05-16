@@ -197,6 +197,12 @@ public class SanPhamService implements ISanPhamService {
     }
 
     @Override
+    public List<SanPham> getAllSanPhamWithoutPaging() {
+        Pageable wholePage = Pageable.unpaged();
+        return sanPhamRepository.findAll();
+    }
+
+    @Override
     public SanPham getById(int id) {
         return sanPhamRepository.findById(id).get();
     }

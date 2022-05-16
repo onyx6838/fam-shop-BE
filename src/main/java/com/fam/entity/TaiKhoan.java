@@ -32,6 +32,9 @@ public class TaiKhoan implements Serializable {
     @Column(name = "SDT", unique = true, length = 20)
     private String sdt;
 
+    @Column(name = "DiaChi")
+    private String diaChi;
+
     @Column(name = "LoaiTK",length = 50)
     private String loaiTK;
 

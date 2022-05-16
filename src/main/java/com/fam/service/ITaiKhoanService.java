@@ -1,5 +1,6 @@
 package com.fam.service;
 
+import com.fam.dto.form.ProfileDto;
 import com.fam.entity.TaiKhoan;
 import com.fam.entity.authentication.ResetPasswordToken;
 import org.springframework.data.domain.Page;
@@ -17,7 +18,7 @@ public interface ITaiKhoanService extends UserDetailsService {
 
     TaiKhoan findTaiKhoanByEmail(String email);
 
-    //void changeUserProfile(String username, ChangePublicProfileDto dto);
+    void changeUserProfile(String tenTK, ProfileDto dto);
 
     void activeAccount(String token);
 

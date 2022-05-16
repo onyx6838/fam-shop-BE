@@ -1,5 +1,6 @@
 package com.fam.service.impl;
 
+import com.fam.dto.statistic.CategorySoldWithOrder;
 import com.fam.dto.statistic.OrderPerMonthByYear;
 import com.fam.entity.enumerate.TrangThaiDonDat;
 import com.fam.repository.ICTDDRepository;
@@ -8,8 +9,12 @@ import com.fam.service.IThongKeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
 import java.math.BigInteger;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 /**
@@ -54,5 +59,35 @@ public class ThongKeService implements IThongKeService {
             return or;
         }).collect(Collectors.toList());
         return finalSttData;
+    }
+
+    @Override
+    public List<CategorySoldWithOrder> categorySoldWithOrder() {
+        List<Object[]> sttData = donDatHangRepository.categoryMostSold();
+        List<CategorySoldWithOrder> finalSttData = sttData.stream().map(x -> {
+            CategorySoldWithOrder or = new CategorySoldWithOrder();
+            or.setMaLoai((Integer) x[0]);
+            or.setTenLoai(x[1].toString());
+            or.setSoSPBan(((BigInteger) x[2]).intValue());
+            return or;
+        }).collect(Collectors.toList());
+        return finalSttData;
+    }
+
+    @Override
+    public Map<Integer, List<Object>> productSoldPerMonthInYear(int year) {
+        List<Object[]> sttData = donDatHangRepository.productSoldPerMonthInYear(year);
+
+        Map<Integer, List<Object>> splist2 = new HashMap<>();
+        sttData.forEach(x -> {
+            Object[] objs = x;
+            List<Object> spList = new ArrayList<>();
+            spList.add(objs[1].toString());
+            for (int i = 2; i < objs.length; i++) {
+                spList.add(((BigDecimal) objs[i]).toBigInteger().intValueExact());
+            }
+            splist2.put((Integer) objs[0], spList);
+        });
+        return splist2;
     }
 }

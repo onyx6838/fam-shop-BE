@@ -20,6 +20,8 @@ public interface ISanPhamService {
 
     Page<SanPham> getNewSanPhamsOrderByThoiGian(Pageable pageable);
 
+    List<SanPham> getAllSanPhamWithoutPaging();
+
     SanPham getById(int id);
 
     Page<ProductWithCategoryDto> getByParentLoaiSP(List<CategoryDto> categories, Pageable pageable);

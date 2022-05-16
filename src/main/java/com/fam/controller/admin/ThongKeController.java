@@ -41,4 +41,13 @@ public class ThongKeController {
         return new ResponseEntity<>(thongKeService.statisticOrderByYear(year, trangThaiDonDat), HttpStatus.OK);
     }
 
+    @GetMapping(value = "/category-most-sold")
+    public ResponseEntity<?> categorySoldWithOrder() {
+        return new ResponseEntity<>(thongKeService.categorySoldWithOrder(), HttpStatus.OK);
+    }
+
+    @GetMapping(value = "/product-sold-permonth-year")
+    public ResponseEntity<?> productSoldPerMonthInYear() {
+        return new ResponseEntity<>(thongKeService.productSoldPerMonthInYear(0), HttpStatus.OK);
+    }
 }

@@ -1,6 +1,7 @@
 package com.fam.service.impl;
 
 import com.fam.config.event.OnSendRegistrationUserConfirmViaEmailEvent;
+import com.fam.dto.form.ProfileDto;
 import com.fam.entity.TaiKhoan;
 import com.fam.entity.authentication.RegistrationUserToken;
 import com.fam.entity.authentication.ResetPasswordToken;
@@ -10,6 +11,8 @@ import com.fam.repository.authentication.IRegistrationAccountTokenRepository;
 import com.fam.repository.authentication.IResetPasswordTokenRepository;
 import com.fam.service.IEmailService;
 import com.fam.service.ITaiKhoanService;
+import org.modelmapper.ModelMapper;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.ApplicationEventPublisher;
@@ -84,6 +87,15 @@ public class TaiKhoanService implements ITaiKhoanService {
     @Override
     public TaiKhoan findTaiKhoanByEmail(String email) {
         return taiKhoanRepository.findByEmail(email);
+    }
+
+    @Override
+    public void changeUserProfile(String tenTK, ProfileDto dto) {
+        TaiKhoan tk = getTaiKhoanByTenTK(tenTK);
+        if (tk != null) {
+            BeanUtils.copyProperties(dto, tk);
+            taiKhoanRepository.save(tk);
+        }
     }
 
     @Override

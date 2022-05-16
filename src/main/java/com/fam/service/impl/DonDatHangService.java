@@ -105,4 +105,10 @@ public class DonDatHangService implements IDonDatHangService {
             return false;
         }
     }
+
+    @Override
+    public Page<DonDatHang> getDonDatHangByKhachHang(String tenTK, Pageable pageable) {
+        TaiKhoan tk = taiKhoanService.getTaiKhoanByTenTK(tenTK);
+        return donDatHangRepository.getDonDatHangByKhachHang(tk, pageable);
+    }
 }

@@ -30,4 +30,20 @@ public class DonDatHangRepositoryCustomImpl implements DonDatHangRepositoryCusto
         Query query = em.createQuery("SELECT distinct YEAR(d.thoiGianDat) from DonDatHang d");
         return (List<Integer>) query.getResultList();
     }
+
+    @Override
+    public List<Object[]> categoryMostSold() {
+        StoredProcedureQuery query = em.createStoredProcedureQuery("categoryMostSold");
+        query.execute();
+        return (List<Object[]>) query.getResultList();
+    }
+
+    @Override
+    public List<Object[]> productSoldPerMonthInYear(int year) {
+        StoredProcedureQuery query = em.createStoredProcedureQuery("productSoldPerMonthInYear")
+                .registerStoredProcedureParameter(1, Integer.class, ParameterMode.IN)
+                .setParameter(1, year);
+        query.execute();
+        return (List<Object[]>) query.getResultList();
+    }
 }

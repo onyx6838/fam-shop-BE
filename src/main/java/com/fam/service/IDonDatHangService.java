@@ -21,4 +21,6 @@ public interface IDonDatHangService {
     List<Integer> distinctYearDatHang();
 
     boolean changeShipperDonDat(OrderShipperChangeDto dto);
+
+    Page<DonDatHang> getDonDatHangByKhachHang(String tenTK, Pageable pageable);
 }

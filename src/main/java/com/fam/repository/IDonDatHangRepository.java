@@ -1,7 +1,10 @@
 package com.fam.repository;
 
 import com.fam.entity.DonDatHang;
+import com.fam.entity.TaiKhoan;
 import com.fam.entity.enumerate.TrangThaiDonDat;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -18,4 +21,6 @@ public interface IDonDatHangRepository extends JpaRepository<DonDatHang, Integer
     // So luong khach hang dat don hang thanh cong (HOA_DON) trong nam xac dinh
     @Query("select COUNT(DISTINCT d.khachHang) from DonDatHang d WHERE YEAR(d.thoiGianDat) = :year AND d.trangThai = 'HOA_DON'")
     int countCustomerBuyOrderDone(@Param("year") int year);
+
+    Page<DonDatHang> getDonDatHangByKhachHang(TaiKhoan khachHang, Pageable pageable);
 }
