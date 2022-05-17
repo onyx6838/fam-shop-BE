@@ -18,6 +18,7 @@ import com.fam.specification.SanPhamFilter;
 import com.fam.specification.SanPhamSpecification;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.TypeToken;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -126,10 +127,7 @@ public class SanPhamService implements ISanPhamService {
     public boolean createSanPham(SanPhamCreateDto form) {
         try {
             SanPham sp = new SanPham();
-            sp.setTen(form.getTen());
-            sp.setMoTa(form.getMoTa());
-            sp.setDonGiaBan(form.getDonGiaBan());
-            sp.setDonGiaNhap(form.getDonGiaNhap());
+            BeanUtils.copyProperties(form, sp);
             if (form.getParentSP() != 0) {
                 SanPham spCha = getById(form.getParentSP());
                 sp.setSpCha(spCha);
@@ -154,10 +152,7 @@ public class SanPhamService implements ISanPhamService {
     public boolean updateSanPham(int maSP, SanPhamUpdateDto form) {
         try {
             SanPham sp = sanPhamRepository.findById(maSP).get();
-            sp.setTen(form.getTen());
-            sp.setMoTa(form.getMoTa());
-            sp.setDonGiaBan(form.getDonGiaBan());
-            sp.setDonGiaNhap(form.getDonGiaNhap());
+            BeanUtils.copyProperties(form, sp);
             if (form.getParentSP() != 0) {
                 SanPham spCha = getById(form.getParentSP());
                 sp.setSpCha(spCha);

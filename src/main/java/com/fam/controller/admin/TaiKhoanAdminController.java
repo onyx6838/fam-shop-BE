@@ -26,4 +26,14 @@ public class TaiKhoanAdminController {
     public ResponseEntity<?> getShipperList(@RequestParam("loaiTK") String loaiTK, Pageable pageable) {
         return new ResponseEntity<>(taiKhoanService.getAccountsByLoaiTK(loaiTK, pageable), HttpStatus.OK);
     }
+
+    @GetMapping(value = "/lock-account/{maTK}")
+    public ResponseEntity<?> lockAccount(@PathVariable("maTK") int maTK) {
+        return new ResponseEntity<>(taiKhoanService.lockAccount(maTK), HttpStatus.OK);
+    }
+
+    @GetMapping(value = "/unlock-account/{maTK}")
+    public ResponseEntity<?> unlockAccount(@PathVariable("maTK") int maTK) {
+        return new ResponseEntity<>(taiKhoanService.unlockAccount(maTK), HttpStatus.OK);
+    }
 }

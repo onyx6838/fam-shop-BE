@@ -37,4 +37,7 @@ public interface ITaiKhoanService extends UserDetailsService {
     void resetPasswordViaEmail(String email);
 
     Page<TaiKhoan> getAccountsByLoaiTK(String loaiTK, Pageable pageable);
+
+    boolean lockAccount(int maTK);
+    boolean unlockAccount(int maTK);
 }

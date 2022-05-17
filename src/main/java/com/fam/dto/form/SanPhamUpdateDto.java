@@ -15,6 +15,8 @@ public class SanPhamUpdateDto {
 
     private double donGiaBan;
 
+    private int soLuong;
+
     private int parentSP;
 
     private int childCategory;

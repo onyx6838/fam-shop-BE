@@ -11,7 +11,6 @@ import com.fam.repository.authentication.IRegistrationAccountTokenRepository;
 import com.fam.repository.authentication.IResetPasswordTokenRepository;
 import com.fam.service.IEmailService;
 import com.fam.service.ITaiKhoanService;
-import org.modelmapper.ModelMapper;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -185,6 +184,32 @@ public class TaiKhoanService implements ITaiKhoanService {
     @Override
     public Page<TaiKhoan> getAccountsByLoaiTK(String loaiTK, Pageable pageable) {
         return taiKhoanRepository.getTaiKhoansByLoaiTKContainsIgnoreCase(loaiTK, pageable);
+    }
+
+    @Override
+    public boolean lockAccount(int maTK) {
+        try {
+            TaiKhoan tk = findById(maTK);
+            tk.setTrangThai(TrangThaiTK.NOT_ACTIVE);
+            taiKhoanRepository.save(tk);
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    @Override
+    public boolean unlockAccount(int maTK) {
+        try {
+            TaiKhoan tk = findById(maTK);
+            tk.setTrangThai(TrangThaiTK.ACTIVE);
+            taiKhoanRepository.save(tk);
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
     }
 
     private void createNewRegistrationUserToken(TaiKhoan account) {
