@@ -46,4 +46,13 @@ public class DonDatHangRepositoryCustomImpl implements DonDatHangRepositoryCusto
         query.execute();
         return (List<Object[]>) query.getResultList();
     }
+
+    @Override
+    public List<Object[]> summaryByYear(int year) {
+        StoredProcedureQuery query = em.createStoredProcedureQuery("summaryByYear")
+                .registerStoredProcedureParameter(1, Integer.class, ParameterMode.IN)
+                .setParameter(1, year);
+        query.execute();
+        return (List<Object[]>) query.getResultList();
+    }
 }

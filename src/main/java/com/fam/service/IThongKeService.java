@@ -2,6 +2,7 @@ package com.fam.service;
 
 import com.fam.dto.statistic.CategorySoldWithOrder;
 import com.fam.dto.statistic.OrderPerMonthByYear;
+import com.fam.dto.statistic.SummaryByYear;
 
 import java.util.List;
 import java.util.Map;
@@ -23,4 +24,6 @@ public interface IThongKeService {
     List<CategorySoldWithOrder> categorySoldWithOrder();
 
     Map<Integer, List<Object>> productSoldPerMonthInYear(int year);
+
+    List<SummaryByYear> summaryByYear(int year);
 }

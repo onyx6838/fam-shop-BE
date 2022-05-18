@@ -32,4 +32,11 @@ public class ExcelController {
         excelService.exportToExcelSanPhamSoldPerMonthInYear(response, selectedYear);
         return new ResponseEntity<>("Xuat file excel thanh cong", HttpStatus.OK);
     }
+
+    @GetMapping("/bcao-tong-hop/export/excel/{year}")
+    public ResponseEntity<?> summaryByYear(HttpServletResponse response, @PathVariable(value = "year") int selectedYear) throws IOException {
+        response.setContentType("application/octet-stream");
+        excelService.exportToExcelDoanhThuTongHopInYear(response, selectedYear);
+        return new ResponseEntity<>("Xuat file excel thanh cong", HttpStatus.OK);
+    }
 }
