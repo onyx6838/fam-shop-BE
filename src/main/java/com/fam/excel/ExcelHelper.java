@@ -2,9 +2,7 @@ package com.fam.excel;
 
 import lombok.Getter;
 import lombok.Setter;
-import org.apache.poi.ss.usermodel.Cell;
-import org.apache.poi.ss.usermodel.CellStyle;
-import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFFont;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
@@ -35,6 +33,8 @@ public abstract class ExcelHelper implements IExcelHelper {
         sheet = workbook.createSheet(sheetName);
         Row row = sheet.createRow(0);
         CellStyle style = workbook.createCellStyle();
+        style.setFillForegroundColor(IndexedColors.AQUA.getIndex());
+        style.setFillPattern(FillPatternType.SOLID_FOREGROUND);
         XSSFFont font = workbook.createFont();
         font.setBold(true);
         font.setFontHeight(14);
