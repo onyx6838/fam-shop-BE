@@ -1,5 +1,6 @@
 package com.fam.repository;
 
+import com.fam.entity.LoaiSanPham;
 import com.fam.entity.SanPham;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -32,4 +33,6 @@ public interface ISanPhamRepository
     @Transactional
     @Query("UPDATE SanPham sp SET sp.trangThai = :status WHERE sp.maSP = :maSP")
     void deleteByMaSP(@Param("maSP") int maSP, @Param("status") short status);
+
+    List<SanPham> findByLoaiSanPham(LoaiSanPham lsp);
 }

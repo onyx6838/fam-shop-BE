@@ -67,4 +67,8 @@ public class SanPham implements Serializable {
     @JsonBackReference
     @OneToMany(mappedBy = "spCha")
     private List<SanPham> spConList = new ArrayList<>();
+
+    @JsonManagedReference
+    @OneToMany(mappedBy = "sanPham")
+    private List<DanhGia> danhGiaList;
 }

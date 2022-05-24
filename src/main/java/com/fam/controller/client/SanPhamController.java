@@ -50,4 +50,10 @@ public class SanPhamController {
     public ResponseEntity<?> getProductWithParentLoaiSanPhams(@RequestBody List<CategoryDto> categories, Pageable pageable) {
         return new ResponseEntity<>(sanPhamService.getByParentLoaiSP(categories, pageable), HttpStatus.OK);
     }
+
+    @ApiOperation(value = "5, Danh sách sản phẩm cùng loại với spham đc chọn", notes = "Url: /api/v1/sanphams/category/relate")
+    @GetMapping(value = "/category/relate/{cateId}")
+    public ResponseEntity<?> getRelateProductWithCategory(@PathVariable(value = "cateId") int cateId) {
+        return new ResponseEntity<>(sanPhamService.findByLoaiSanPham(cateId), HttpStatus.OK);
+    }
 }
