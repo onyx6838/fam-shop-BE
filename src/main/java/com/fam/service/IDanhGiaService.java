@@ -13,7 +13,25 @@ import java.util.List;
 public interface IDanhGiaService {
     Page<DanhGia> getAllParentDanhGiaBySanPham(Pageable pageable, int maSP);
 
+    Page<DanhGia> getParentDanhGias(Pageable pageable);
+
     List<DanhGia> getChildDanhGia(int maDanhGiaCha);
 
+    Page<DanhGia> getChildDanhGias(Pageable pageable, int maDanhGiaCha);
+
     DanhGia addDanhGia(DanhGiaCreate form);
+
+    DanhGia addQuanTriDanhGia(DanhGiaCreate form);
+
+    DanhGia updateQuanTriDanhGia(DanhGiaCreate form, int maDanhGia);
+
+    Integer findQuanTriReplyParent(int maDanhGia);
+
+    boolean removeChildDanhGia(int maDanhGia);
+
+    boolean lockChildDanhGia(int maDanhGia);
+
+    boolean unlockChildDanhGia(int maDanhGia);
+
+    boolean checkQuanTriReply(int maDanhGia);
 }

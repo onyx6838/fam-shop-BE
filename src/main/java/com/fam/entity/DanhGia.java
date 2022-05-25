@@ -1,6 +1,6 @@
 package com.fam.entity;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fam.entity.enumerate.TrangThaiBinhLuan;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Getter;
@@ -9,9 +9,7 @@ import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
 /**
  * @author giangdm
@@ -38,13 +36,17 @@ public class DanhGia implements Serializable {
     @Column(name = "SDTNguoiDanhGia")
     private String sdtNguoiDanhGia;
 
+    @Enumerated(EnumType.STRING)
+    @Column(name = "TrangThai")
+    private TrangThaiBinhLuan trangThai;
+
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     @Column(name = "NgayTaoDanhGia")
     @Temporal(TemporalType.TIMESTAMP)
     @CreationTimestamp
     private Date ngayTaoDanhGia;
 
-    @JsonBackReference
+    @JsonManagedReference
     @ManyToOne
     @JoinColumn(name = "MaSP")
     private SanPham sanPham;
@@ -53,6 +55,9 @@ public class DanhGia implements Serializable {
     @JoinColumn(name = "DanhGiaCha")
     //@JsonManagedReference
     private DanhGia danhGiaCha;
+
+    @Column(name = "QuanTriVien")
+    private Boolean quanTriVien;
 
 //    @JsonBackReference
 //    @OneToMany(mappedBy = "danhGiaCha")
