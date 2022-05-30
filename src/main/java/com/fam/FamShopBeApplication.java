@@ -33,7 +33,7 @@ public class FamShopBeApplication {
         SpringApplication.run(FamShopBeApplication.class, args);
     }
 
-    @PostConstruct
-    public void init(){ TimeZone.setDefault(TimeZone.getTimeZone("UTC")); }
+//    @PostConstruct
+//    public void init(){ TimeZone.setDefault(TimeZone.getTimeZone("UTC")); }
 
 }

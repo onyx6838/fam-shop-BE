@@ -25,5 +25,7 @@ public interface IDacTrungService {
 
     boolean createDacTrung(DacTrungCreateDto dto);
 
+    boolean updateDacTrung(int maDacTrung, DacTrungCreateDto dto);
+
     int getFeatureOrderedNumber(String loaiDacTrung);   // lấy ra thứ tự tránh bị unique key
 }

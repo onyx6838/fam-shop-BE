@@ -37,4 +37,9 @@ public class DacTrungAdminController {
     public ResponseEntity<?> createDacTrung(@RequestBody DacTrungCreateDto form) {
         return new ResponseEntity<>(dacTrungService.createDacTrung(form), HttpStatus.OK);
     }
+
+    @PutMapping(value = "/{maDacTrung}")
+    public ResponseEntity<?> updateSanPham(@PathVariable(name = "maDacTrung") int maDacTrung, @RequestBody DacTrungCreateDto form) {
+        return new ResponseEntity<>(dacTrungService.updateDacTrung(maDacTrung, form), HttpStatus.OK);
+    }
 }
