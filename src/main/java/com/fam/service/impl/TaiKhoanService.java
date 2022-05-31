@@ -2,6 +2,7 @@ package com.fam.service.impl;
 
 import com.fam.config.event.OnSendRegistrationUserConfirmViaEmailEvent;
 import com.fam.dto.form.ProfileDto;
+import com.fam.dto.form.TaiKhoanAdminUpdateDto;
 import com.fam.entity.TaiKhoan;
 import com.fam.entity.authentication.RegistrationUserToken;
 import com.fam.entity.authentication.ResetPasswordToken;
@@ -24,6 +25,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.ObjectUtils;
 
 import java.util.UUID;
 
@@ -205,6 +207,24 @@ public class TaiKhoanService implements ITaiKhoanService {
             TaiKhoan tk = findById(maTK);
             tk.setTrangThai(TrangThaiTK.ACTIVE);
             taiKhoanRepository.save(tk);
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    @Override
+    public boolean updateAccountInAdmin(int maTK, TaiKhoanAdminUpdateDto form) {
+        try {
+            TaiKhoan tk = findById(maTK);
+            if (tk != null) {
+                String oldPass = tk.getMatKhau();
+                BeanUtils.copyProperties(form, tk);
+                if(!ObjectUtils.isEmpty(form.getMatKhau())) tk.setMatKhau(passwordEncoder.encode(form.getMatKhau()));
+                else tk.setMatKhau(oldPass);
+                taiKhoanRepository.save(tk);
+            }
             return true;
         } catch (Exception e) {
             e.printStackTrace();
