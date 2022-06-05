@@ -12,6 +12,7 @@ import com.fam.entity.enumerate.TrangThaiDonDat;
 import com.fam.entity.enumerate.TrangThaiTToan;
 import com.fam.repository.ICTDDRepository;
 import com.fam.repository.IDonDatHangRepository;
+import com.fam.repository.ISanPhamRepository;
 import com.fam.service.IDonDatHangService;
 import com.fam.service.ISanPhamService;
 import com.fam.service.ITaiKhoanService;
@@ -36,6 +37,9 @@ public class DonDatHangService implements IDonDatHangService {
 
     @Autowired
     private ISanPhamService sanPhamService;
+
+    @Autowired
+    private ISanPhamRepository sanPhamRepository;
 
     @Override
     public void payment(PaymentDto dto) {
@@ -75,6 +79,20 @@ public class DonDatHangService implements IDonDatHangService {
     public boolean changeStatusOrder(OrderStatusChangeDto form) {
         DonDatHang donNeedToChange = donDatHangRepository.findById(form.getId()).get();
         donNeedToChange.setTrangThai(TrangThaiDonDat.values()[form.getOrderStatus()]);
+        if (TrangThaiDonDat.values()[form.getOrderStatus()] == TrangThaiDonDat.VAN_DON) {
+            donNeedToChange.getListCTDD().forEach(x -> {
+                x.getSanPham().setSoLuong(x.getSanPham().getSoLuong() - x.getSoLuong());
+                sanPhamRepository.save(x.getSanPham());
+            });
+        }
+        if (TrangThaiDonDat.values()[form.getOrderStatus()] == TrangThaiDonDat.HUY_DON
+                && donNeedToChange.getHinhThucTToan() == HinhThucTToan.NHAN_HANG
+                && donNeedToChange.getTrangThai() == TrangThaiDonDat.VAN_DON) {
+            donNeedToChange.getListCTDD().forEach(x -> {
+                x.getSanPham().setSoLuong(x.getSanPham().getSoLuong() + x.getSoLuong());
+                sanPhamRepository.save(x.getSanPham());
+            });
+        }
         if (form.getPaymentType() != -1) {
             changePaymentTypeOrder(donNeedToChange, form.getPaymentType());
         }
