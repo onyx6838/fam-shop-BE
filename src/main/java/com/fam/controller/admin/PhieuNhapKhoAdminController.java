@@ -1,5 +1,6 @@
 package com.fam.controller.admin;
 
+import com.fam.dto.form.PNKCreateDto;
 import com.fam.service.IChiTietPNKService;
 import com.fam.service.IPhieuNhapKhoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,5 +30,10 @@ public class PhieuNhapKhoAdminController {
     @GetMapping(value = "/ctpnk/{maSP}")
     public ResponseEntity<?> getCTPNKByMaSP(@PathVariable("maSP") int maSP, Pageable pageable) {
         return new ResponseEntity<>(chiTietPNKService.getBySanPham(maSP, pageable), HttpStatus.OK);
+    }
+
+    @PostMapping
+    public ResponseEntity<?> createPNK(@RequestBody PNKCreateDto dto) {
+        return new ResponseEntity<>(phieuNhapKhoService.insertPNK(dto), HttpStatus.OK);
     }
 }

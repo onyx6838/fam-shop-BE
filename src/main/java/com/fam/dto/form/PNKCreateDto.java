@@ -3,6 +3,7 @@ package com.fam.dto.form;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -10,25 +11,29 @@ import java.util.List;
  */
 @Data
 public class PNKCreateDto {
-    private ReceiptDto order;
+    private ReceiptDto receipt;
 
-    private List<ReceiptProductItem> cart;
+    private List<ReceiptProductItem> ctpnks;
 
     @Data
     @NoArgsConstructor
     public static class ReceiptDto {
-        private int customerId;
+        private String tenTKQuanTri;
 
-        private String username;
-
-        private Double totalPrice;
+        private String loaiPhieu;
     }
 
     @Data
     @NoArgsConstructor
     public static class ReceiptProductItem {
-        private int id;
+        private int maSP;
 
-        private Integer quantity;
+        private Integer soLuong;
+
+        private Integer tongTienMuc;
+
+        private Date hanSuDung;
+
+        private Integer donGiaNhap;
     }
 }

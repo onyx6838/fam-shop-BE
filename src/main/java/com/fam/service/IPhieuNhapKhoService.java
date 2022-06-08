@@ -1,5 +1,6 @@
 package com.fam.service;
 
+import com.fam.dto.form.PNKCreateDto;
 import com.fam.entity.PhieuNhapKho;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -9,4 +10,6 @@ import org.springframework.data.domain.Pageable;
  */
 public interface IPhieuNhapKhoService {
     Page<PhieuNhapKho> getAllPNK(Pageable pageable);
+
+    boolean insertPNK(PNKCreateDto dto);
 }
