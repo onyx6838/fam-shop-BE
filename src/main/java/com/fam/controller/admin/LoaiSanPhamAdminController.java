@@ -32,4 +32,9 @@ public class LoaiSanPhamAdminController {
     public ResponseEntity<?> createLoaiSanPham(@RequestBody LoaiSanPhamCreateDto form) {
         return new ResponseEntity<>(loaiSanPhamService.createLoaiSanPham(form), HttpStatus.OK);
     }
+
+    @GetMapping(value = "/parents")
+    public ResponseEntity<?> getParentLoaiSanPhamsIncludeAll() {
+        return new ResponseEntity<>(loaiSanPhamService.getParentLoaiSPIncludeAll(), HttpStatus.OK);
+    }
 }

@@ -1,6 +1,7 @@
 package com.fam.service;
 
 import com.fam.dto.form.LoaiSanPhamCreateDto;
+import com.fam.dto.product.ParentCategory;
 import com.fam.entity.LoaiSanPham;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -13,6 +14,8 @@ public interface ILoaiSanPhamService {
     Page<LoaiSanPham> getAllLoaiSanPhams(Pageable pageable);
 
     List<LoaiSanPham> getParentLoaiSP();
+
+    Page<ParentCategory> getParentLoaiSPIncludeAll();    // lay tat ca la cha
 
     List<LoaiSanPham> getChildLoaiSP();
 

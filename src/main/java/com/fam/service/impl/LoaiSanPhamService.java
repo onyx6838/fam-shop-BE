@@ -1,11 +1,15 @@
 package com.fam.service.impl;
 
 import com.fam.dto.form.LoaiSanPhamCreateDto;
+import com.fam.dto.product.ParentCategory;
 import com.fam.entity.LoaiSanPham;
 import com.fam.repository.ILoaiSanPhamRepository;
 import com.fam.service.ILoaiSanPhamService;
+import org.modelmapper.ModelMapper;
+import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
@@ -15,6 +19,9 @@ import java.util.List;
 public class LoaiSanPhamService implements ILoaiSanPhamService {
     @Autowired
     private ILoaiSanPhamRepository loaiSanPhamRepository;
+
+    @Autowired
+    private ModelMapper modelMapper;
 
     @Override
     public List<LoaiSanPham> getAllLoaiSanPhams() {
@@ -29,6 +36,12 @@ public class LoaiSanPhamService implements ILoaiSanPhamService {
     @Override
     public List<LoaiSanPham> getParentLoaiSP() {
         return loaiSanPhamRepository.getParentLoaiSP();
+    }
+
+    @Override
+    public Page<ParentCategory> getParentLoaiSPIncludeAll() {
+        Page<LoaiSanPham> entities = loaiSanPhamRepository.findAll(PageRequest.of(0, Integer.MAX_VALUE));
+        return entities.map(x -> modelMapper.map(x, ParentCategory.class));
     }
 
     @Override
