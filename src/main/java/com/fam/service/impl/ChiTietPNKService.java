@@ -1,7 +1,9 @@
 package com.fam.service.impl;
 
+import com.fam.entity.CTDD;
 import com.fam.entity.ChiTietPNK;
 import com.fam.entity.SanPham;
+import com.fam.repository.ICTDDRepository;
 import com.fam.repository.IChiTietPNKRepository;
 import com.fam.service.IChiTietPNKService;
 import com.fam.service.ISanPhamService;
@@ -19,6 +21,9 @@ public class ChiTietPNKService implements IChiTietPNKService {
     private IChiTietPNKRepository chiTietPNKRepository;
 
     @Autowired
+    private ICTDDRepository ctddRepository;
+
+    @Autowired
     private ISanPhamService sanPhamService;
 
     @Override
@@ -29,5 +34,18 @@ public class ChiTietPNKService implements IChiTietPNKService {
             return pnks;
         }
         return null;
+    }
+
+    @Override
+    public boolean checkCTDDToCTPNK(int maCTPNK, int maCTDDH) {
+        try {
+            CTDD ctdd = ctddRepository.findById(maCTDDH).get();
+            ChiTietPNK ctpnk = chiTietPNKRepository.findById(maCTPNK).get();
+            ctpnk.setCtdd(ctdd);
+            chiTietPNKRepository.save(ctpnk);
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
     }
 }

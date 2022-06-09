@@ -1,6 +1,5 @@
 package com.fam.controller.admin;
 
-import com.fam.dto.form.SanPhamUpdateDto;
 import com.fam.dto.form.TaiKhoanAdminUpdateDto;
 import com.fam.service.ITaiKhoanService;
 import org.springframework.beans.factory.annotation.Autowired;

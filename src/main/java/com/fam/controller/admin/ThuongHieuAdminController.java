@@ -1,5 +1,6 @@
 package com.fam.controller.admin;
 
+import com.fam.dto.form.ThuongHieuUpdateDto;
 import com.fam.service.IThuongHieuService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
@@ -10,6 +11,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 @RestController
 @RequestMapping(value = "api/v1/admin/thuonghieu")
+@CrossOrigin("*")
 public class ThuongHieuAdminController {
     @Autowired
     private IThuongHieuService thuongHieuService;
@@ -34,7 +36,7 @@ public class ThuongHieuAdminController {
 
     @PostMapping(value = "/file/upload")
     public ResponseEntity<?> uploadFileToThuongHieu(@RequestParam("file") MultipartFile file,
-                                                 @RequestParam("id") int id) {
+                                                    @RequestParam("id") int id) {
         thuongHieuService.uploadFileToThuongHieu(file, id);
         return new ResponseEntity<>("Upload thanh cong roi nhe !!", HttpStatus.OK);
     }
@@ -42,5 +44,10 @@ public class ThuongHieuAdminController {
     @GetMapping(value = "/{id}")
     public ResponseEntity<?> getThuongHieuById(@PathVariable(name = "id") int id) {
         return new ResponseEntity<>(thuongHieuService.getById(id), HttpStatus.OK);
+    }
+
+    @PutMapping(value = "/{maThuongHieu}")
+    public ResponseEntity<?> updateSanPham(@PathVariable(name = "maThuongHieu") int maThuongHieu, @RequestBody ThuongHieuUpdateDto form) {
+        return new ResponseEntity<>(thuongHieuService.updateThuongHieu(maThuongHieu, form), HttpStatus.OK);
     }
 }

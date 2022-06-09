@@ -1,6 +1,7 @@
 package com.fam.service.impl;
 
 import com.fam.dto.file.FileUploadDto;
+import com.fam.dto.form.ThuongHieuUpdateDto;
 import com.fam.entity.SanPham;
 import com.fam.entity.ThuongHieu;
 import com.fam.repository.ISanPhamRepository;
@@ -8,6 +9,7 @@ import com.fam.repository.IThuongHieuRepository;
 import com.fam.service.IFireBaseService;
 import com.fam.service.IThuongHieuService;
 import com.fam.specification.SanPhamFilter;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -89,6 +91,21 @@ public class ThuongHieuService implements IThuongHieuService {
             FileUploadDto dto = (FileUploadDto) fireBaseService.upload(file, "brand");
             thuongHieu.setHinhAnh(String.format(FIREBASE_URL, dto.getName(), dto.getToken()));
             thuongHieuRepository.save(thuongHieu);
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    @Override
+    public boolean updateThuongHieu(int maThuongHieu, ThuongHieuUpdateDto form) {
+        try {
+            ThuongHieu th = thuongHieuRepository.findById(maThuongHieu).get();
+            String hinhAnh = th.getHinhAnh();
+            BeanUtils.copyProperties(form, th);
+            th.setHinhAnh(hinhAnh);
+            thuongHieuRepository.save(th);
             return true;
         } catch (Exception e) {
             e.printStackTrace();

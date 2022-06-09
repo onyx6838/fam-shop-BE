@@ -5,7 +5,6 @@ import com.fam.dto.form.SanPhamUpdateDto;
 import com.fam.dto.product.CategoryDto;
 import com.fam.dto.product.ParentProduct;
 import com.fam.dto.product.ProductWithCategoryDto;
-import com.fam.entity.LoaiSanPham;
 import com.fam.entity.SanPham;
 import com.fam.specification.SanPhamFilter;
 import org.springframework.data.domain.Page;

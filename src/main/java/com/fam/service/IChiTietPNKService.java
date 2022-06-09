@@ -9,4 +9,6 @@ import org.springframework.data.domain.Pageable;
  */
 public interface IChiTietPNKService {
     Page<ChiTietPNK> getBySanPham(int maSP, Pageable pageable);
+
+    boolean checkCTDDToCTPNK(int maCTPNK, int maCTDDH);
 }

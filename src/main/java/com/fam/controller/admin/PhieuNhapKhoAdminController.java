@@ -1,5 +1,6 @@
 package com.fam.controller.admin;
 
+import com.fam.dto.form.CheckCTDDHToCTPNKDto;
 import com.fam.dto.form.PNKCreateDto;
 import com.fam.service.IChiTietPNKService;
 import com.fam.service.IPhieuNhapKhoService;
@@ -35,5 +36,10 @@ public class PhieuNhapKhoAdminController {
     @PostMapping
     public ResponseEntity<?> createPNK(@RequestBody PNKCreateDto dto) {
         return new ResponseEntity<>(phieuNhapKhoService.insertPNK(dto), HttpStatus.OK);
+    }
+
+    @PostMapping("/check/ctddh/ctpnk")
+    public ResponseEntity<?> checkCTDDHToCTPNK(@RequestBody CheckCTDDHToCTPNKDto dto) {
+        return new ResponseEntity<>(chiTietPNKService.checkCTDDToCTPNK(dto.getMaCTPNK(), dto.getMaCTDDH()), HttpStatus.OK);
     }
 }

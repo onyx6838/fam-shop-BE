@@ -1,5 +1,6 @@
 package com.fam.service;
 
+import com.fam.dto.form.ThuongHieuUpdateDto;
 import com.fam.entity.ThuongHieu;
 import com.fam.specification.SanPhamFilter;
 import org.springframework.data.domain.Page;
@@ -18,6 +19,8 @@ public interface IThuongHieuService {
     Page<ThuongHieu> getAllThuongHieus();
 
     boolean createThuongHieu(String tenThuongHieu, MultipartFile file);
+
+    boolean updateThuongHieu(int maThuongHieu, ThuongHieuUpdateDto form);
 
     void uploadFileToThuongHieu(MultipartFile file, int selectedId);
 
