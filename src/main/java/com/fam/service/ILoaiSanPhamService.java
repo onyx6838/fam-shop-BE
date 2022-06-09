@@ -1,6 +1,7 @@
 package com.fam.service;
 
 import com.fam.dto.form.LoaiSanPhamCreateDto;
+import com.fam.dto.form.LoaiSanPhamUpdateDto;
 import com.fam.dto.product.ParentCategory;
 import com.fam.entity.LoaiSanPham;
 import org.springframework.data.domain.Page;
@@ -20,4 +21,6 @@ public interface ILoaiSanPhamService {
     List<LoaiSanPham> getChildLoaiSP();
 
     boolean createLoaiSanPham(LoaiSanPhamCreateDto form);
+
+    boolean updateLoaiSanPham(int maLSP, LoaiSanPhamUpdateDto form);
 }

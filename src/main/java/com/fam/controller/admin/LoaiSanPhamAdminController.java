@@ -1,6 +1,7 @@
 package com.fam.controller.admin;
 
 import com.fam.dto.form.LoaiSanPhamCreateDto;
+import com.fam.dto.form.LoaiSanPhamUpdateDto;
 import com.fam.service.ILoaiSanPhamService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
@@ -36,5 +37,10 @@ public class LoaiSanPhamAdminController {
     @GetMapping(value = "/parents")
     public ResponseEntity<?> getParentLoaiSanPhamsIncludeAll() {
         return new ResponseEntity<>(loaiSanPhamService.getParentLoaiSPIncludeAll(), HttpStatus.OK);
+    }
+
+    @PutMapping(value = "/{maLSP}")
+    public ResponseEntity<?> updateSanPham(@PathVariable(name = "maLSP") int maLSP, @RequestBody LoaiSanPhamUpdateDto form) {
+        return new ResponseEntity<>(loaiSanPhamService.updateLoaiSanPham(maLSP, form), HttpStatus.OK);
     }
 }
