@@ -67,7 +67,6 @@ public class DonDatHangService implements IDonDatHangService {
             ctdd.setSoLuong(x.getQty());
             ctddRepository.save(ctdd);
         });
-
     }
 
     @Override
@@ -93,17 +92,20 @@ public class DonDatHangService implements IDonDatHangService {
                 sanPhamRepository.save(x.getSanPham());
             });
         }
-        if (form.getPaymentType() != -1) {
-            changePaymentTypeOrder(donNeedToChange, form.getPaymentType());
-        }
         donDatHangRepository.save(donNeedToChange);
         return true;
     }
 
     @Override
-    public boolean changePaymentTypeOrder(DonDatHang orderNeedToChangePaymentType, int paymentType) {
-        orderNeedToChangePaymentType.setTrangThaiTToan(TrangThaiTToan.values()[paymentType]);
-        return true;
+    public boolean changeStatusPaymentOrder(OrderStatusChangeDto form) {
+        try {
+            DonDatHang donNeedToChange = donDatHangRepository.findById(form.getId()).get();
+            donNeedToChange.setTrangThaiTToan(TrangThaiTToan.values()[form.getPaymentType()]);
+            donDatHangRepository.save(donNeedToChange);
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
     }
 
     @Override

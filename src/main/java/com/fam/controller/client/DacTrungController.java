@@ -1,5 +1,6 @@
 package com.fam.controller.client;
 
+import com.fam.service.IDacTrungSanPhamService;
 import com.fam.service.IDacTrungService;
 import com.fam.specification.SanPhamFilter;
 import io.swagger.annotations.Api;
@@ -17,6 +18,9 @@ public class DacTrungController {
     @Autowired
     private IDacTrungService dacTrungService;
 
+    @Autowired
+    private IDacTrungSanPhamService dacTrungSanPhamService;
+
     @ApiOperation(value = "1, Lấy tất cả các đặc trưng nhóm theo loại đặc trưng", notes = "Url: /api/v1/dactrung")
     @GetMapping
     public ResponseEntity<?> getAllDacTrungsGroupByLoai() {
@@ -27,5 +31,10 @@ public class DacTrungController {
     @PostMapping(value = "/category")
     public ResponseEntity<?> getAllDacTrungsGroupByLoai(@RequestBody SanPhamFilter sanPhamFilter) {
         return new ResponseEntity<>(dacTrungService.getFeatureByLoaiSP(sanPhamFilter), HttpStatus.OK);
+    }
+
+    @GetMapping(value = "/dtsp/{maSP}")
+    public ResponseEntity<?> getDTSPBySanPham(@PathVariable("maSP") int maSP) {
+        return new ResponseEntity<>(dacTrungSanPhamService.getDTSPBySanPham(maSP), HttpStatus.OK);
     }
 }

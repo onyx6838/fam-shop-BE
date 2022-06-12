@@ -5,7 +5,8 @@ import com.fam.entity.enumerate.TrangThaiDonDat;
 import com.fam.entity.enumerate.TrangThaiTToan;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
@@ -13,7 +14,8 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
-@Data
+@Getter
+@Setter
 @Entity
 @Table(name = "DonDatHang", uniqueConstraints = @UniqueConstraint(columnNames = {"MaTK", "ThoiGianDat"}))
 public class DonDatHang implements Serializable {

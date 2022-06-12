@@ -52,8 +52,9 @@ public class SanPhamController {
     }
 
     @ApiOperation(value = "5, Danh sách sản phẩm cùng loại với spham đc chọn", notes = "Url: /api/v1/sanphams/category/relate")
-    @GetMapping(value = "/category/relate/{cateId}")
-    public ResponseEntity<?> getRelateProductWithCategory(@PathVariable(value = "cateId") int cateId) {
-        return new ResponseEntity<>(sanPhamService.findByLoaiSanPham(cateId), HttpStatus.OK);
+    @GetMapping(value = "/category/relate/{cateId}/{maSP}")
+    public ResponseEntity<?> getRelateProductWithCategory(@PathVariable(value = "cateId") int cateId,
+                                                          @PathVariable(value = "maSP") int maSP) {
+        return new ResponseEntity<>(sanPhamService.findByLoaiSanPham(cateId, maSP), HttpStatus.OK);
     }
 }

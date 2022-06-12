@@ -16,7 +16,7 @@ public interface IDonDatHangService {
 
     boolean changeStatusOrder(OrderStatusChangeDto form);
 
-    boolean changePaymentTypeOrder(DonDatHang orderNeedToChangePaymentType, int paymentType);
+    boolean changeStatusPaymentOrder(OrderStatusChangeDto form);
 
     List<Integer> distinctYearDatHang();
 

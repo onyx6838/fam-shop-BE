@@ -14,6 +14,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 /**
  * @author giangdm
  */
@@ -36,6 +38,12 @@ public class DacTrungSanPhamService implements IDacTrungSanPhamService {
     @Override
     public Page<DacTrung> getDacTrungBySanPham(int maSP, Pageable pageable) {
         return dacTrungSanPhamRepository.getDacTrungBySanPham(maSP, pageable);
+    }
+
+    @Override
+    public List<DacTrungSanPham> getDTSPBySanPham(int maSP) {
+        SanPham sp = sanPhamService.getById(maSP);
+        return dacTrungSanPhamRepository.getDacTrungSanPhamBySanPham(sp);
     }
 
     @Override

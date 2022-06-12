@@ -1,11 +1,13 @@
 package com.fam.entity;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
 
-@Data
+@Getter
+@Setter
 @Entity
 @Table(name = "CTDD", uniqueConstraints = @UniqueConstraint(columnNames = {"MaDonDat", "MaSP"}))
 public class CTDD {

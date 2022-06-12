@@ -198,9 +198,11 @@ public class SanPhamService implements ISanPhamService {
     }
 
     @Override
-    public List<SanPham> findByLoaiSanPham(int cateId) {
+    public List<SanPham> findByLoaiSanPham(int cateId, int maSP) {
         LoaiSanPham lsp = loaiSanPhamRepository.findById(cateId).get();
-        return sanPhamRepository.findByLoaiSanPham(lsp);
+        List<SanPham> rs = sanPhamRepository.findByLoaiSanPham(lsp);
+        List<SanPham> lst = rs.stream().filter(x -> x.getMaSP() != maSP).collect(Collectors.toList());
+        return lst;
     }
 
     @Override

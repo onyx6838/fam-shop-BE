@@ -22,7 +22,7 @@ public interface ISanPhamService {
 
     List<SanPham> getAllSanPhamWithoutPaging();
 
-    List<SanPham> findByLoaiSanPham(int cateId);
+    List<SanPham> findByLoaiSanPham(int cateId, int maSP);
 
     SanPham getById(int id);
 

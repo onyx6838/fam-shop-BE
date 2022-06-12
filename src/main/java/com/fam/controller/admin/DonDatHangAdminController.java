@@ -34,6 +34,11 @@ public class DonDatHangAdminController {
         return new ResponseEntity<>(donDatHangService.changeStatusOrder(form), HttpStatus.OK);
     }
 
+    @PostMapping(value = "/change-payment")
+    public ResponseEntity<?> changeStatusTToan(@RequestBody OrderStatusChangeDto form) {
+        return new ResponseEntity<>(donDatHangService.changeStatusPaymentOrder(form), HttpStatus.OK);
+    }
+
     @PostMapping(value = "/change-shipper-order")
     public ResponseEntity<?> changeShipperDonDat(@RequestBody OrderShipperChangeDto form) {
         return new ResponseEntity<>(donDatHangService.changeShipperDonDat(form), HttpStatus.OK);

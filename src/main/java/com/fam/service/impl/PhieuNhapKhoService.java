@@ -1,8 +1,10 @@
 package com.fam.service.impl;
 
 import com.fam.dto.form.PNKCreateDto;
-import com.fam.entity.*;
-import com.fam.repository.ICTDDRepository;
+import com.fam.entity.ChiTietPNK;
+import com.fam.entity.PhieuNhapKho;
+import com.fam.entity.SanPham;
+import com.fam.entity.TaiKhoan;
 import com.fam.repository.IChiTietPNKRepository;
 import com.fam.repository.IPhieuNhapKhoRepository;
 import com.fam.repository.ISanPhamRepository;
