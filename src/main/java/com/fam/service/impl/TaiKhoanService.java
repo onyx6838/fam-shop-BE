@@ -2,6 +2,7 @@ package com.fam.service.impl;
 
 import com.fam.config.event.OnSendRegistrationUserConfirmViaEmailEvent;
 import com.fam.dto.form.ProfileDto;
+import com.fam.dto.form.TaiKhoanAdminCreateDto;
 import com.fam.dto.form.TaiKhoanAdminUpdateDto;
 import com.fam.entity.TaiKhoan;
 import com.fam.entity.authentication.RegistrationUserToken;
@@ -221,10 +222,25 @@ public class TaiKhoanService implements ITaiKhoanService {
             if (tk != null) {
                 String oldPass = tk.getMatKhau();
                 BeanUtils.copyProperties(form, tk);
-                if(!ObjectUtils.isEmpty(form.getMatKhau())) tk.setMatKhau(passwordEncoder.encode(form.getMatKhau()));
+                if (!ObjectUtils.isEmpty(form.getMatKhau())) tk.setMatKhau(passwordEncoder.encode(form.getMatKhau()));
                 else tk.setMatKhau(oldPass);
                 taiKhoanRepository.save(tk);
             }
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    @Override
+    public boolean createAccountInAdmin(TaiKhoanAdminCreateDto form) {
+        try {
+            TaiKhoan tk = new TaiKhoan();
+            BeanUtils.copyProperties(form, tk);
+            tk.setMatKhau(passwordEncoder.encode(tk.getMatKhau()));
+            tk.setTrangThai(TrangThaiTK.ACTIVE);
+            taiKhoanRepository.save(tk);
             return true;
         } catch (Exception e) {
             e.printStackTrace();

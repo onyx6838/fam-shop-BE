@@ -47,6 +47,12 @@ public class TaiKhoanController {
         return new ResponseEntity<>(result, HttpStatus.OK);
     }
 
+    @GetMapping("/tenTK/{tenTK}")
+    public ResponseEntity<?> existsTKByTenTK(@PathVariable(name = "tenTK") String tenTK) {
+        boolean result = taiKhoanService.existsByTenTK(tenTK);
+        return new ResponseEntity<>(result, HttpStatus.OK);
+    }
+
     @PostMapping("/register")
     public ResponseEntity<?> dangKy(@RequestBody TaiKhoanCreateDto request) {
         TaiKhoan taiKhoan;

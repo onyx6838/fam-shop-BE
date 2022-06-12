@@ -1,6 +1,7 @@
 package com.fam.service;
 
 import com.fam.dto.form.ProfileDto;
+import com.fam.dto.form.TaiKhoanAdminCreateDto;
 import com.fam.dto.form.TaiKhoanAdminUpdateDto;
 import com.fam.entity.TaiKhoan;
 import com.fam.entity.authentication.ResetPasswordToken;
@@ -43,4 +44,6 @@ public interface ITaiKhoanService extends UserDetailsService {
     boolean unlockAccount(int maTK);
 
     boolean updateAccountInAdmin(int maTK, TaiKhoanAdminUpdateDto form);
+
+    boolean createAccountInAdmin(TaiKhoanAdminCreateDto form);
 }

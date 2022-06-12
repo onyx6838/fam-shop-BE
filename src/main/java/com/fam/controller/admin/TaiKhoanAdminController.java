@@ -1,6 +1,9 @@
 package com.fam.controller.admin;
 
+import com.fam.dto.form.TaiKhoanAdminCreateDto;
 import com.fam.dto.form.TaiKhoanAdminUpdateDto;
+import com.fam.dto.form.TaiKhoanCreateDto;
+import com.fam.entity.TaiKhoan;
 import com.fam.service.ITaiKhoanService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
@@ -41,5 +44,10 @@ public class TaiKhoanAdminController {
     @PutMapping(value = "/{maTK}")
     public ResponseEntity<?> updateAccount(@PathVariable(name = "maTK") int maTK, @RequestBody TaiKhoanAdminUpdateDto form) {
         return new ResponseEntity<>(taiKhoanService.updateAccountInAdmin(maTK, form), HttpStatus.OK);
+    }
+
+    @PostMapping
+    public ResponseEntity<?> createAccount(@RequestBody TaiKhoanAdminCreateDto request) {
+        return new ResponseEntity<>(taiKhoanService.createAccountInAdmin(request), HttpStatus.OK);
     }
 }

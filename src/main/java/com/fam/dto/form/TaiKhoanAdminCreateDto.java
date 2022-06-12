@@ -6,12 +6,14 @@ import lombok.Data;
  * @author giangdm
  */
 @Data
-public class TaiKhoanAdminUpdateDto {
+public class TaiKhoanAdminCreateDto {
     private String diaChi;
 
     private String hoTen;
 
     private String matKhau;
+
+    private String tenTK;
 
     private String sdt;
 
