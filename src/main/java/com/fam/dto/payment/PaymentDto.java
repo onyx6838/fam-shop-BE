@@ -37,8 +37,8 @@ public class PaymentDto {
 
         private String email;
 
-        @NotNull
-        private String address;
+//        @NotNull
+//        private String address;
 
         private String shipAddress;
 
