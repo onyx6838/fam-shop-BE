@@ -1,0 +1,640 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Root>
+    <Item id="101" type="province" value="Hà Nội">
+        <Item id="10151" type="district" value="Huyện Ba Vì">
+            <Item id="1015149" type="precinct" value="Thị trấn Tây Đằng"/>
+            <Item id="1015135" type="precinct" value="Xã Ba Trại"/>
+            <Item id="1015139" type="precinct" value="Xã Ba Vì"/>
+            <Item id="1015131" type="precinct" value="Xã Cam Thượng"/>
+            <Item id="1015121" type="precinct" value="Xã Chu Minh"/>
+            <Item id="1015107" type="precinct" value="Xã Châu Sơn"/>
+            <Item id="1015123" type="precinct" value="Xã Cẩm Lĩnh"/>
+            <Item id="1015103" type="precinct" value="Xã Cổ Đô"/>
+            <Item id="1015141" type="precinct" value="Xã Khánh Thượng"/>
+            <Item id="1015119" type="precinct" value="Xã Minh Châu"/>
+            <Item id="1015137" type="precinct" value="Xã Minh Quang"/>
+            <Item id="1015109" type="precinct" value="Xã Phong Vân"/>
+            <Item id="1015113" type="precinct" value="Xã Phú Châu"/>
+            <Item id="1015101" type="precinct" value="Xã Phú Cường"/>
+            <Item id="1015153" type="precinct" value="Xã Phú Phương"/>
+            <Item id="1015155" type="precinct" value="Xã Phú Sơn"/>
+            <Item id="1015111" type="precinct" value="Xã Phú Đông"/>
+            <Item id="1015125" type="precinct" value="Xã Sơn Đà"/>
+            <Item id="1015133" type="precinct" value="Xã Thuần Mỹ"/>
+            <Item id="1015115" type="precinct" value="Xã Thái Hòa"/>
+            <Item id="1015129" type="precinct" value="Xã Thụy An"/>
+            <Item id="1015159" type="precinct" value="Xã Tiên Phong"/>
+            <Item id="1015157" type="precinct" value="Xã Tòng Bạt"/>
+            <Item id="1015105" type="precinct" value="Xã Tản Hồng"/>
+            <Item id="1015161" type="precinct" value="Xã Tản Lĩnh"/>
+            <Item id="1015163" type="precinct" value="Xã Vân Hòa"/>
+            <Item id="1015151" type="precinct" value="Xã Vạn Thắng"/>
+            <Item id="1015145" type="precinct" value="Xã Vật Lại"/>
+            <Item id="1015147" type="precinct" value="Xã Yên Bài"/>
+            <Item id="1015127" type="precinct" value="Xã Đông Quang"/>
+            <Item id="1015117" type="precinct" value="Xã Đồng Thái"/>
+        </Item>
+        <Item id="10153" type="district" value="Huyện Chương Mỹ">
+            <Item id="1015325" type="precinct" value="Thị trấn Chúc Sơn"/>
+            <Item id="1015327" type="precinct" value="Thị trấn Xuân Mai"/>
+            <Item id="1015353" type="precinct" value="Xã Hoàng Diệu"/>
+            <Item id="1015351" type="precinct" value="Xã Hoàng Văn Thụ"/>
+            <Item id="1015365" type="precinct" value="Xã Hòa Chính"/>
+            <Item id="1015321" type="precinct" value="Xã Hồng Phong"/>
+            <Item id="1015317" type="precinct" value="Xã Hợp Đồng"/>
+            <Item id="1015319" type="precinct" value="Xã Hữu Văn"/>
+            <Item id="1015345" type="precinct" value="Xã Lam Điền"/>
+            <Item id="1015355" type="precinct" value="Xã Mỹ Lương"/>
+            <Item id="1015349" type="precinct" value="Xã Nam Phương Tiến"/>
+            <Item id="1015337" type="precinct" value="Xã Ngọc Hòa"/>
+            <Item id="1015307" type="precinct" value="Xã Phú Nam An"/>
+            <Item id="1015311" type="precinct" value="Xã Phú Nghĩa"/>
+            <Item id="1015309" type="precinct" value="Xã Phụng Châu"/>
+            <Item id="1015305" type="precinct" value="Xã Quảng Bị"/>
+            <Item id="1015339" type="precinct" value="Xã Thanh Bình"/>
+            <Item id="1015357" type="precinct" value="Xã Thượng Vực"/>
+            <Item id="1015343" type="precinct" value="Xã Thụy Hương"/>
+            <Item id="1015313" type="precinct" value="Xã Thủy Xuân Tiên"/>
+            <Item id="1015301" type="precinct" value="Xã Tiên Phương"/>
+            <Item id="1015341" type="precinct" value="Xã Trung Hòa"/>
+            <Item id="1015335" type="precinct" value="Xã Trường Yên"/>
+            <Item id="1015361" type="precinct" value="Xã Trần Phú"/>
+            <Item id="1015347" type="precinct" value="Xã Tân Tiến"/>
+            <Item id="1015315" type="precinct" value="Xã Tốt Động"/>
+            <Item id="1015363" type="precinct" value="Xã Văn Võ"/>
+            <Item id="1015331" type="precinct" value="Xã Đông Phương Yên"/>
+            <Item id="1015329" type="precinct" value="Xã Đông Sơn"/>
+            <Item id="1015303" type="precinct" value="Xã Đại Yên"/>
+            <Item id="1015323" type="precinct" value="Xã Đồng Lạc"/>
+            <Item id="1015359" type="precinct" value="Xã Đồng Phú"/>
+        </Item>
+        <Item id="10119" type="district" value="Huyện Gia Lâm">
+            <Item id="1011911" type="precinct" value="Thị trấn Yên Viên"/>
+            <Item id="1011903" type="precinct" value="Xã Bát Tràng"/>
+            <Item id="1011923" type="precinct" value="Xã Cổ Bi"/>
+            <Item id="1011919" type="precinct" value="Xã Dương Hà"/>
+            <Item id="1011931" type="precinct" value="Xã Dương Quang"/>
+            <Item id="1011943" type="precinct" value="Xã Dương Xá"/>
+            <Item id="1011905" type="precinct" value="Xã Kim Lan"/>
+            <Item id="1011927" type="precinct" value="Xã Kim Sơn"/>
+            <Item id="1011901" type="precinct" value="Xã Kiêu Kỵ"/>
+            <Item id="1011935" type="precinct" value="Xã Lệ Chi"/>
+            <Item id="1011937" type="precinct" value="Xã Ninh Hiệp"/>
+            <Item id="1011921" type="precinct" value="Xã Phù Đổng"/>
+            <Item id="1011941" type="precinct" value="Xã Phú Thị"/>
+            <Item id="1011939" type="precinct" value="Xã Trung Mầu"/>
+            <Item id="1011929" type="precinct" value="Xã Trâu Quỳ"/>
+            <Item id="1011907" type="precinct" value="Xã Văn Đức"/>
+            <Item id="1011913" type="precinct" value="Xã Yên Thường"/>
+            <Item id="1011915" type="precinct" value="Xã Yên Viên"/>
+            <Item id="1011909" type="precinct" value="Xã Đa Tốn"/>
+            <Item id="1011917" type="precinct" value="Xã Đình Xuyên"/>
+            <Item id="1011933" type="precinct" value="Xã Đông Dư"/>
+            <Item id="1011925" type="precinct" value="Xã Đặng Xá"/>
+        </Item>
+        <Item id="10137" type="district" value="Huyện Hoài Đức">
+            <Item id="1013715" type="precinct" value="Thị trấn Trạm Trôi"/>
+            <Item id="1013711" type="precinct" value="Xã An Khánh"/>
+            <Item id="1013735" type="precinct" value="Xã An Thượng"/>
+            <Item id="1013723" type="precinct" value="Xã Cát Quế"/>
+            <Item id="1013701" type="precinct" value="Xã Di Trạch"/>
+            <Item id="1013705" type="precinct" value="Xã Dương Liễu"/>
+            <Item id="1013707" type="precinct" value="Xã Kim Chung"/>
+            <Item id="1013739" type="precinct" value="Xã La Phù"/>
+            <Item id="1013731" type="precinct" value="Xã Lại Yên"/>
+            <Item id="1013719" type="precinct" value="Xã Minh Khai"/>
+            <Item id="1013703" type="precinct" value="Xã Song Phương"/>
+            <Item id="1013727" type="precinct" value="Xã Sơn Đồng"/>
+            <Item id="1013733" type="precinct" value="Xã Tiền Yên"/>
+            <Item id="1013729" type="precinct" value="Xã Vân Canh"/>
+            <Item id="1013737" type="precinct" value="Xã Vân Côn"/>
+            <Item id="1013725" type="precinct" value="Xã Yên Sở"/>
+            <Item id="1013713" type="precinct" value="Xã Đông La"/>
+            <Item id="1013709" type="precinct" value="Xã Đắc Sở"/>
+            <Item id="1013721" type="precinct" value="Xã Đức Giang"/>
+            <Item id="1013717" type="precinct" value="Xã Đức Thượng"/>
+        </Item>
+        <Item id="10125" type="district" value="Huyện Mê Linh">
+            <Item id="1012535" type="precinct" value="Thị trấn Chi Đông"/>
+            <Item id="1012525" type="precinct" value="Thị trấn Quang Minh"/>
+            <Item id="1012515" type="precinct" value="Xã Chu Phan"/>
+            <Item id="1012521" type="precinct" value="Xã Hoàng Kim"/>
+            <Item id="1012503" type="precinct" value="Xã Kim Hoa"/>
+            <Item id="1012511" type="precinct" value="Xã Liên Mạc"/>
+            <Item id="1012517" type="precinct" value="Xã Mê Linh"/>
+            <Item id="1012529" type="precinct" value="Xã Tam Đồng"/>
+            <Item id="1012509" type="precinct" value="Xã Thanh Lâm"/>
+            <Item id="1012505" type="precinct" value="Xã Thạch Đà"/>
+            <Item id="1012527" type="precinct" value="Xã Tiến Thắng"/>
+            <Item id="1012531" type="precinct" value="Xã Tiến Thịnh"/>
+            <Item id="1012533" type="precinct" value="Xã Tiền Phong"/>
+            <Item id="1012523" type="precinct" value="Xã Tráng Việt"/>
+            <Item id="1012507" type="precinct" value="Xã Tự Lập"/>
+            <Item id="1012519" type="precinct" value="Xã Văn Khê"/>
+            <Item id="1012513" type="precinct" value="Xã Vạn Yên"/>
+            <Item id="1012501" type="precinct" value="Xã Đại Thịnh"/>
+        </Item>
+        <Item id="10145" type="district" value="Huyện Mỹ Đức">
+            <Item id="1014501" type="precinct" value="Thị trấn Đại Nghĩa"/>
+            <Item id="1014507" type="precinct" value="Xã An Mỹ"/>
+            <Item id="1014527" type="precinct" value="Xã An Phú"/>
+            <Item id="1014503" type="precinct" value="Xã An Tiến"/>
+            <Item id="1014539" type="precinct" value="Xã Bột Xuyên"/>
+            <Item id="1014521" type="precinct" value="Xã Hùng Tiến"/>
+            <Item id="1014519" type="precinct" value="Xã Hương Sơn"/>
+            <Item id="1014541" type="precinct" value="Xã Hồng Sơn"/>
+            <Item id="1014525" type="precinct" value="Xã Hợp Thanh"/>
+            <Item id="1014523" type="precinct" value="Xã Hợp Tiến"/>
+            <Item id="1014543" type="precinct" value="Xã Lê Thanh"/>
+            <Item id="1014537" type="precinct" value="Xã Mỹ Thành"/>
+            <Item id="1014511" type="precinct" value="Xã Phù Lưu Tế"/>
+            <Item id="1014529" type="precinct" value="Xã Phùng Xá"/>
+            <Item id="1014505" type="precinct" value="Xã Phúc Lâm"/>
+            <Item id="1014533" type="precinct" value="Xã Thượng Lâm"/>
+            <Item id="1014535" type="precinct" value="Xã Tuy Lai"/>
+            <Item id="1014515" type="precinct" value="Xã Vạn Kim"/>
+            <Item id="1014509" type="precinct" value="Xã Xuy Xá"/>
+            <Item id="1014513" type="precinct" value="Xã Đại Hưng"/>
+            <Item id="1014517" type="precinct" value="Xã Đốc Tín"/>
+            <Item id="1014531" type="precinct" value="Xã Đồng Tâm"/>
+        </Item>
+        <Item id="10149" type="district" value="Huyện Phú Xuyên">
+            <Item id="1014921" type="precinct" value="Thị trấn Phú Minh"/>
+            <Item id="1014917" type="precinct" value="Thị trấn Phú Xuyên"/>
+            <Item id="1014953" type="precinct" value="Xã Bạch Hạ"/>
+            <Item id="1014909" type="precinct" value="Xã Chuyên Mỹ"/>
+            <Item id="1014955" type="precinct" value="Xã Châu Can"/>
+            <Item id="1014935" type="precinct" value="Xã Hoàng Long"/>
+            <Item id="1014923" type="precinct" value="Xã Hồng Minh"/>
+            <Item id="1014933" type="precinct" value="Xã Hồng Thái"/>
+            <Item id="1014903" type="precinct" value="Xã Khai Thái"/>
+            <Item id="1014905" type="precinct" value="Xã Minh Tân"/>
+            <Item id="1014907" type="precinct" value="Xã Nam Phong"/>
+            <Item id="1014939" type="precinct" value="Xã Nam Triều"/>
+            <Item id="1014901" type="precinct" value="Xã Phú Túc"/>
+            <Item id="1014951" type="precinct" value="Xã Phú Yên"/>
+            <Item id="1014945" type="precinct" value="Xã Phúc Tiến"/>
+            <Item id="1014925" type="precinct" value="Xã Phượng Dực"/>
+            <Item id="1014913" type="precinct" value="Xã Quang Lãng"/>
+            <Item id="1014937" type="precinct" value="Xã Quang Trung"/>
+            <Item id="1014943" type="precinct" value="Xã Sơn Hà"/>
+            <Item id="1014919" type="precinct" value="Xã Thụy Phú"/>
+            <Item id="1014911" type="precinct" value="Xã Tri Thủy"/>
+            <Item id="1014929" type="precinct" value="Xã Tri Trung"/>
+            <Item id="1014941" type="precinct" value="Xã Tân Dân"/>
+            <Item id="1014947" type="precinct" value="Xã Vân Từ"/>
+            <Item id="1014915" type="precinct" value="Xã Văn Hoàng"/>
+            <Item id="1014927" type="precinct" value="Xã Văn Nhân"/>
+            <Item id="1014931" type="precinct" value="Xã Đại Thắng"/>
+            <Item id="1014949" type="precinct" value="Xã Đại Xuyên"/>
+        </Item>
+        <Item id="10131" type="district" value="Huyện Phúc Thọ">
+            <Item id="1013133" type="precinct" value="Thị trấn Phúc Thọ"/>
+            <Item id="1013111" type="precinct" value="Xã Cẩm Đình"/>
+            <Item id="1013143" type="precinct" value="Xã Hiệp Thuận"/>
+            <Item id="1013131" type="precinct" value="Xã Hát Môn"/>
+            <Item id="1013145" type="precinct" value="Xã Liên Hiệp"/>
+            <Item id="1013115" type="precinct" value="Xã Long Xuyên"/>
+            <Item id="1013141" type="precinct" value="Xã Ngọc Tảo"/>
+            <Item id="1013123" type="precinct" value="Xã Phúc Hòa"/>
+            <Item id="1013135" type="precinct" value="Xã Phương Độ"/>
+            <Item id="1013125" type="precinct" value="Xã Phụng Thượng"/>
+            <Item id="1013109" type="precinct" value="Xã Sen Chiểu"/>
+            <Item id="1013129" type="precinct" value="Xã Tam Hiệp"/>
+            <Item id="1013127" type="precinct" value="Xã Tam Thuấn"/>
+            <Item id="1013119" type="precinct" value="Xã Thanh Đa"/>
+            <Item id="1013117" type="precinct" value="Xã Thượng Cốc"/>
+            <Item id="1013137" type="precinct" value="Xã Thọ Lộc"/>
+            <Item id="1013121" type="precinct" value="Xã Trạch Mỹ Lộc"/>
+            <Item id="1013139" type="precinct" value="Xã Tích Giang"/>
+            <Item id="1013101" type="precinct" value="Xã Vân Hà"/>
+            <Item id="1013105" type="precinct" value="Xã Vân Nam"/>
+            <Item id="1013103" type="precinct" value="Xã Vân Phúc"/>
+            <Item id="1013113" type="precinct" value="Xã Võng Xuyên"/>
+            <Item id="1013107" type="precinct" value="Xã Xuân Phú"/>
+        </Item>
+        <Item id="10139" type="district" value="Huyện Quốc Oai">
+            <Item id="1013915" type="precinct" value="Thị trấn Quốc Oai"/>
+            <Item id="1013935" type="precinct" value="Xã Cấn Hữu"/>
+            <Item id="1013931" type="precinct" value="Xã Cộng Hòa"/>
+            <Item id="1013939" type="precinct" value="Xã Hòa Thạch"/>
+            <Item id="1013923" type="precinct" value="Xã Liệp Tuyết"/>
+            <Item id="1013909" type="precinct" value="Xã Nghĩa Hương"/>
+            <Item id="1013901" type="precinct" value="Xã Ngọc Liệp"/>
+            <Item id="1013921" type="precinct" value="Xã Ngọc Mỹ"/>
+            <Item id="1013927" type="precinct" value="Xã Phú Cát"/>
+            <Item id="1013911" type="precinct" value="Xã Phú Mãn"/>
+            <Item id="1013905" type="precinct" value="Xã Phượng Cách"/>
+            <Item id="1013917" type="precinct" value="Xã Sài Sơn"/>
+            <Item id="1013907" type="precinct" value="Xã Thạch Thán"/>
+            <Item id="1013929" type="precinct" value="Xã Tuyết Nghĩa"/>
+            <Item id="1013937" type="precinct" value="Xã Tân Hòa"/>
+            <Item id="1013933" type="precinct" value="Xã Tân Phú"/>
+            <Item id="1013919" type="precinct" value="Xã Yên Sơn"/>
+            <Item id="1013941" type="precinct" value="Xã Đông Xuân"/>
+            <Item id="1013913" type="precinct" value="Xã Đông Yên"/>
+            <Item id="1013903" type="precinct" value="Xã Đại Thành"/>
+            <Item id="1013925" type="precinct" value="Xã Đồng Quang"/>
+        </Item>
+        <Item id="10115" type="district" value="Huyện Sóc Sơn">
+            <Item id="1011501" type="precinct" value="Thị trấn Sóc Sơn"/>
+            <Item id="1011515" type="precinct" value="Xã Bắc Phú"/>
+            <Item id="1011503" type="precinct" value="Xã Bắc Sơn"/>
+            <Item id="1011519" type="precinct" value="Xã Hiền Ninh"/>
+            <Item id="1011505" type="precinct" value="Xã Hồng Kỳ"/>
+            <Item id="1011531" type="precinct" value="Xã Kim Lũ"/>
+            <Item id="1011525" type="precinct" value="Xã Mai Đình"/>
+            <Item id="1011511" type="precinct" value="Xã Minh Phú"/>
+            <Item id="1011541" type="precinct" value="Xã Minh Trí"/>
+            <Item id="1011507" type="precinct" value="Xã Nam Sơn"/>
+            <Item id="1011513" type="precinct" value="Xã Phù Linh"/>
+            <Item id="1011539" type="precinct" value="Xã Phù Lỗ"/>
+            <Item id="1011551" type="precinct" value="Xã Phú Cường"/>
+            <Item id="1011533" type="precinct" value="Xã Phú Minh"/>
+            <Item id="1011517" type="precinct" value="Xã Quang Tiến"/>
+            <Item id="1011527" type="precinct" value="Xã Thanh Xuân"/>
+            <Item id="1011547" type="precinct" value="Xã Tiên Dược"/>
+            <Item id="1011509" type="precinct" value="Xã Trung Giã"/>
+            <Item id="1011537" type="precinct" value="Xã Tân Dân"/>
+            <Item id="1011543" type="precinct" value="Xã Tân Hưng"/>
+            <Item id="1011545" type="precinct" value="Xã Tân Minh"/>
+            <Item id="1011521" type="precinct" value="Xã Việt Long"/>
+            <Item id="1011523" type="precinct" value="Xã Xuân Giang"/>
+            <Item id="1011535" type="precinct" value="Xã Xuân Thu"/>
+            <Item id="1011529" type="precinct" value="Xã Đông Xuân"/>
+            <Item id="1011549" type="precinct" value="Xã Đức Hoà"/>
+        </Item>
+        <Item id="10141" type="district" value="Huyện Thanh Oai">
+            <Item id="1014139" type="precinct" value="Thị trấn Kim Bài"/>
+            <Item id="1014117" type="precinct" value="Xã Bình Minh"/>
+            <Item id="1014141" type="precinct" value="Xã Bích Hòa"/>
+            <Item id="1014105" type="precinct" value="Xã Cao Dương"/>
+            <Item id="1014115" type="precinct" value="Xã Cao Viên"/>
+            <Item id="1014107" type="precinct" value="Xã Cự Khê"/>
+            <Item id="1014133" type="precinct" value="Xã Dân Hòa"/>
+            <Item id="1014137" type="precinct" value="Xã Hồng Dương"/>
+            <Item id="1014109" type="precinct" value="Xã Kim An"/>
+            <Item id="1014129" type="precinct" value="Xã Kim Thư"/>
+            <Item id="1014135" type="precinct" value="Xã Liên Châu"/>
+            <Item id="1014101" type="precinct" value="Xã Mỹ Hưng"/>
+            <Item id="1014131" type="precinct" value="Xã Phương Trung"/>
+            <Item id="1014119" type="precinct" value="Xã Tam Hưng"/>
+            <Item id="1014121" type="precinct" value="Xã Thanh Cao"/>
+            <Item id="1014103" type="precinct" value="Xã Thanh Mai"/>
+            <Item id="1014123" type="precinct" value="Xã Thanh Thùy"/>
+            <Item id="1014125" type="precinct" value="Xã Thanh Văn"/>
+            <Item id="1014111" type="precinct" value="Xã Tân Ước"/>
+            <Item id="1014113" type="precinct" value="Xã Xuân Dương"/>
+            <Item id="1014127" type="precinct" value="Xã Đỗ Động"/>
+        </Item>
+        <Item id="10123" type="district" value="Huyện Thanh Trì">
+            <Item id="1012301" type="precinct" value="Thị trấn Văn Điển"/>
+            <Item id="1012315" type="precinct" value="Xã Duyên Hà"/>
+            <Item id="1012307" type="precinct" value="Xã Hữu Hoà"/>
+            <Item id="1012321" type="precinct" value="Xã Liên Ninh"/>
+            <Item id="1012323" type="precinct" value="Xã Ngũ Hiệp"/>
+            <Item id="1012329" type="precinct" value="Xã Ngọc Hồi"/>
+            <Item id="1012309" type="precinct" value="Xã Tam Hiệp"/>
+            <Item id="1012305" type="precinct" value="Xã Thanh Liệt"/>
+            <Item id="1012303" type="precinct" value="Xã Tân Triều"/>
+            <Item id="1012325" type="precinct" value="Xã Tả Thanh Oai"/>
+            <Item id="1012311" type="precinct" value="Xã Tứ Hiệp"/>
+            <Item id="1012313" type="precinct" value="Xã Vĩnh Quỳnh"/>
+            <Item id="1012317" type="precinct" value="Xã Vạn Phúc"/>
+            <Item id="1012327" type="precinct" value="Xã Yên Mỹ"/>
+            <Item id="1012331" type="precinct" value="Xã Đông Mỹ"/>
+            <Item id="1012319" type="precinct" value="Xã Đại áng"/>
+        </Item>
+        <Item id="10143" type="district" value="Huyện Thường Tín">
+            <Item id="1014321" type="precinct" value="Thị trấn Thường Tín"/>
+            <Item id="1014315" type="precinct" value="Xã Chương Dương"/>
+            <Item id="1014325" type="precinct" value="Xã Duyên Thái"/>
+            <Item id="1014317" type="precinct" value="Xã Dũng Tiến"/>
+            <Item id="1014331" type="precinct" value="Xã Hiền Giang"/>
+            <Item id="1014313" type="precinct" value="Xã Hà Hồi"/>
+            <Item id="1014329" type="precinct" value="Xã Hòa Bình"/>
+            <Item id="1014301" type="precinct" value="Xã Hồng Vân"/>
+            <Item id="1014327" type="precinct" value="Xã Khánh Hà"/>
+            <Item id="1014311" type="precinct" value="Xã Liên Phương"/>
+            <Item id="1014347" type="precinct" value="Xã Lê Lợi"/>
+            <Item id="1014357" type="precinct" value="Xã Minh Cường"/>
+            <Item id="1014353" type="precinct" value="Xã Nghiêm Xuyên"/>
+            <Item id="1014343" type="precinct" value="Xã Nguyễn Trãi"/>
+            <Item id="1014307" type="precinct" value="Xã Nhị Khê"/>
+            <Item id="1014323" type="precinct" value="Xã Ninh Sở"/>
+            <Item id="1014303" type="precinct" value="Xã Quất Động"/>
+            <Item id="1014341" type="precinct" value="Xã Thư Phú"/>
+            <Item id="1014349" type="precinct" value="Xã Thắng Lợi"/>
+            <Item id="1014351" type="precinct" value="Xã Thống Nhất"/>
+            <Item id="1014339" type="precinct" value="Xã Tiền Phong"/>
+            <Item id="1014345" type="precinct" value="Xã Tân Minh"/>
+            <Item id="1014355" type="precinct" value="Xã Tô Hiệu"/>
+            <Item id="1014337" type="precinct" value="Xã Tự Nhiên"/>
+            <Item id="1014333" type="precinct" value="Xã Vân Tảo"/>
+            <Item id="1014309" type="precinct" value="Xã Văn Bình"/>
+            <Item id="1014335" type="precinct" value="Xã Văn Phú"/>
+            <Item id="1014319" type="precinct" value="Xã Văn Tự"/>
+            <Item id="1014305" type="precinct" value="Xã Vạn Điểm"/>
+        </Item>
+        <Item id="10135" type="district" value="Huyện Thạch Thất">
+            <Item id="1013515" type="precinct" value="Thị trấn Liên Quan"/>
+            <Item id="1013537" type="precinct" value="Xã Bình Phú"/>
+            <Item id="1013527" type="precinct" value="Xã Bình Yên"/>
+            <Item id="1013523" type="precinct" value="Xã Canh Nậu"/>
+            <Item id="1013529" type="precinct" value="Xã Chàng Sơn"/>
+            <Item id="1013531" type="precinct" value="Xã Cần Kiệm"/>
+            <Item id="1013519" type="precinct" value="Xã Cẩm Yên"/>
+            <Item id="1013525" type="precinct" value="Xã Dị Nậu"/>
+            <Item id="1013521" type="precinct" value="Xã Hương Ngải"/>
+            <Item id="1013513" type="precinct" value="Xã Hạ Bằng"/>
+            <Item id="1013503" type="precinct" value="Xã Hữu Bằng"/>
+            <Item id="1013507" type="precinct" value="Xã Kim Quan"/>
+            <Item id="1013505" type="precinct" value="Xã Lại Thượng"/>
+            <Item id="1013533" type="precinct" value="Xã Phùng Xá"/>
+            <Item id="1013501" type="precinct" value="Xã Phú Kim"/>
+            <Item id="1013509" type="precinct" value="Xã Thạch Hoà"/>
+            <Item id="1013535" type="precinct" value="Xã Thạch Xá"/>
+            <Item id="1013545" type="precinct" value="Xã Tiến Xuân"/>
+            <Item id="1013511" type="precinct" value="Xã Tân Xã"/>
+            <Item id="1013541" type="precinct" value="Xã Yên Bình"/>
+            <Item id="1013543" type="precinct" value="Xã Yên Trung"/>
+            <Item id="1013517" type="precinct" value="Xã Đại Đồng"/>
+            <Item id="1013539" type="precinct" value="Xã Đồng Trúc"/>
+        </Item>
+        <Item id="10121" type="district" value="Huyện Từ Liêm">
+            <Item id="1012101" type="precinct" value="Thị trấn Cầu Diễn"/>
+            <Item id="1012111" type="precinct" value="Xã Cổ Nhuế"/>
+            <Item id="1012121" type="precinct" value="Xã Liên Mạc"/>
+            <Item id="1012127" type="precinct" value="Xã Minh Khai"/>
+            <Item id="1012119" type="precinct" value="Xã Mễ Trì"/>
+            <Item id="1012129" type="precinct" value="Xã Mỹ Đình"/>
+            <Item id="1012113" type="precinct" value="Xã Phú Diễn"/>
+            <Item id="1012105" type="precinct" value="Xã Thuỵ Phương"/>
+            <Item id="1012103" type="precinct" value="Xã Thượng Cát"/>
+            <Item id="1012131" type="precinct" value="Xã Trung Văn"/>
+            <Item id="1012117" type="precinct" value="Xã Tây Mỗ"/>
+            <Item id="1012107" type="precinct" value="Xã Tây Tựu"/>
+            <Item id="1012115" type="precinct" value="Xã Xuân Phương"/>
+            <Item id="1012109" type="precinct" value="Xã Xuân Đỉnh"/>
+            <Item id="1012125" type="precinct" value="Xã Đông Ngạc"/>
+            <Item id="1012123" type="precinct" value="Xã Đại Mỗ"/>
+        </Item>
+        <Item id="10133" type="district" value="Huyện Đan Phượng">
+            <Item id="1013311" type="precinct" value="Thị trấn Phùng"/>
+            <Item id="1013305" type="precinct" value="Xã Hạ Mỗ"/>
+            <Item id="1013317" type="precinct" value="Xã Hồng Hà"/>
+            <Item id="1013321" type="precinct" value="Xã Liên Hà"/>
+            <Item id="1013319" type="precinct" value="Xã Liên Hồng"/>
+            <Item id="1013323" type="precinct" value="Xã Liên Trung"/>
+            <Item id="1013303" type="precinct" value="Xã Phương Đình"/>
+            <Item id="1013309" type="precinct" value="Xã Song Phượng"/>
+            <Item id="1013325" type="precinct" value="Xã Thượng Mỗ"/>
+            <Item id="1013301" type="precinct" value="Xã Thọ An"/>
+            <Item id="1013315" type="precinct" value="Xã Thọ Xuân"/>
+            <Item id="1013313" type="precinct" value="Xã Trung Châu"/>
+            <Item id="1013307" type="precinct" value="Xã Tân Hội"/>
+            <Item id="1013327" type="precinct" value="Xã Tân Lập"/>
+            <Item id="1013329" type="precinct" value="Xã Đan Phượng"/>
+            <Item id="1013331" type="precinct" value="Xã Đồng Tháp"/>
+        </Item>
+        <Item id="10117" type="district" value="Huyện Đông Anh">
+            <Item id="1011735" type="precinct" value="Thị trấn Đông Anh"/>
+            <Item id="1011705" type="precinct" value="Xã Bắc Hồng"/>
+            <Item id="1011723" type="precinct" value="Xã Cổ Loa"/>
+            <Item id="1011719" type="precinct" value="Xã Dục Tú"/>
+            <Item id="1011725" type="precinct" value="Xã Hải Bối"/>
+            <Item id="1011717" type="precinct" value="Xã Kim Chung"/>
+            <Item id="1011741" type="precinct" value="Xã Kim Nỗ"/>
+            <Item id="1011713" type="precinct" value="Xã Liên Hà"/>
+            <Item id="1011729" type="precinct" value="Xã Mai Lâm"/>
+            <Item id="1011707" type="precinct" value="Xã Nam Hồng"/>
+            <Item id="1011737" type="precinct" value="Xã Nguyên Khê"/>
+            <Item id="1011703" type="precinct" value="Xã Thuỵ Lâm"/>
+            <Item id="1011709" type="precinct" value="Xã Tiên Dương"/>
+            <Item id="1011733" type="precinct" value="Xã Tầm Xá"/>
+            <Item id="1011739" type="precinct" value="Xã Uy Nỗ"/>
+            <Item id="1011715" type="precinct" value="Xã Việt Hùng"/>
+            <Item id="1011711" type="precinct" value="Xã Vân Hà"/>
+            <Item id="1011731" type="precinct" value="Xã Vân Nội"/>
+            <Item id="1011727" type="precinct" value="Xã Võng La"/>
+            <Item id="1011721" type="precinct" value="Xã Vĩnh Ngọc"/>
+            <Item id="1011745" type="precinct" value="Xã Xuân Canh"/>
+            <Item id="1011701" type="precinct" value="Xã Xuân Nộn"/>
+            <Item id="1011747" type="precinct" value="Xã Đông Hội"/>
+            <Item id="1011743" type="precinct" value="Xã Đại Mạch"/>
+        </Item>
+        <Item id="10147" type="district" value="Huyện ứng Hòa">
+            <Item id="1014719" type="precinct" value="Thị trấn Vân Đình"/>
+            <Item id="1014727" type="precinct" value="Xã Cao Thành"/>
+            <Item id="1014723" type="precinct" value="Xã Hoa Sơn"/>
+            <Item id="1014741" type="precinct" value="Xã Hòa Lâm"/>
+            <Item id="1014745" type="precinct" value="Xã Hòa Nam"/>
+            <Item id="1014747" type="precinct" value="Xã Hòa Phú"/>
+            <Item id="1014703" type="precinct" value="Xã Hòa Xá"/>
+            <Item id="1014757" type="precinct" value="Xã Hồng Quang"/>
+            <Item id="1014743" type="precinct" value="Xã Kim Đường"/>
+            <Item id="1014729" type="precinct" value="Xã Liên Bạt"/>
+            <Item id="1014717" type="precinct" value="Xã Lưu Hoàng"/>
+            <Item id="1014739" type="precinct" value="Xã Minh Đức"/>
+            <Item id="1014753" type="precinct" value="Xã Phù Lưu"/>
+            <Item id="1014731" type="precinct" value="Xã Phương Tú"/>
+            <Item id="1014725" type="precinct" value="Xã Quảng Phú Cầu"/>
+            <Item id="1014705" type="precinct" value="Xã Sơn Công"/>
+            <Item id="1014733" type="precinct" value="Xã Trung Tú"/>
+            <Item id="1014709" type="precinct" value="Xã Trường Thịnh"/>
+            <Item id="1014715" type="precinct" value="Xã Trầm Lộng"/>
+            <Item id="1014713" type="precinct" value="Xã Tảo Dương Văn"/>
+            <Item id="1014707" type="precinct" value="Xã Viên An"/>
+            <Item id="1014721" type="precinct" value="Xã Viên Nội"/>
+            <Item id="1014737" type="precinct" value="Xã Vạn Thái"/>
+            <Item id="1014701" type="precinct" value="Xã Đông Lỗ"/>
+            <Item id="1014755" type="precinct" value="Xã Đại Cường"/>
+            <Item id="1014751" type="precinct" value="Xã Đại Hùng"/>
+            <Item id="1014711" type="precinct" value="Xã Đồng Tiến"/>
+            <Item id="1014735" type="precinct" value="Xã Đồng Tân"/>
+            <Item id="1014749" type="precinct" value="Xã Đội Bình"/>
+        </Item>
+        <Item id="10101" type="district" value="Quận Ba Đình">
+            <Item id="1010111" type="precinct" value="P. Nguyễn Trung Trực"/>
+            <Item id="1010107" type="precinct" value="Phường Cống Vị"/>
+            <Item id="1010119" type="precinct" value="Phường Giảng Võ"/>
+            <Item id="1010117" type="precinct" value="Phường Kim Mã"/>
+            <Item id="1010109" type="precinct" value="Phường Liễu Giai"/>
+            <Item id="1010113" type="precinct" value="Phường Ngọc Hà"/>
+            <Item id="1010127" type="precinct" value="Phường Ngọc Khánh"/>
+            <Item id="1010101" type="precinct" value="Phường Phúc Xá"/>
+            <Item id="1010125" type="precinct" value="Phường Quán Thánh"/>
+            <Item id="1010121" type="precinct" value="Phường Thành Công"/>
+            <Item id="1010103" type="precinct" value="Phường Trúc Bạch"/>
+            <Item id="1010105" type="precinct" value="Phường Vĩnh Phúc"/>
+            <Item id="1010123" type="precinct" value="Phường Điện Biên"/>
+            <Item id="1010115" type="precinct" value="Phường Đội Cấn"/>
+        </Item>
+        <Item id="10113" type="district" value="Quận Cầu Giấy">
+            <Item id="1011303" type="precinct" value="Phường Dịch Vọng"/>
+            <Item id="1011305" type="precinct" value="Phường Dịch Vọng Hậu"/>
+            <Item id="1011301" type="precinct" value="Phường Mai Dịch"/>
+            <Item id="1011313" type="precinct" value="Phường Nghĩa Tân"/>
+            <Item id="1011311" type="precinct" value="Phường Nghĩa Đô"/>
+            <Item id="1011307" type="precinct" value="Phường Quan Hoa"/>
+            <Item id="1011309" type="precinct" value="Phường Trung Hoà"/>
+            <Item id="1011315" type="precinct" value="Phường Yên Hoà"/>
+        </Item>
+        <Item id="10107" type="district" value="Quận Hai Bà Trưng">
+            <Item id="1010713" type="precinct" value="Phường Bách Khoa"/>
+            <Item id="1010731" type="precinct" value="Phường Bùi Thị Xuân"/>
+            <Item id="1010719" type="precinct" value="Phường Bạch Mai"/>
+            <Item id="1010727" type="precinct" value="Phường Bạch Đằng"/>
+            <Item id="1010711" type="precinct" value="Phường Cầu Dền"/>
+            <Item id="1010701" type="precinct" value="Phường Lê Đại Hành"/>
+            <Item id="1010735" type="precinct" value="Phường Minh Khai"/>
+            <Item id="1010739" type="precinct" value="Phường Nguyễn Du"/>
+            <Item id="1010725" type="precinct" value="Phường Ngô Thì Nhậm"/>
+            <Item id="1010729" type="precinct" value="Phường Phạm Đình Hổ"/>
+            <Item id="1010733" type="precinct" value="Phường Phố Huế"/>
+            <Item id="1010721" type="precinct" value="Phường Quỳnh Lôi"/>
+            <Item id="1010737" type="precinct" value="Phường Quỳnh Mai"/>
+            <Item id="1010707" type="precinct" value="Phường Thanh Lương"/>
+            <Item id="1010709" type="precinct" value="Phường Thanh Nhàn"/>
+            <Item id="1010723" type="precinct" value="Phường Trương Định"/>
+            <Item id="1010717" type="precinct" value="Phường Vĩnh Tuy"/>
+            <Item id="1010705" type="precinct" value="Phường Đống Mác"/>
+            <Item id="1010703" type="precinct" value="Phường Đồng Nhân"/>
+            <Item id="1010715" type="precinct" value="Phường Đồng Tâm"/>
+        </Item>
+        <Item id="10105" type="district" value="Quận Hoàn Kiếm">
+            <Item id="1010515" type="precinct" value="Phường Chương Dương Độ"/>
+            <Item id="1010519" type="precinct" value="Phường Cửa Nam"/>
+            <Item id="1010531" type="precinct" value="Phường Cửa Đông"/>
+            <Item id="1010505" type="precinct" value="Phường Hàng Buồm"/>
+            <Item id="1010525" type="precinct" value="Phường Hàng Bài"/>
+            <Item id="1010527" type="precinct" value="Phường Hàng Bông"/>
+            <Item id="1010513" type="precinct" value="Phường Hàng Bạc"/>
+            <Item id="1010509" type="precinct" value="Phường Hàng Bồ"/>
+            <Item id="1010533" type="precinct" value="Phường Hàng Gai"/>
+            <Item id="1010503" type="precinct" value="Phường Hàng Mã"/>
+            <Item id="1010517" type="precinct" value="Phường Hàng Trống"/>
+            <Item id="1010507" type="precinct" value="Phường Hàng Đào"/>
+            <Item id="1010511" type="precinct" value="Phường Lý Thái Tổ"/>
+            <Item id="1010523" type="precinct" value="Phường Phan Chu Trinh"/>
+            <Item id="1010501" type="precinct" value="Phường Phúc Tân"/>
+            <Item id="1010535" type="precinct" value="Phường Tràng Tiền"/>
+            <Item id="1010521" type="precinct" value="Phường Trần Hưng Đạo"/>
+            <Item id="1010529" type="precinct" value="Phường Đồng Xuân"/>
+        </Item>
+        <Item id="10108" type="district" value="Quận Hoàng Mai">
+            <Item id="1010813" type="precinct" value="Phường Giáp Bát"/>
+            <Item id="1010817" type="precinct" value="Phường Hoàng Liệt"/>
+            <Item id="1010811" type="precinct" value="Phường Hoàng Văn Thụ"/>
+            <Item id="1010825" type="precinct" value="Phường Lĩnh Nam"/>
+            <Item id="1010805" type="precinct" value="Phường Mai Động"/>
+            <Item id="1010821" type="precinct" value="Phường Thanh Trì"/>
+            <Item id="1010815" type="precinct" value="Phường Thịnh Liệt"/>
+            <Item id="1010819" type="precinct" value="Phường Trần Phú"/>
+            <Item id="1010809" type="precinct" value="Phường Tân Mai"/>
+            <Item id="1010807" type="precinct" value="Phường Tương Mai"/>
+            <Item id="1010801" type="precinct" value="Phường Vĩnh Hưng"/>
+            <Item id="1010827" type="precinct" value="Phường Yên Sở"/>
+            <Item id="1010823" type="precinct" value="Phường Đại Kim"/>
+            <Item id="1010803" type="precinct" value="Phường Định Công"/>
+        </Item>
+        <Item id="10127" type="district" value="Quận Hà Đông">
+            <Item id="1012711" type="precinct" value="Phường Hà Cầu"/>
+            <Item id="1012728" type="precinct" value="Phường La Khê"/>
+            <Item id="1012703" type="precinct" value="Phường Mỗ Lao"/>
+            <Item id="1012701" type="precinct" value="Phường Nguyễn Trãi"/>
+            <Item id="1012727" type="precinct" value="Phường Phú La"/>
+            <Item id="1012709" type="precinct" value="Phường Phúc La"/>
+            <Item id="1012707" type="precinct" value="Phường Quang Trung"/>
+            <Item id="1012704" type="precinct" value="Phường Văn Quán"/>
+            <Item id="1012705" type="precinct" value="Phường Vạn Phúc"/>
+            <Item id="1012729" type="precinct" value="Phường Yết Kiêu"/>
+            <Item id="1012723" type="precinct" value="Xã Biên Giang"/>
+            <Item id="1012719" type="precinct" value="Xã Dương Nội"/>
+            <Item id="1012715" type="precinct" value="Xã Kiến Hưng"/>
+            <Item id="1012717" type="precinct" value="Xã Phú Lãm"/>
+            <Item id="1012725" type="precinct" value="Xã Phú Lương"/>
+            <Item id="1012713" type="precinct" value="Xã Yên Nghĩa"/>
+            <Item id="1012721" type="precinct" value="Xã Đồng Mai"/>
+        </Item>
+        <Item id="10106" type="district" value="Quận Long Biên">
+            <Item id="1010611" type="precinct" value="Phường Bồ Đề"/>
+            <Item id="1010619" type="precinct" value="Phường Cự Khối"/>
+            <Item id="1010607" type="precinct" value="Phường Gia Thuỵ"/>
+            <Item id="1010601" type="precinct" value="Phường Giang Biên"/>
+            <Item id="1010627" type="precinct" value="Phường Long Biên"/>
+            <Item id="1010625" type="precinct" value="Phường Ngọc Lâm"/>
+            <Item id="1010623" type="precinct" value="Phường Ngọc Thuỵ"/>
+            <Item id="1010609" type="precinct" value="Phường Phúc Lợi"/>
+            <Item id="1010617" type="precinct" value="Phường Phúc Đồng"/>
+            <Item id="1010613" type="precinct" value="Phường Sài Đồng"/>
+            <Item id="1010621" type="precinct" value="Phường Thượng Thanh"/>
+            <Item id="1010615" type="precinct" value="Phường Thạch Bàn"/>
+            <Item id="1010605" type="precinct" value="Phường Việt Hưng"/>
+            <Item id="1010603" type="precinct" value="Phường Đức Giang"/>
+        </Item>
+        <Item id="10111" type="district" value="Quận Thanh Xuân">
+            <Item id="1011111" type="precinct" value="Phường Hạ Đình"/>
+            <Item id="1011119" type="precinct" value="Phường Khương Mai"/>
+            <Item id="1011105" type="precinct" value="Phường Khương Trung"/>
+            <Item id="1011113" type="precinct" value="Phường Khương Đình"/>
+            <Item id="1011115" type="precinct" value="Phường Kim Giang"/>
+            <Item id="1011101" type="precinct" value="Phường Nhân Chính"/>
+            <Item id="1011109" type="precinct" value="Phường Phương Liệt"/>
+            <Item id="1011121" type="precinct" value="Phường Thanh Xuân Bắc"/>
+            <Item id="1011117" type="precinct" value="Phường Thanh Xuân Nam"/>
+            <Item id="1011107" type="precinct" value="Phường Thanh Xuân Trung"/>
+            <Item id="1011103" type="precinct" value="Phường Thượng Đình"/>
+        </Item>
+        <Item id="10103" type="district" value="Quận Tây Hồ">
+            <Item id="1010309" type="precinct" value="Phường Bưởi"/>
+            <Item id="1010301" type="precinct" value="Phường Nhật Tân"/>
+            <Item id="1010313" type="precinct" value="Phường Phú Thượng"/>
+            <Item id="1010305" type="precinct" value="Phường Quảng An"/>
+            <Item id="1010311" type="precinct" value="Phường Thuỵ Khuê"/>
+            <Item id="1010303" type="precinct" value="Phường Tứ Liên"/>
+            <Item id="1010307" type="precinct" value="Phường Xuân La"/>
+            <Item id="1010315" type="precinct" value="Phường Yên Phụ"/>
+        </Item>
+        <Item id="10109" type="district" value="Quận Đống Đa">
+            <Item id="1010901" type="precinct" value="Phường Cát Linh"/>
+            <Item id="1010909" type="precinct" value="Phường Hàng Bột"/>
+            <Item id="1010911" type="precinct" value="Phường Khâm Thiên"/>
+            <Item id="1010929" type="precinct" value="Phường Khương Thượng"/>
+            <Item id="1010925" type="precinct" value="Phường Kim Liên"/>
+            <Item id="1010937" type="precinct" value="Phường Láng Hạ"/>
+            <Item id="1010905" type="precinct" value="Phường Láng Thượng"/>
+            <Item id="1010915" type="precinct" value="Phường Nam Đồng"/>
+            <Item id="1010927" type="precinct" value="Phường Ngã Tư Sở"/>
+            <Item id="1010921" type="precinct" value="Phường Phương Liên"/>
+            <Item id="1010933" type="precinct" value="Phường Phương Mai"/>
+            <Item id="1010917" type="precinct" value="Phường Quang Trung"/>
+            <Item id="1010935" type="precinct" value="Phường Quốc Tử Giám"/>
+            <Item id="1010923" type="precinct" value="Phường Thịnh Quang"/>
+            <Item id="1010913" type="precinct" value="Phường Thổ Quan"/>
+            <Item id="1010919" type="precinct" value="Phường Trung Liệt"/>
+            <Item id="1010939" type="precinct" value="Phường Trung Phụng"/>
+            <Item id="1010941" type="precinct" value="Phường Trung Tự"/>
+            <Item id="1010931" type="precinct" value="Phường Văn Chương"/>
+            <Item id="1010903" type="precinct" value="Phường Văn Miếu"/>
+            <Item id="1010907" type="precinct" value="Phường ô Chợ Dừa"/>
+        </Item>
+        <Item id="10129" type="district" value="Thị xã Sơn Tây">
+            <Item id="1012923" type="precinct" value="Phường Lê Lợi"/>
+            <Item id="1012925" type="precinct" value="Phường Ngô Quyền"/>
+            <Item id="1012901" type="precinct" value="Phường Phú Thịnh"/>
+            <Item id="1012903" type="precinct" value="Phường Quang Trung"/>
+            <Item id="1012905" type="precinct" value="Phường Sơn Lộc"/>
+            <Item id="1012913" type="precinct" value="Phường Trung Hưng"/>
+            <Item id="1012929" type="precinct" value="Phường Trung Sơn Trầm"/>
+            <Item id="1012927" type="precinct" value="Phường Viên Sơn"/>
+            <Item id="1012907" type="precinct" value="Phường Xuân Khanh"/>
+            <Item id="1012921" type="precinct" value="Xã Cổ Đông"/>
+            <Item id="1012917" type="precinct" value="Xã Kim Sơn"/>
+            <Item id="1012919" type="precinct" value="Xã Sơn Đông"/>
+            <Item id="1012915" type="precinct" value="Xã Thanh Mỹ"/>
+            <Item id="1012911" type="precinct" value="Xã Xuân Sơn"/>
+            <Item id="1012909" type="precinct" value="Xã Đường Lâm"/>
+        </Item>
+    </Item>
+</Root>
