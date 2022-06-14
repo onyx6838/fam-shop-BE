@@ -28,6 +28,9 @@ public class BaiViet {
     @Column(name = "NoiDung")
     private String noiDung;
 
+    @Column(name = "AnhDaiDien")
+    private String anhDaiDien;
+
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     @Column(name = "ThoiGianTao")
     @Temporal(TemporalType.TIMESTAMP)

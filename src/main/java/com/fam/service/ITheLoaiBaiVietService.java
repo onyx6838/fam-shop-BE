@@ -1,5 +1,6 @@
 package com.fam.service;
 
+import com.fam.dto.form.TheLoaiBaiVietCreateDto;
 import com.fam.entity.TheLoaiBaiViet;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -13,4 +14,8 @@ public interface ITheLoaiBaiVietService {
     List<TheLoaiBaiViet> getAllTheLoaiBaiVietWithoutPage();
 
     Page<TheLoaiBaiViet> getAllTheLoaiBaiViet(Pageable pageable);
+
+    boolean createTheLoaiBaiViet(TheLoaiBaiVietCreateDto form);
+
+    boolean updateTLBV(TheLoaiBaiVietCreateDto form, int idUpdate);
 }
