@@ -1,6 +1,7 @@
 package com.fam.service;
 
 import com.fam.dto.form.BaiVietShortCreateDto;
+import com.fam.dto.form.BaiVietUpdateDto;
 import com.fam.entity.BaiViet;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -23,4 +24,6 @@ public interface IBaiVietService {
     void uploadFileToBV(MultipartFile file, int selectedId);
 
     BaiViet getById(int id);
+
+    boolean updateMoTaBaiViet(int maBV, BaiVietUpdateDto form);
 }

@@ -1,6 +1,7 @@
 package com.fam.controller.admin;
 
 import com.fam.dto.form.BaiVietShortCreateDto;
+import com.fam.dto.form.BaiVietUpdateDto;
 import com.fam.service.IBaiVietService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
@@ -43,5 +44,11 @@ public class BaiVietAdminController {
     @GetMapping(value = "/{id}")
     public ResponseEntity<?> getThuongHieuById(@PathVariable(name = "id") int id) {
         return new ResponseEntity<>(baiVietService.getById(id), HttpStatus.OK);
+    }
+
+    @PutMapping(value = "/desc/{maBV}")
+    public ResponseEntity<?> updateDescBV(@PathVariable(name = "maBV") int maBV, @RequestBody BaiVietUpdateDto form) {
+        baiVietService.updateMoTaBaiViet(maBV, form);
+        return new ResponseEntity<>("Sua thanh cong", HttpStatus.OK);
     }
 }

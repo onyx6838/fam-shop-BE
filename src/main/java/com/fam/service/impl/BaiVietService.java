@@ -2,6 +2,7 @@ package com.fam.service.impl;
 
 import com.fam.dto.file.FileUploadDto;
 import com.fam.dto.form.BaiVietShortCreateDto;
+import com.fam.dto.form.BaiVietUpdateDto;
 import com.fam.entity.BaiViet;
 import com.fam.entity.TaiKhoan;
 import com.fam.entity.TheLoaiBaiViet;
@@ -94,5 +95,18 @@ public class BaiVietService implements IBaiVietService {
     @Override
     public BaiViet getById(int id) {
         return baiVietRepository.findById(id).get();
+    }
+
+    @Override
+    public boolean updateMoTaBaiViet(int maBV, BaiVietUpdateDto form) {
+        try {
+            BaiViet bv = baiVietRepository.findById(maBV).get();
+            bv.setNoiDung(form.getNoiDung());
+            baiVietRepository.save(bv);
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
     }
 }
