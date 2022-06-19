@@ -23,4 +23,6 @@ public interface IDonDatHangRepository extends JpaRepository<DonDatHang, Integer
     int countCustomerBuyOrderDone(@Param("year") int year);
 
     Page<DonDatHang> getDonDatHangByKhachHang(TaiKhoan khachHang, Pageable pageable);
+
+    Page<DonDatHang> findAllByOrderByThoiGianDatDesc(Pageable pageable);
 }

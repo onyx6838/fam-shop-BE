@@ -17,6 +17,7 @@ import com.fam.service.IDonDatHangService;
 import com.fam.service.ISanPhamService;
 import com.fam.service.ITaiKhoanService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -41,6 +42,9 @@ public class DonDatHangService implements IDonDatHangService {
     @Autowired
     private ISanPhamRepository sanPhamRepository;
 
+    //@Value("${famshop.config.address}")
+    private String addressFamShop = "9 Xuân Thủy Cầu Giấy Hà Nội";
+
     @Override
     public void payment(PaymentDto dto) {
         DonDatHang donDatHang = new DonDatHang();
@@ -49,7 +53,9 @@ public class DonDatHangService implements IDonDatHangService {
         donDatHang.setKhachHang(tk);
         donDatHang.setThoiGianDat(new Date());
         donDatHang.setThoiGianNhanHang(dto.getOrder().getDateDelivery());
-        donDatHang.setDiaChi(dto.getOrder().getShipAddress());
+        if (HinhThucTToan.values()[Integer.parseInt(dto.getOrder().getPaymentType())] == HinhThucTToan.TRUC_TIEP) {
+            donDatHang.setDiaChi(addressFamShop);
+        } else donDatHang.setDiaChi(dto.getOrder().getShipAddress());
         donDatHang.setSdtNhanHang(dto.getOrder().getPhone());
         donDatHang.setTrangThai(TrangThaiDonDat.DON_DAT);
         donDatHang.setTrangThaiTToan(TrangThaiTToan.CHUA_TT);
@@ -71,7 +77,7 @@ public class DonDatHangService implements IDonDatHangService {
 
     @Override
     public Page<DonDatHang> getAllDonDats(Pageable pageable) {
-        return donDatHangRepository.findAll(pageable);
+        return donDatHangRepository.findAllByOrderByThoiGianDatDesc(pageable);
     }
 
     @Override
@@ -91,6 +97,9 @@ public class DonDatHangService implements IDonDatHangService {
                 x.getSanPham().setSoLuong(x.getSanPham().getSoLuong() + x.getSoLuong());
                 sanPhamRepository.save(x.getSanPham());
             });
+        }
+        if (TrangThaiDonDat.values()[form.getOrderStatus()] == TrangThaiDonDat.HOA_DON) {
+            donNeedToChange.setThoiGianNhanHang(new Date());
         }
         donDatHangRepository.save(donNeedToChange);
         return true;

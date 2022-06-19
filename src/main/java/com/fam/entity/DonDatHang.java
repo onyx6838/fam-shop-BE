@@ -50,7 +50,7 @@ public class DonDatHang implements Serializable {
     @Temporal(TemporalType.TIMESTAMP)
     private Date thoiGianNhanHang;
 
-    @Column(name = "DiaChi", length = 50)
+    @Column(name = "DiaChi", length = 100)
     private String diaChi;
 
     @Column(name = "SDTNhanHang", length = 50)
