@@ -7,7 +7,6 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Getter;
 import lombok.Setter;
-import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -42,7 +41,7 @@ public class DonDatHang implements Serializable {
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     @Column(name = "ThoiGianDat")
     @Temporal(TemporalType.TIMESTAMP)
-    @CreationTimestamp
+    //@CreationTimestamp
     private Date thoiGianDat;
 
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
