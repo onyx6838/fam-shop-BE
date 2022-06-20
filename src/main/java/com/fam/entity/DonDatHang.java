@@ -5,6 +5,7 @@ import com.fam.entity.enumerate.TrangThaiDonDat;
 import com.fam.entity.enumerate.TrangThaiTToan;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.OptBoolean;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -38,13 +39,13 @@ public class DonDatHang implements Serializable {
     @Column(name = "TongTien")
     private Integer tongTien;
 
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern = "yyyy-MM-dd", shape = JsonFormat.Shape.STRING)
     @Column(name = "ThoiGianDat")
     @Temporal(TemporalType.TIMESTAMP)
     //@CreationTimestamp
     private Date thoiGianDat;
 
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    @JsonFormat(pattern = "yyyy-MM-dd", shape = JsonFormat.Shape.STRING)
     @Column(name = "ThoiGianNhanHang")
     @Temporal(TemporalType.TIMESTAMP)
     private Date thoiGianNhanHang;
