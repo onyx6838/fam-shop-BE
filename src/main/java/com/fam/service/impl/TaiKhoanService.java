@@ -87,6 +87,11 @@ public class TaiKhoanService implements ITaiKhoanService {
     }
 
     @Override
+    public TaiKhoan findByPhone(String phone) {
+        return taiKhoanRepository.findBySdt(phone);
+    }
+
+    @Override
     public TaiKhoan findTaiKhoanByEmail(String email) {
         return taiKhoanRepository.findByEmail(email);
     }

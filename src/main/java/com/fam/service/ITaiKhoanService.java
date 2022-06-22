@@ -16,6 +16,8 @@ public interface ITaiKhoanService extends UserDetailsService {
 
     TaiKhoan findById(int maTK);
 
+    TaiKhoan findByPhone(String phone);
+
     void createTaiKhoan(TaiKhoan taiKhoan);
 
     TaiKhoan findTaiKhoanByEmail(String email);

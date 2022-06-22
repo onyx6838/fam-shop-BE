@@ -10,6 +10,7 @@ import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
+import org.springframework.util.ObjectUtils;
 
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
@@ -32,11 +33,20 @@ public class JWTAuthenticationFilter extends AbstractAuthenticationProcessingFil
     @Override
     public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response) throws AuthenticationException, IOException, ServletException {
         String username = request.getParameter("username");
+        String phone = request.getParameter("phone");
         String password = request.getParameter("password");
-
-        String role = taiKhoanService.getTaiKhoanByTenTK(username).getLoaiTK();
+        String role;
+        String userName;
+        if(ObjectUtils.isEmpty(username)) {
+            role = taiKhoanService.findByPhone(phone).getLoaiTK();
+            userName = taiKhoanService.findByPhone(phone).getTenTK();
+        }
+        else {
+            role = taiKhoanService.getTaiKhoanByTenTK(username).getLoaiTK();
+            userName = username;
+        }
         UsernamePasswordAuthenticationToken s = new UsernamePasswordAuthenticationToken(
-                username, password,
+                userName, password,
                 AuthorityUtils.createAuthorityList(role)
         );
         return getAuthenticationManager().authenticate(s);

@@ -23,5 +23,7 @@ public interface ITaiKhoanRepository extends JpaRepository<TaiKhoan, Integer> {
 
     TaiKhoan findByEmail(String email);
 
+    TaiKhoan findBySdt(String sdt);
+
     Page<TaiKhoan> getTaiKhoansByLoaiTKContainsIgnoreCase(String loaiTK, Pageable pageable);
 }
