@@ -45,4 +45,9 @@ public class ThongKeController {
     public ResponseEntity<?> categorySoldWithOrder() {
         return new ResponseEntity<>(thongKeService.categorySoldWithOrder(), HttpStatus.OK);
     }
+
+    @GetMapping(value = "/product-most-sold")
+    public ResponseEntity<?> productMostSold() {
+        return new ResponseEntity<>(thongKeService.productMostSold(), HttpStatus.OK);
+    }
 }

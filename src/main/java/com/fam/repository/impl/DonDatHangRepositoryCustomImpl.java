@@ -55,4 +55,11 @@ public class DonDatHangRepositoryCustomImpl implements DonDatHangRepositoryCusto
         query.execute();
         return (List<Object[]>) query.getResultList();
     }
+
+    @Override
+    public List<Object[]> productMostSold() {
+        StoredProcedureQuery query = em.createStoredProcedureQuery("mostProductSold");
+        query.execute();
+        return (List<Object[]>) query.getResultList();
+    }
 }

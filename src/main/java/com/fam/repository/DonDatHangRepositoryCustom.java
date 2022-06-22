@@ -16,4 +16,6 @@ public interface DonDatHangRepositoryCustom {
     List<Object[]> productSoldPerMonthInYear(int year);
 
     List<Object[]> summaryByYear(int year);
+
+    List<Object[]> productMostSold();
 }

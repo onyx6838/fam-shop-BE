@@ -2,6 +2,7 @@ package com.fam.service.impl;
 
 import com.fam.dto.statistic.CategorySoldWithOrder;
 import com.fam.dto.statistic.OrderPerMonthByYear;
+import com.fam.dto.statistic.ProductMostSold;
 import com.fam.dto.statistic.SummaryByYear;
 import com.fam.entity.enumerate.TrangThaiDonDat;
 import com.fam.repository.ICTDDRepository;
@@ -100,6 +101,19 @@ public class ThongKeService implements IThongKeService {
             or.setMonth(((BigInteger) x[0]).intValue());
             or.setPrdSold(((BigDecimal) x[1]).toBigInteger().intValueExact());
             or.setTotal((Double) x[2]);
+            return or;
+        }).collect(Collectors.toList());
+        return finalSttData;
+    }
+
+    @Override
+    public List<ProductMostSold> productMostSold() {
+        List<Object[]> sttData = donDatHangRepository.productMostSold();
+        List<ProductMostSold> finalSttData = sttData.stream().map(x -> {
+            ProductMostSold or = new ProductMostSold();
+            or.setMaSP((Integer) x[0]);
+            or.setTenSP(x[1].toString());
+            or.setSoLuongBan(((BigInteger) x[2]).intValue());
             return or;
         }).collect(Collectors.toList());
         return finalSttData;
